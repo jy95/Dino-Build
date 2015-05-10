@@ -10,8 +10,8 @@
 
 <link rel='stylesheet prefetch'
 	href='views/css/font-awesome.min.css'>
-<script src="jquery-2.1.3.min.js"></script>
-<script src="sweet-alert.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/sweet-alert.min.js"></script>
 
 </head>
 <body>
