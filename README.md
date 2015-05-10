@@ -11,3 +11,5 @@ Choses à faire :
 3) Implémenter les compétences doubles + les compétences d'invocations
 
 4) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
+
+5) Mettre le bouton de partage http://jquery-plugins.net/socialshare-js-jquery-plugin-for-social-sharing-buttons
