@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" media="all"
 	href="views/css/page.css" />
 
-<link rel='stylesheet' href='http://s.codepen.io/assets/reset/reset.css'>
+<link rel='stylesheet' href='views/css/reset.css'>
 
 <link rel='stylesheet prefetch'
-	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css'>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	href='views/css/font-awesome.min.css'>
+<script src="jquery-2.1.3.min.js"></script>
 <script src="sweet-alert.min.js"></script>
 
 </head>

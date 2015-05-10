@@ -14,6 +14,9 @@
 						<h4>&copy; 2015 PEPITO | Graphismes <br> </h4>
 					</li>
 					<li>
+<h4>&copy; Iceflyger | nom du site</h4>
+					</li>
+					<li>
 <h4>toutes les images sont la propriété exclusive de &copy;MotionTwin </h4>
 					</li>
 				</ul>

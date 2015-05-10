@@ -5,7 +5,7 @@
 	<br> <select name="race">
 		<option value="-1" selected>Sélectionner la race de votre dino </option>
 		<option value="winks">Winks</option>
-		<option value="sirain">Siran</option>
+		<option value="sirain">Sirain</option>
 		<option value="kabuki">Kabuki</option>
 		<option value="wanman">Wanman</option>
 		<option value="moueffe">Moueffe</option>
