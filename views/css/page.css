@@ -936,3 +936,296 @@ button.loading {
 label:hover:before {
   border: 1px solid #888!important;
 }
+
+/* ------------------------------------ Custom select ----------------------------------------- */
+
+/* Police d'écriture des options du select */
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot');
+    src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.svg#icomoon') format('svg'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Style d'affichage */
+
+.cd-dropdown > span,
+.cd-dropdown ul li:nth-last-child(-n+3) span {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.cd-dropdown ul {
+    position: absolute;
+    top: -60px;
+    width: 100%;
+}
+
+.cd-dropdown ul li {
+    position: absolute;
+    width: 100%;
+}
+
+.cd-active.cd-dropdown > span {
+    color: #fc756f;
+}
+
+.cd-active.cd-dropdown > span,
+.cd-active.cd-dropdown ul li span {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.cd-active.cd-dropdown ul li span {
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -ms-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+}
+
+.cd-active.cd-dropdown ul li span:hover {
+    background: #fc756f;
+    color: #fff;
+}
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+/* 2e box*/
+.id-dropdown > span,
+.id-dropdown ul li:nth-last-child(-n+3) span {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.id-dropdown ul {
+    position: absolute;
+    top: -60px;
+    width: 100%;
+}
+
+.id-dropdown ul li {
+    position: absolute;
+    width: 100%;
+}
+
+.cd-active.id-dropdown > span {
+    color: #fc756f;
+}
+
+.cd-active.id-dropdown > span,
+.cd-active.id-dropdown ul li span {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.cd-active.id-dropdown ul li span {
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -ms-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+}
+
+.cd-active.id-dropdown ul li span:hover {
+    background: #fc756f;
+    color: #fff;
+}
+
+
+/* Caractéristiques communes du js dropdown */
+
+.cd-dropdown,
+.cd-select {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+.cd-dropdown > span {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: #999;
+    font-weight: 700;
+    font-size: 16px;
+    background: #fff;
+    display: block;
+    padding: 0 50px 0 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cd-dropdown > span:after {
+    content: '\25BC';
+    position: absolute;
+    right: 0px;
+    top: 15%;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    height: 70%;
+    line-height: 24px;
+    border-left: 1px solid #ddd;
+}
+
+.cd-dropdown.cd-active > span:after {
+    content: '\25B2';
+}
+
+.cd-dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+}
+
+.cd-dropdown ul li {
+    display: block;
+}
+
+.cd-dropdown ul li span {
+    width: 100%;
+    background: #fff;
+    line-height: 60px;
+    padding: 0 30px 0 75px;
+    display: block;
+    color: #bcbcbc;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cd-dropdown > span,
+.cd-dropdown ul li span {
+    -webkit-backface-visibility: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cd-dropdown > span span[class^="icon-"],
+.cd-dropdown > span span[class*=" icon-"]{
+    padding: 0 30px 0 45px;
+}
+
+/* Select fallback styling */
+.cd-select {
+    border: 1px solid #ddd;
+}
+
+/* 2e box*/
+.id-dropdown,
+.id-select {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+.id-dropdown > span {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: #999;
+    font-weight: 700;
+    font-size: 16px;
+    background: #fff;
+    display: block;
+    padding: 0 50px 0 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.id-dropdown > span:after {
+    content: '\25BC';
+    position: absolute;
+    right: 0px;
+    top: 15%;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    height: 70%;
+    line-height: 24px;
+    border-left: 1px solid #ddd;
+}
+
+.id-dropdown.cd-active > span:after {
+    content: '\25B2';
+}
+
+.id-dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+}
+
+.id-dropdown ul li {
+    display: block;
+}
+
+.id-dropdown ul li span {
+    width: 100%;
+    background: #fff;
+    line-height: 60px;
+    padding: 0 30px 0 75px;
+    display: block;
+    color: #bcbcbc;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.id-dropdown > span,
+.id-dropdown ul li span {
+    -webkit-backface-visibility: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.id-dropdown > span span[class^="icon-"],
+.id-dropdown > span span[class*=" icon-"]{
+    padding: 0 30px 0 45px;
+}
+
+/* icones éléments */
+
+.icon-air:before{
+    content: url(../images/elements/Air.png);
+}
+
+.icon-bois:before{
+    content: url(../images/elements/Bois.png);
+}
+
+.icon-feu:before{
+    content: url(../images/elements/Feu.png);
+}
+
+.icon-foudre:before {
+    content: url(../images/elements/Foudre.png);
+}
+
+.icon-eau:before{
+    content: url(../images/elements/Eau.png);
+}
+

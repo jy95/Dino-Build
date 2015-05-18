@@ -24,9 +24,9 @@ switch ($action) {
 		require_once ('controllers/ContactController.php');
 		$controller = new ContactController ();
 		break;
-	case 'info' :
-		require_once ('controllers/InfoController.php');
-		$controller = new InfoController ();
+	case 'demon' :
+		require_once('controllers/CalculDemonController.php');
+		$controller = new CalculDemonController ();
 		break;
 	default : // Par défaut, le contrôleur de l'accueil est sélectionné
 		require_once ('controllers/AccueilController.php');
