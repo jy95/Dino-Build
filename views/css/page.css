@@ -1229,3 +1229,21 @@ label:hover:before {
     content: url(../images/elements/Eau.png);
 }
 
+.bouton {
+    background: #FEDA71;
+    background: -moz-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FEDA71),color-stop(100%,#FEBB49));
+    background: -webkit-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background: -o-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background: -ms-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background: linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#FEDA71',endColorstr='#FEBB49',GradientType=0);
+    padding:8px 18px;
+    color:#623F1D;
+    font-family:'Helvetica Neue',sans-serif;
+    font-size:16px;
+    border-radius:48px;
+    -moz-border-radius:48px;
+    -webkit-border-radius:48px;
+    border:1px solid #623F1D;
+}

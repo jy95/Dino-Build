@@ -15,6 +15,8 @@
 
 <p>Bienvenue à l'outil de gestion des ups</p>
 
+<?php if (empty($table) && empty($competencesdispo)) { ?>
+
 <p>Sélectionner la race de votre dino et l'élément du up</p>
 <form action="index.php?action=helper" method="post">
     <br> <select name="race" id="id-dropdown" class="cd-select" >
@@ -40,8 +42,10 @@
         <option value="bois" class="icon-bois">Bois</option>
         <option value="air" class="icon-air">Air</option>
         <option value="foudre" class="icon-foudre">Foudre</option>
-    </select><input type="submit" value="Valider">
+    </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
 </form>
+
+<?php }?>
 
 <?php if (!empty($table)) {?>
     <form action="index.php?action=helper" method="post">
@@ -81,8 +85,8 @@
         </div>
 
         <fieldset>
-            <br> <input type="submit" name="mieux"
-                        value="Obtenir les compétences disponibles"> <br>
+            <br> <DIV ALIGN=CENTER> <input type="submit" class="bouton" name="mieux"
+                        value="Obtenir les compétences disponibles"> </DIV> <br>
         </fieldset>
     </form>
 
