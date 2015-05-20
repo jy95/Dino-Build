@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 20 Mai 2015 à 01:09
+-- Généré le :  Mer 20 Mai 2015 à 23:09
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -125,7 +125,7 @@ INSERT INTO `competences` (`num`, `niv`, `element`, `nom`, `type`, `description`
 (80, 4, 'feu', 'Chasseur de Dragon', 'C', 'Permet au Dinoz de chasser des animaux très rares et dangereux dans certains lieux.', '-', 70),
 (81, 4, 'feu', 'Torche', 'S', 'Le Dinoz est enflammé.', '-', 73),
 (82, 4, 'feu', 'Météores', 'A', 'Attaque tous les ennemis avec un pouvoir de Feu 10.', 'Forte', 74),
-(83, 4, 'feu', 'Self-Contrôle', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 76),
+(83, 4, 'feu', 'Self-Control', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 76),
 (84, 5, 'feu', 'Brave', 'S', 'Le Dinoz ne pourra plus faire parti d''un Groupe. Augmente l''élément Feu de 6, le maximum de point de vie de 50 et la vitesse de 15%.', '-', 83),
 (85, 1, 'foudre', 'Focus', 'E', 'Augmente la puissance du prochain assaut d''un bonus de Foudre 1.', 'Faible', 0),
 (86, 1, 'foudre', 'Intelligence', 'S', 'Augmente le gain d''expérience en fin de combat de 5%.', '-', 0),
@@ -297,7 +297,7 @@ INSERT INTO `quetzu` (`num`, `niv`, `element`, `nom`, `type`, `description`, `en
 (56, 4, 'feu', 'Chasseur de Dragon', 'C', 'Permet au Dinoz de chasser des animaux très rares et dangereux dans certains lieux.', '-', 46),
 (57, 4, 'feu', 'Torche', 'S', 'Le Dinoz est enflammé.', '-', 49),
 (58, 4, 'feu', 'Météores', 'A', 'Attaque tous les ennemis avec un pouvoir de Feu 10.', 'Forte', 50),
-(59, 4, 'feu', 'Self-Contrôle', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 52),
+(59, 4, 'feu', 'Self-Control', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 52),
 (60, 5, 'feu', 'Brave', 'S', 'Le Dinoz ne pourra plus faire parti d''un Groupe. Augmente l''élément Feu de 6, le maximum de point de vie de 50 et la vitesse de 15%.', '-', 59);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

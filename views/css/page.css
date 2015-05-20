@@ -1247,3 +1247,10 @@ label:hover:before {
     -webkit-border-radius:48px;
     border:1px solid #623F1D;
 }
+
+iframe#fenêtre {
+    height: 230px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
