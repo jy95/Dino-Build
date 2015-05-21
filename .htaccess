@@ -2,5 +2,5 @@
 RewriteBase /
 
 RewriteEngine on
-RewriteCond %{HTTP_REFERER} dino-ferma\.96\.lt [NC]
+RewriteCond %{HTTP_REFERER} dino-ferma.96.lt [NC]
 RewriteRule .* - [F]

@@ -62,6 +62,9 @@
 
 <?php if (!empty($table)) {?>
     <form action="index.php?action=helper" method="post">
+
+        <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+
         <h3>Voici toutes les compétences disponibles en <?php echo $_POST['choix']?></h3>
 
         <h2>Sélectionner vos compétences acquises</h2>
@@ -114,6 +117,8 @@
 <?php }?>
 
 <?php if (!empty($competencesdispo)){ ?>
+
+    <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
     <h2>Voici les compétences disponibles avec vos compétences</h2>
 

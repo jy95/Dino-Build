@@ -189,7 +189,7 @@
         <?php foreach($table as $i => $competence) {?>
             <?php if ( $competence->nom() == 'Furie') { ?>
                 <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
-                <a href="index.php?action=info&amp;competence=<?php echo $competence->num(); ?>"target="compétence" onclick='ouvrir();'>Furie</a>
+                <a href="index.php?action=info&amp;competence=<?php echo $competence->num(); ?>" target="compétence" onclick='ouvrir();'>Furie</a>
                 <?php break; } ?>
         <?php } ?>
     </td>

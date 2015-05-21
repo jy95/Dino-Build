@@ -1247,10 +1247,53 @@ label:hover:before {
     -webkit-border-radius:48px;
     border:1px solid #623F1D;
 }
+/* Box iframe (affichage des competences)*/
 
 iframe#fenêtre {
     height: 230px;
     position: fixed;
     bottom: 20px;
     right: 20px;
+}
+
+/* table des competences */
+
+table
+{
+	border-spacing:1px;
+	padding:5px;
+	border-bottom: 3px ridge #333333;
+	border-left: 3px ridge #333333;
+	border-right: 3px ridge #333333;
+	border-top: 3px ridge #333333;
+	border-radius: 10px;
+	background-color:rgba(232,225,205,0.8);
+	width:580px;
+}
+
+table thead td
+{
+	color:white;
+	text-align:center;
+	text-indent:0px;
+	font-weight:800;
+	Text-Shadow: #000000 1px 0px 0px, #000000 1px 1px 0px, #000000 1px -1px 0px, #000000 -1px 1px 0px, #000000 -1px 0px 0px, #000000 -1px -1px 0px, #000000 0px 1px 0px, #000000 0px -1px 0px;
+	border: 2px solid black;
+	border-radius: 7px;
+	background-color:gray;
+}
+
+table td:not(.head)
+{
+	padding-left:3px;
+	padding-right:3px;
+	color:black;
+	Text-Shadow: white 1px 0px 0px, white 1px 1px 1px, white 1px -1px 1px, white -1px 1px 1px, white -1px 0px 1px, white -1px -1px 1px, white 0px 1px 0px, white 0px -1px 1px;
+	text-align:center;
+	text-indent:0px;
+	font-weight:800;
+	font-size:12px;
+	border-radius: 7px;
+	background-repeat:no-repeat;
+	background-position:bottom;
 }

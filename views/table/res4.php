@@ -189,7 +189,7 @@
         <?php foreach($competencesdispo as $i => $competence) {?>
             <?php if ( $competence->nom() == 'Furie') { ?>
                 
-                <a href="index.php?action=info&amp;competence=<?php echo $competence->num(); ?>"target="compétence" onclick='ouvrir();'>Furie</a>
+                <a href="index.php?action=info&amp;competence=<?php echo $competence->num(); ?>" target="compétence" onclick='ouvrir();'>Furie</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
