@@ -53,7 +53,10 @@
             <option value="bois" class="icon-bois">Bois</option>
             <option value="air" class="icon-air">Air</option>
             <option value="foudre" class="icon-foudre">Foudre</option>
-        </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
+        </select>
+
+        <br>
+        <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
     </form>
 
 <?php }?>

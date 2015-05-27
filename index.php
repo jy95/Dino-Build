@@ -34,6 +34,13 @@ switch ($action) {
             $controller->run();
             break;
         }
+    case 'proba':
+        require_once (CHEMIN_VUES . 'header.php');
+        require_once('controllers/ProbaController.php');
+        $controller = new ProbaController ();
+        $controller->run ();
+        require_once (CHEMIN_VUES . 'footer.php');
+        break;
 
 	default :
         require_once (CHEMIN_VUES . 'header.php');

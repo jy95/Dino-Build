@@ -41,7 +41,7 @@
                 <li id="nav-8" class="nav-menu"><a class="nav-menu-a"
                                                    onclick="to=8;" href="index.php?action=demon">DEMON</a></li>
                 <li id="nav-9" class="nav-menu"><a class="nav-menu-a"
-                                                   onclick="to=9;" href="index.php?action=contact">CONTACTS</a></li>
+                                                   onclick="to=9;" href="index.php?action=proba">PROBABILITES</a></li>
             </ul>
         </div>
     </nav>
@@ -63,3 +63,4 @@
 </div>
 
 <!-- CONTENU -->
+<br>

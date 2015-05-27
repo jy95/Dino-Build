@@ -59,12 +59,12 @@ class Db {
             return $tableau;
         }
     }
-    
+
     public  function casparticulier($requete){
     	$query = "SELECT * FROM quetzu  WHERE element  = '$requete' ";
     	$result = $this->_db->query($query);
     	$tableau = array();
-    
+
     	if ($result->rowCount() == 0){
     		return $tableau;
     	} else {
@@ -93,7 +93,7 @@ class Db {
             return $tableau;
         }
     }
-    
+
     public function casparticulier3($table) {
     	if(!empty($table)) {
     		$query = "SELECT *  FROM quetzu  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
@@ -112,7 +112,7 @@ class Db {
     		return $tableau;
     	}
     }
-    
+
     public function casparticulier2($table) {
     	if(!empty($table)) {
     		$query = "SELECT *   FROM quetzu  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
@@ -151,7 +151,7 @@ class Db {
         }
         return $tableau;
     }
-    
+
     public function casparticulier4($table) {
     	if(!empty($table)) {
     		$query = "SELECT num   FROM competences  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
@@ -161,7 +161,7 @@ class Db {
     	}
     	$tableau = array();
     	$result = $this->_db->query($query);
-    
+
     	if ($result->rowCount() == 0){
     		return $tableau;
     	} else {
@@ -201,11 +201,11 @@ class Db {
             return false;
         }
     }
-    
+
     public function casparticulier5($element) {
     	$query = "SELECT *  FROM quetzu WHERE num = " . $element;
     	$result = $this->_db->query($query);
-    
+
     	if ($result->rowCount() == 1){
     		$row = $result->fetch();
     		$competence = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
@@ -428,5 +428,6 @@ class Db {
         }
 
     }
+
 }
 ?>

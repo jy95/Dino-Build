@@ -73,23 +73,6 @@ class HelperController {
 		
 		require_once (CHEMIN_VUES . 'helper.php');
 	}
-
-    public function probabilite($nombretotal, $nombredeupsvoulus, $nombredecasedunelement, $nombredecasestotal){
-
-        $nombretotalfactoriel = gmp_intval(gmp_fact($nombretotal)) . "\n";
-        $nombredeupsvoulusfactoriel = gmp_intval(gmp_fact($nombredeupsvoulus)) . "\n";
-        $nombredeupsrestantfactoriel = gmp_intval(gmp_fact($nombretotal - $nombredeupsvoulus)) . "\n";
-
-        $nombreDeCombinaison = $nombretotalfactoriel / ($nombredeupsvoulusfactoriel * $nombredeupsrestantfactoriel);
-
-        $probabiliteDeSucces = pow(($nombredecasedunelement / $nombredecasestotal) ,$nombredeupsvoulus);
-        $probabiliteDeNonSucces = pow((1- $probabiliteDeSucces), ($nombretotal - $nombredeupsvoulus));
-
-        $result = $nombreDeCombinaison * $probabiliteDeSucces * $probabiliteDeNonSucces;
-
-
-        return $result;
-    }
 }
 
 ?>
