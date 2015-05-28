@@ -35,13 +35,13 @@
         <div class="block">
             <ul class="nav">
                 <li id="nav-1" class="nav-menu"><a class="nav-menu-a"
-                                                   onclick="to=2;" href="index.php">ACCUEIL</a></li>
+                                                   onclick="to=2;" href="/">ACCUEIL</a></li>
                 <li id="nav-3" class="nav-menu"><a class="nav-menu-a"
-                                                   onclick="to=3;" href="index.php?action=helper">PLAN D'UP</a></li>
+                                                   onclick="to=3;" href="/helper">PLAN D'UP</a></li>
                 <li id="nav-8" class="nav-menu"><a class="nav-menu-a"
-                                                   onclick="to=8;" href="index.php?action=demon">DEMON</a></li>
+                                                   onclick="to=8;" href="/demon">DEMON</a></li>
                 <li id="nav-9" class="nav-menu"><a class="nav-menu-a"
-                                                   onclick="to=9;" href="index.php?action=contact">CONTACTS</a></li>
+                                                   onclick="to=9;" href="/probabilite">PROBABILITES</a></li>
             </ul>
         </div>
     </nav>
@@ -63,3 +63,4 @@
 </div>
 
 <!-- CONTENU -->
+<br>

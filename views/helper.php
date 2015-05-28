@@ -13,117 +13,153 @@
 
 </script>
 
+<script type="text/javascript">
+    function ouvrir(){
+        $("#fenêtre").animate({opacity:1});
+        $("#fenêtre2").animate({opacity:1});
+    }
+    function fermer(){
+        $("#fenêtre").animate({opacity:0});
+        $("#fenêtre2").animate({opacity:0});
+    }
+</script>
+
 <p>Bienvenue à l'outil de gestion des ups</p>
 
 <?php if (empty($table) && empty($competencesdispo)) { ?>
 
-<p>Sélectionner la race de votre dino et l'élément du up</p>
-<form action="index.php?action=helper" method="post">
-    <br> <select name="race" id="id-dropdown" class="cd-select" >
-        <option value="-1" selected>Race de votre dino </option>
-        <option value="winks">Winks</option>
-        <option value="sirain">Sirain</option>
-        <option value="kabuki">Kabuki</option>
-        <option value="wanman">Wanman</option>
-        <option value="moueffe">Moueffe</option>
-        <option value="castivore">Castivore</option>
-        <option value="feross">Feross</option>
-        <option value="nuagoz">Nuagoz</option>
-        <option value="planaille">Planaille</option>
-        <option value="pteroz">Pteroz</option>
-        <option value="toufufu">Toufufu</option>
-        <option value="gorilloz">Gorilloz</option>
-        <option value="rocky">Rocky</option>
-        <option value="quetzu">Quetzu</option>
-    </select> <select name="choix" id="cd-dropdown" class="cd-select">
-        <option value="-1" selected>Elément du up</option>
-        <option value="feu" class="icon-feu">Feu</option>
-        <option value="eau" class="icon-eau">Eau</option>
-        <option value="bois" class="icon-bois">Bois</option>
-        <option value="air" class="icon-air">Air</option>
-        <option value="foudre" class="icon-foudre">Foudre</option>
-    </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
-</form>
+    <p>Sélectionner la race de votre dino et l'élément du up</p>
+    <form action="/helper" method="post">
+        <br> <select name="race" id="id-dropdown" class="cd-select" >
+            <option value="-1" selected>Race de votre dino </option>
+            <option value="winks">Winks</option>
+            <option value="sirain">Sirain</option>
+            <option value="kabuki">Kabuki</option>
+            <option value="wanman">Wanwan</option>
+            <option value="moueffe">Moueffe</option>
+            <option value="castivore">Castivore</option>
+            <option value="feross">Feross</option>
+            <option value="nuagoz">Nuagoz</option>
+            <option value="planaille">Planaille</option>
+            <option value="pteroz">Pteroz</option>
+            <option value="toufufu">Toufufu</option>
+            <option value="gorilloz">Gorilloz</option>
+            <option value="rocky">Rocky</option>
+            <option value="quetzu">Quetzu</option>
+        </select> <select name="choix" id="cd-dropdown" class="cd-select">
+            <option value="-1" selected>Elément du up</option>
+            <option value="feu" class="icon-feu">Feu</option>
+            <option value="eau" class="icon-eau">Eau</option>
+            <option value="bois" class="icon-bois">Bois</option>
+            <option value="air" class="icon-air">Air</option>
+            <option value="foudre" class="icon-foudre">Foudre</option>
+        </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
+    </form>
 
 <?php }?>
 
+<iframe name="compétence" id="fenêtre" scrolling="no" ></iframe>
+
 <?php if (!empty($table)) {?>
-    <form action="index.php?action=helper" method="post">
+    <form action="/helper" method="post">
+
+        <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+
         <h3>Voici toutes les compétences disponibles en <?php echo $_POST['choix']?></h3>
 
         <h2>Sélectionner vos compétences acquises</h2>
-        <div id="wrapper">
-            <?php $compteur = 1;?>
-            <?php $i = 0;?>
-            <?php $true = TRUE?>
 
-            <?php while ($i < count($table) ) { ?>
-                <?php if ($i < count($table) && $true == TRUE) {?>
-                    <div id="cl<?php echo $compteur;?>">
-                    <div class="card3">
-                        <label><h2>Niveau <?php echo $compteur ;?></h2></label>
-                    </div>
-                    <?php $true = FALSE?>
-                    <br>
-                    <br>
-                <?php }?>
-                <?php while($i < count($table) && $table[$i]->niveau() == $compteur) {?>
-		<div class="card2">
-				<input type="checkbox" name="competences[]"
-					value="<?php echo $table[$i]->num();?>"
-					id="<?php echo $table[$i]->num();?>" /> <label
-					for="<?php echo $table[$i]->num();?>"><p1><?php echo $table[$i]->nom()?></p1></label>
-			</div>
-			</br> </br>
-			<?php $i++;?>
-                <?php }?>
-		</div>
-		</br> </br>
-		<?php $compteur++;?>
-                <?php $true = TRUE;?>
-            <?php } ?>
-        </div>
+        <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+            <thead>
+            <tr>
+                <td class="head">niv.1</td>
+                <td class="head">niv.2</td>
+                <td class="head">niv.3</td>
+                <td class="head">niv.4</td>
+                <td class="head">niv.5</td>
+                <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <?php
+            switch($_SESSION ['choix']) {
+                case 'feu' :
+                    require_once(CHEMIN_VUES . 'table/form4.php');
+                    break;
+                case 'eau' :
+                    require_once(CHEMIN_VUES . 'table/form5.php');
+                    break;
+                case 'foudre' :
+                    require_once(CHEMIN_VUES . 'table/form3.php');
+                    break;
+                case 'bois' :
+                    require_once(CHEMIN_VUES . 'table/form2.php');
+                    break;
+                default :
+                require_once(CHEMIN_VUES . 'table/form1.php');
+            }
+            ?>
+
+            </tbody>
+
+        </table>
 
         <fieldset>
             <br> <DIV ALIGN=CENTER> <input type="submit" class="bouton" name="mieux"
-                        value="Obtenir les compétences disponibles"> </DIV> <br>
+                                           value="Obtenir les compétences disponibles"> </DIV> <br>
         </fieldset>
     </form>
+
+    <?php require_once(CHEMIN_VUES . 'table/message.php');?>
 
 <?php }?>
 
 <?php if (!empty($competencesdispo)){ ?>
 
+    <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+
     <h2>Voici les compétences disponibles avec vos compétences</h2>
 
-    <div id="wrapper">
-        <?php $compteur = 1;?>
-        <?php $i = 0;?>
-        <?php $true = TRUE?>
+    <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+        <thead>
+        <tr>
+            <td class="head">niv.1</td>
+            <td class="head">niv.2</td>
+            <td class="head">niv.3</td>
+            <td class="head">niv.4</td>
+            <td class="head">niv.5</td>
+            <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+        </tr>
+        </thead>
 
-        <?php while ($i < count($competencesdispo) ) { ?>
-            <?php if ($i < count($competencesdispo) && $true == TRUE) {?>
-                <div id="cl<?php echo $compteur;?>">
-                <div class="card3">
-                    <label><h2>Niveau <?php echo $compteur ;?></h2></label>
-                </div>
-                <?php $true = FALSE?>
-                <br>
-                <br>
-            <?php }?>
-            <?php while($i < count($competencesdispo) && $competencesdispo[$i]->niveau() == $compteur) {?>
-		<div class="card2">
-			<p1><?php echo $competencesdispo[$i]->nom()?></p1>
-		</div>
-		</br> </br>
-			<?php $i++;?>
-            <?php }?>
-		</div>
-	</br> </br>
-		<?php $compteur++;?>
-            <?php $true = TRUE;?>
-        <?php } ?>
-    </div>
+        <tbody>
+
+        <?php
+        switch($_SESSION ['choix']) {
+            case 'feu' :
+                require_once(CHEMIN_VUES . 'table/res4.php');
+                break;
+            case 'eau' :
+                require_once(CHEMIN_VUES . 'table/res5.php');
+                break;
+            case 'foudre' :
+                require_once(CHEMIN_VUES . 'table/res3.php');
+                break;
+            case 'bois' :
+                require_once(CHEMIN_VUES . 'table/res2.php');
+                break;
+            default :
+                require_once(CHEMIN_VUES . 'table/res1.php');
+        }
+        ?>
+
+        </tbody>
+
+    </table>
+
+    <?php require_once(CHEMIN_VUES . 'table/message.php');?>
 
     <?php if(!empty($competence)) { ?>
         <div class="result">

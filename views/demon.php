@@ -1,4 +1,4 @@
-<div class="title"><img src="views/images/Bdemon.png"/></div>
+<div class="title"><img src="views/images/Bdemon.gif"/></div>
 <section class="sameHeightCol">
         <p>
             La boutique Démoniaque se situe au Cimetière du Crépuscule.</br>
@@ -18,7 +18,8 @@
             Vous avez la possibilité de calculer le gain total de vos Dinoz à Sacrifier : Il suffit de taper le nombre de Dinoz à sacrifier à côté du niveau qui leur correspond.
             </br>/!\ Les données tapées ne se réinitialisent pas avec le rafraichissement de la page, pensez donc à regarder avant d'entrer vos données si toutes les cases sont vides /!\
         </p>
-        <form method="post" name="td[]" action="index.php?action=demon">
+<p>Nombre de tickets démon : <?php echo $total ?></p>
+        <form method="post" name="td[]" action="/demon">
             <div class="bunton_demons" id="bunton_demons">Gain des sacrifices de Dinoz</div>
             <div class="info_demons" style ="padding-top:15px;">
                 <table id="table_infos_questions" style="margin-left:150px;margin-bottom:15px;">

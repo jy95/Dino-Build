@@ -1,15 +1,21 @@
-<?php 
-class InfoController{
-	
-	public function __construct() {
-	
-	}
-			
-	public function run(){	
-		
-		# Un contrôleur se termine en écrivant une vue
-		require_once(CHEMIN_VUES . 'info.php');
-	}
-	
+<?php
+class InfoController
+{
+
+    function __construct()
+    {
+    }
+
+    public function run()
+    {
+        $competence = Db::getInstance()->select_competence($_GET['competence']);
+
+        if (!empty($_SESSION['race'])&& $_SESSION['race'] == 'quetzu') {
+        $competence = Db::getInstance()->select_competence2($_GET['competence']);
+        }
+
+        require_once(CHEMIN_VUES . 'table/info.php');
+
+    }
 }
 ?>
