@@ -1,15 +1,21 @@
 # Dino-Build
 Dinorpg : gestion des plans ups
 
+Description :
+
+Petit site d'aide sur le jeu http://www.dinorpg.com proposant une nouvelle vision de l'aide au joueur.
+
+Fonctionalités :
+
+* Helper : conseiller les joueurs sur le 
+* Demon : calculateur de tickets démon lors d'un sacrifice
+* Probabilite : calculateur de chance du plan up voulu
+* etc
 
 Choses à faire :
+   
+1) Implémenter les compétences doubles + les compétences d'invocations (+ remettre les checkbox originelles)
 
-1) Implémenter le custom select (http://tympanus.net/codrops/2012/11/29/simple-effects-for-drop-down-lists/)     
+2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
 
-2) Implémentation d'un meilleur affichage pour les compétences  (http://dino-club.olympe.in/Comp%C3%A9tences/eau.html)
-
-3) Implémenter les compétences doubles + les compétences d'invocations
-
-4) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
-
-5) Mettre le bouton de partage http://jquery-plugins.net/socialshare-js-jquery-plugin-for-social-sharing-buttons
+3) Mettre le bouton de partage http://jquery-plugins.net/socialshare-js-jquery-plugin-for-social-sharing-buttons
