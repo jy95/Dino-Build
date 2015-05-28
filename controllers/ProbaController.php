@@ -24,8 +24,8 @@ class ProbaController{
 
             } else {
 
-            $calcul = $this->probabilite($this->tableauProbabilite($_POST['dino']), $donnesuser, $nombreDeUps);
-            $message = 'Vous avez une probabilité de ' . round($calcul * 100) . '% d\'accomplir le plan up voulu';
+            $calcul = $this->probabilite($this->tableauProbabilite($_POST['dino']), $donnesuser, $nombreDeUps) * 100;
+            $message = 'Vous avez une probabilité de ' . round($calcul, 2) . '% d\'accomplir le plan up voulu';
 
             }
         }

@@ -6,7 +6,7 @@
 <?php } ?>
 
 <DIV ALIGN="CENTER">
-    <form action="index.php?action=proba" method="post">
+    <form action="/probabilite" method="post">
         <table>
             <tr>
                 <th>
@@ -88,6 +88,7 @@
                         <option value="sirain" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'sirain') echo "selected"?>>Sirain</option>
                         <option value="kabuki" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'kabuki') echo "selected"?>>Kabuki</option>
                         <option value="wanman" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'wanman') echo "selected"?>>Wanman</option>
+                        <option value="pigmou" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'pigmou') echo "selected"?>>Pigmou</option>
                         <option value="moueffe" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'moueffe') echo "selected"?>>Moueffe</option>
                         <option value="castivore" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'castivore') echo "selected"?>>Castivore</option>
                         <option value="feross" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'feross') echo "selected"?>>Feross</option>
@@ -103,6 +104,6 @@
             </tr>
 
         </table>
-        <input type="submit" value="Calculer la probabilité d'avoir les ups voulus">
+        <input type="submit" class="bouton" value="Calculer la probabilité d'avoir les ups voulus">
     </form>
 </DIV>

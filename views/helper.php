@@ -29,13 +29,13 @@
 <?php if (empty($table) && empty($competencesdispo)) { ?>
 
     <p>Sélectionner la race de votre dino et l'élément du up</p>
-    <form action="index.php?action=helper" method="post">
+    <form action="/helper" method="post">
         <br> <select name="race" id="id-dropdown" class="cd-select" >
             <option value="-1" selected>Race de votre dino </option>
             <option value="winks">Winks</option>
             <option value="sirain">Sirain</option>
             <option value="kabuki">Kabuki</option>
-            <option value="wanman">Wanman</option>
+            <option value="wanman">Wanwan</option>
             <option value="moueffe">Moueffe</option>
             <option value="castivore">Castivore</option>
             <option value="feross">Feross</option>
@@ -53,10 +53,7 @@
             <option value="bois" class="icon-bois">Bois</option>
             <option value="air" class="icon-air">Air</option>
             <option value="foudre" class="icon-foudre">Foudre</option>
-        </select>
-
-        <br>
-        <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
+        </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
     </form>
 
 <?php }?>
@@ -64,7 +61,7 @@
 <iframe name="compétence" id="fenêtre" scrolling="no" ></iframe>
 
 <?php if (!empty($table)) {?>
-    <form action="index.php?action=helper" method="post">
+    <form action="/helper" method="post">
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 

@@ -1,6 +1,14 @@
 # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
-RewriteBase /
 
 RewriteEngine on
-RewriteCond %{HTTP_REFERER} dino-ferma.96.lt [NC]
-RewriteRule .* - [F]
+RewriteBase /
+
+Options +FollowSymlinks
+Options -Indexes
+
+php_flag display_errors off
+
+RewriteRule ^helper/?$ index.php?action=helper [NC,L]
+RewriteRule ^probabilite/?$ index.php?action=proba [NC,L]
+RewriteRule ^demon/?$ index.php?action=demon [NC,L]
+RewriteRule ^info/([[:digit:]]+)$ index.php?action=info&competence=$1 [NC,L,QSA]

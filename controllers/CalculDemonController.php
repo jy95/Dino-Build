@@ -23,7 +23,6 @@ class CalculDemonController
             }
 
         }
-        var_dump($total);
         require_once(CHEMIN_VUES . 'demon.php');
 
     }
