@@ -1,9 +1,13 @@
 # Dino-Build
 Dinorpg : gestion des plans ups
 
+****************************************************************************************************
+
 Description :
 
 Petit site d'aide sur le jeu http://www.dinorpg.com proposant une nouvelle vision de l'aide au joueur.
+
+****************************************************************************************************
 
 Fonctionalités :
 
@@ -11,6 +15,8 @@ Fonctionalités :
 * Demon : calculateur de tickets démon lors d'un sacrifice
 * Probabilite : calculateur de chance du plan up voulu
 * etc
+
+****************************************************************************************************
 
 Choses à faire :
    
@@ -23,3 +29,8 @@ Choses à faire :
 Demo :
 http://dino-build.zz.mu/
 
+****************************************************************************************************
+branches :
+
+old-way : Ancienne version du site (avant améliorations graphiques)
+new-way/Master : Nouvelle version du site (amélioration constante en cours)
