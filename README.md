@@ -20,7 +20,7 @@ Fonctionalités :
 
 Choses à faire :
    
-1) Implémenter les compétences doubles + les compétences d'invocations (+ remettre les checkbox originelles)
+1) Implémenter les compétences doubles + les compétences d'invocations
 
 2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
 
