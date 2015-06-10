@@ -109,7 +109,7 @@ class ProbaController{
             case 'nuagoz':
                 return array(0.05, 0.05, 0.3, 0.3);
             case 'planaille':
-                return array(0.1, 0.1, 0.1, 0.3);
+                return array(0.1, 0.1, 0.1, 0.5);
             case 'pteroz':
                 return array(0.4, 0.1, 0.1, 0.15);
             case 'toufufu':
