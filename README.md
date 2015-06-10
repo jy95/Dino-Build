@@ -32,5 +32,5 @@ http://dino-build.zz.mu/
 ****************************************************************************************************
 branches :
 
-old-way : Ancienne version du site (avant améliorations graphiques)
+old-way : Ancienne version du site (avant améliorations graphiques) \n
 new-way/Master : Nouvelle version du site (amélioration constante en cours)
