@@ -6,7 +6,7 @@ class Db {
 
     public function __construct() {
         try {
-            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','','');
+            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','');
             $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->_db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         }catch (PDOException $e) {
@@ -24,10 +24,13 @@ class Db {
     public function select_competence($num){
         $query = "SELECT * FROM competences WHERE num = '$num'";
         $result = $this->_db->query($query);
-
+        $array = array();
+        
         if ($result->rowCount() == 1){
             $row = $result->fetch();
-            return new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+            $array[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+            $array[] = $row->element;
+            return $array;
         } else {
             return null;
         }
@@ -36,10 +39,13 @@ class Db {
     public function select_competence2($num){
         $query = "SELECT * FROM quetzu WHERE num = '$num'";
         $result = $this->_db->query($query);
-
+        $array = array();
+        
         if ($result->rowCount() == 1){
             $row = $result->fetch();
-            return new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+            $array[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+            $array[] = $row->element;
+            return $array;
         } else {
             return null;
         }

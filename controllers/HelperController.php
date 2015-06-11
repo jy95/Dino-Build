@@ -43,7 +43,13 @@ class HelperController {
 			$table = "";
 		}
 		if (! empty ( $_POST ['mieux'] )) {
-		
+		// AMELIORATION
+		// réécrire le processus de competence :
+		// 1) Rechercher les compétences sur base des numéros
+		// 2) Verifier si règle des prérequis est valide (-> isValid)
+		// 3) Si OK , on cherche les compétences dispo
+		// 4) faire comme avant
+		//
 			if (! empty ( $_POST ['competences'] )) {
 				if (!($_SESSION ['race'] == 'quetzu' && ($_SESSION ['choix'] == 'eau' || $_SESSION ['choix'] == 'feu'))) {
 					$competencesdispo = Db::getInstance ()->select_competencesdispo ( $_POST ['competences'] );
@@ -72,6 +78,15 @@ class HelperController {
 		}
 		
 		require_once (CHEMIN_VUES . 'helper.php');
+	}
+	
+	public function isValid($competences){
+	    $erreur = true;
+	    $array = array();
+	    
+	    foreach ($competences as $test){
+	        in_array($test->num(), $array);
+	    }
 	}
 }
 

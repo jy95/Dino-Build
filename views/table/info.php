@@ -29,8 +29,7 @@
             border: 2px solid black;
             border-radius: 7px;
             background-color:rgb(228,166,168);
-            background-image:url(<?php echo "views/images/competences/fd_table" . $_SESSION['choix'] . ".bmp"?>);
-
+            background-image: url(<?php echo "/views/images/competences/fd_table" . $element . ".bmp"?>);
 
 
             background-repeat:no-repeat;
