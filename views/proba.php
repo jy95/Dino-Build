@@ -5,6 +5,21 @@
     <br>
 <?php } ?>
 
+<?php if (!empty($probaAvantPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaAvantPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>
+
+<?php if (!empty($probaApresPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaApresPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>
+
+
 <DIV ALIGN="CENTER">
     <form action="/probabilite" method="post">
         <table>
@@ -99,7 +114,26 @@
                         <option value="gorilloz" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'gorilloz') echo "selected"?>>Gorilloz</option>
                         <option value="rocky" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'rocky') echo "selected"?>>Rocky</option>
                         <option value="quetzu" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'quetzu') echo "selected"?>>Quetzu</option>
+                        <option value="smog" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'smog') echo "selected"?>>Smog</option>
+                        <option value="soufflet" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'soufflet') echo "selected"?>>Soufflet</option>
+                        <option value="santaz" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'santaz') echo "selected"?>>Santaz</option>
+                        <option value="hippoclamp" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'hippoclamp') echo "selected"?>>Hippoclamp</option>
+                        <option value="mahamuti" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'mahamuti') echo "selected"?>>Mahamuti</option>
                     </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Plan de carrière (version mono-élément) :<br>
+                    (La version Multi-élément arrive bientot) 
+                </td>
+                <td>
+                    <input type="radio" name="PDC" value="default" <?php if (empty($_POST['PDC'])) echo "checked"?>> NON <br>
+                    <input type="radio" name="PDC" value="eau" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'eau') echo "checked" ?>>Eau <br>
+                    <input type="radio" name="PDC" value="feu" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'feu') echo "checked" ?>>Feu <br>
+                    <input type="radio" name="PDC" value="foudre" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'foudre') echo "checked" ?>>Foudre <br>
+                    <input type="radio" name="PDC" value="bois" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'bois') echo "bois" ?>>Bois <br>
+                    <input type="radio" name="PDC" value="air" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'air') echo "air" ?>>Air <br>
                 </td>
             </tr>
 
