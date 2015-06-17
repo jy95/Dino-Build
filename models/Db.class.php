@@ -6,7 +6,7 @@ class Db {
 
     public function __construct() {
         try {
-            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','');
+            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','toor');
             $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->_db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         }catch (PDOException $e) {
@@ -21,73 +21,34 @@ class Db {
         return self::$instance;
     }
 
-    public function select_competence($num){
-        $query = "SELECT * FROM competences WHERE num = '$num'";
-        $result = $this->_db->query($query);
-        $array = array();
-        
-        if ($result->rowCount() == 1){
-            $row = $result->fetch();
-            $array[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-            $array[] = $row->element;
-            return $array;
-        } else {
-            return null;
-        }
-    }
+    public  function select_toutcompetences($element , $dino){
 
-    public function select_competence2($num){
-        $query = "SELECT * FROM quetzu WHERE num = '$num'";
-        $result = $this->_db->query($query);
-        $array = array();
-        
-        if ($result->rowCount() == 1){
-            $row = $result->fetch();
-            $array[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-            $array[] = $row->element;
-            return $array;
-        } else {
-            return null;
-        }
-    }
+        $query = "SELECT *   FROM " . $element ;
 
-    public  function select_toutcompetences($requete){
-        $query = "SELECT *   FROM competences  WHERE element  = '$requete' ";
+        if ($dino != "quetzu" && ($element == "eau" || $element == "feu")) {
+            $query = $query . " WHERE quetzu != 1";
+        }
+
         $result = $this->_db->query($query);
         $tableau = array();
-
         if ($result->rowCount() == 0){
             return $tableau;
         } else {
             while($row = $result->fetch()) {
                 $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
             }
+            var_dump($tableau);
             return $tableau;
         }
     }
 
-    public  function casparticulier($requete){
-    	$query = "SELECT * FROM quetzu  WHERE element  = '$requete' ";
-    	$result = $this->_db->query($query);
-    	$tableau = array();
-
-    	if ($result->rowCount() == 0){
-    		return $tableau;
-    	} else {
-    		while($row = $result->fetch()) {
-    			$tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-    		}
-    		return $tableau;
-    	}
-    }
-
-    public function select_competencesdispo($table) {
+    public function select_competencesdispo($choix, $table) {
         if(!empty($table)) {
-            $query = "SELECT *   FROM competences  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
+            $query = "SELECT *   FROM " . $choix . " WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
         } else {
-            $requete = $_SESSION['choix'];
-            $query = "SELECT *   FROM competences  WHERE niv = 1 AND element  = '$requete'";
+            $query = "SELECT *   FROM " . $choix . "  WHERE niv = 1 ";
         }
+
         $result = $this->_db->query($query);
         $tableau = array();
         if ($result->rowCount() == 0){
@@ -100,50 +61,11 @@ class Db {
         }
     }
 
-    public function casparticulier3($table) {
-    	if(!empty($table)) {
-    		$query = "SELECT *  FROM quetzu  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
-    	} else {
-    		$requete = $_SESSION['choix'];
-    		$query = "SELECT *  FROM quetzu  WHERE niv = 1 AND element  = '$requete'";
-    	}
-    	$result = $this->_db->query($query);
-    	$tableau = array();
-    	if ($result->rowCount() == 0){
-    		return $tableau;
-    	} else {
-    		while($row = $result->fetch()) {
-    			$tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-    		}
-    		return $tableau;
-    	}
-    }
-
-    public function casparticulier2($table) {
-    	if(!empty($table)) {
-    		$query = "SELECT *   FROM quetzu  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
-    	} else {
-    		$requete = $_SESSION['choix'];
-    		$query = "SELECT *   FROM competences  WHERE niv = 1 AND element  = '$requete'";
-    	}
-    	$result = $this->_db->query($query);
-    	$tableau = array();
-    	if ($result->rowCount() == 0){
-    		return $tableau;
-    	} else {
-    		while($row = $result->fetch()) {
-    			$tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-    		}
-    		return $tableau;
-    	}
-    }
-
-    public function select_numcompetencesdispo($table) {
+    public function select_numcompetencesdispo($choix, $table) {
         if(!empty($table)) {
-            $query = "SELECT DISTINCT num   FROM competences  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
+            $query = "SELECT DISTINCT num   FROM " . $choix . "  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
         } else {
-            $requete = $_SESSION['choix'];
-            $query = "SELECT num   FROM competences  WHERE niv = 1 AND element  = '$requete'";
+            $query = "SELECT num   FROM " . $choix . "  WHERE niv = 1";
         }
         $tableau = array();
         $result = $this->_db->query($query);
@@ -156,26 +78,6 @@ class Db {
             }
         }
         return $tableau;
-    }
-
-    public function casparticulier4($table) {
-    	if(!empty($table)) {
-    		$query = "SELECT num   FROM competences  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table).") AND element = '".$_SESSION['choix']."')";
-    	} else {
-    		$requete = $_SESSION['choix'];
-    		$query = "SELECT num   FROM competences  WHERE niv = 1 AND element  = '$requete'";
-    	}
-    	$tableau = array();
-    	$result = $this->_db->query($query);
-
-    	if ($result->rowCount() == 0){
-    		return $tableau;
-    	} else {
-    		while ($row = $result->fetch()) {
-    			$tableau[] = $row->num;
-    		}
-    	}
-    	return $tableau;
     }
 
     public function conseil($tableau,$dino,$element) {
@@ -191,12 +93,12 @@ class Db {
             }
         }
 
-        $bonchoix = false; // aucune compétence trouvé :(
-        return $bonchoix;
+        // aucune compétence trouvé :(
+        return false;
     }
 
-    public function meilleurUp($element) {
-        $query = "SELECT *  FROM competences WHERE num = " . $element;
+    public function meilleurUp($choix, $element) {
+        $query = "SELECT *  FROM " . $choix . " WHERE num = " . $element;
         $result = $this->_db->query($query);
 
         if ($result->rowCount() == 1){
@@ -206,19 +108,6 @@ class Db {
         } else {
             return false;
         }
-    }
-
-    public function casparticulier5($element) {
-    	$query = "SELECT *  FROM quetzu WHERE num = " . $element;
-    	$result = $this->_db->query($query);
-
-    	if ($result->rowCount() == 1){
-    		$row = $result->fetch();
-    		$competence = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
-    		return $competence;
-    	} else {
-    		return false;
-    	}
     }
 
     public function planUp($dino,$element){
