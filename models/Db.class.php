@@ -37,7 +37,6 @@ class Db {
             while($row = $result->fetch()) {
                 $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
             }
-            var_dump($tableau);
             return $tableau;
         }
     }
