@@ -39,17 +39,23 @@ class HelperController {
             $table = "";
         }
         if (! empty ( $_POST ['mieux'] )) {
-
             if (! empty ( $_POST ['competences'] )) {
+                    sort($_POST ['competences'] ,SORT_NUMERIC);
                     $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['choix'], $_POST ['competences'] );
-                    $tableau = Db::getInstance ()->select_numcompetencesdispo ($_SESSION ['choix'], $_POST ['competences'] );
+                    $tableau = array();
+                    foreach($competencesdispo as $element){
+                        $tableau[] = $element->num();
+                    }
                     $conseil = Db::getInstance ()->conseil ( $tableau, $_SESSION ['race'], $_SESSION ['choix'] );
                     if ($conseil != false) {
                         $competence = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
                     }
             } else {
                 $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['choix'], NULL );
-                $tableau = Db::getInstance ()->select_numcompetencesdispo ($_SESSION ['choix'], NULL );
+                $tableau = array();
+                foreach($competencesdispo as $element){
+                    $tableau[] = $element->num();
+                }
                 $conseil = Db::getInstance ()->conseil ( $tableau, $_SESSION ['race'], $_SESSION ['choix'] );
                 if ($conseil != false) {
                     $competence = Db::getInstance ()->meilleurUp ($_SESSION ['choix'], $conseil );

@@ -35,7 +35,7 @@ class Db {
             return $tableau;
         } else {
             while($row = $result->fetch()) {
-                $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+                $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
             }
             return $tableau;
         }
@@ -54,7 +54,7 @@ class Db {
             return $tableau;
         } else {
             while($row = $result->fetch()) {
-                $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+                $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
             }
             return $tableau;
         }
@@ -62,7 +62,7 @@ class Db {
 
     public function select_numcompetencesdispo($choix, $table) {
         if(!empty($table)) {
-            $query = "SELECT DISTINCT num   FROM " . $choix . "  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
+            $query = "SELECT num   FROM " . $choix . "  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
         } else {
             $query = "SELECT num   FROM " . $choix . "  WHERE niv = 1";
         }
@@ -102,10 +102,22 @@ class Db {
 
         if ($result->rowCount() == 1){
             $row = $result->fetch();
-            $competence = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie);
+            $competence = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
             return $competence;
         } else {
             return false;
+        }
+    }
+
+    public function select_competence($element, $num){
+        $query = "SELECT * FROM " . $element . " WHERE num = '$num'";
+        $result = $this->_db->query($query);
+
+        if ($result->rowCount() == 1){
+            $row = $result->fetch();
+            return new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
+        } else {
+            return null;
         }
     }
 
