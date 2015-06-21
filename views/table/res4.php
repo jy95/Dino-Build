@@ -81,7 +81,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Propulsion Divine') { ?>
+            <?php if ( $competence->nom() == 'Propulsions divines') { ?>
                 
                 <a href="<?php echo "/info/feu/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Propulsion Divine</a>
                 <?php break; } ?>
@@ -89,7 +89,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Griffes Infernales') { ?>
+            <?php if ( $competence->nom() == 'Griffes infernales') { ?>
                 
                 <a href="<?php echo "/info/feu/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Griffes Infernales</a>
                 <?php break; } ?>

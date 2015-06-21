@@ -28,7 +28,6 @@ class Db {
         if ($dino != "quetzu" && ($element == "eau" || $element == "feu")) {
             $query = $query . " WHERE quetzu != 1";
         }
-
         $result = $this->_db->query($query);
         $tableau = array();
         if ($result->rowCount() == 0){
@@ -43,12 +42,14 @@ class Db {
 
     public function select_competencesdispo($race, $choix, $table) {
 
-        $query = "SELECT *   FROM " . $choix . " WHERE";
+        $query = "SELECT *   FROM " . $choix . " WHERE ";
 
         if(!empty($table)) {
             if ($race != 'quetzu' && ($choix == 'eau' || $choix = 'feu')) {
                 $query = $query . " quetzu != 1 AND idparent IN (".implode(',',$table).")";
                 $query = $query . " AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
+            } else{
+                $query = $query . " idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
             }
         } else {
             $query = $query . "niv = 1 ";

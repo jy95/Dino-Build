@@ -81,7 +81,7 @@
 <tr>
     <td>
         <?php foreach($table as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Propulsion Divine') { ?>
+            <?php if ( $competence->nom() == 'Propulsions divines') { ?>
                 <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo "/info/feu/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Propulsion Divine</a>
                 <?php break; } ?>
@@ -89,7 +89,7 @@
     </td>
     <td>
         <?php foreach($table as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Griffes Infernales') { ?>
+            <?php if ( $competence->nom() == 'Griffes infernales') { ?>
                 <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo "/info/feu/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Griffes Infernales</a>
                 <?php break; } ?>
