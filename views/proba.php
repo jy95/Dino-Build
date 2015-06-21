@@ -124,16 +124,14 @@
             </tr>
             <tr>
                 <td>
-                    Plan de carrière (version mono-élément) :<br>
-                    (La version Multi-élément arrive bientot) 
+                    Plan de carrière (version multi-élément) :<br>
                 </td>
                 <td>
-                    <input type="radio" name="PDC" value="default" <?php if (empty($_POST['PDC'])) echo "checked"?>> NON <br>
-                    <input type="radio" name="PDC" value="eau" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'eau') echo "checked" ?>>Eau <br>
-                    <input type="radio" name="PDC" value="feu" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'feu') echo "checked" ?>>Feu <br>
-                    <input type="radio" name="PDC" value="foudre" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'foudre') echo "checked" ?>>Foudre <br>
-                    <input type="radio" name="PDC" value="bois" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'bois') echo "bois" ?>>Bois <br>
-                    <input type="radio" name="PDC" value="air" <?php if (!empty($_POST['PDC']) && $_POST['PDC'] == 'air') echo "air" ?>>Air <br>
+                    <input type="checkbox" name="PDC[2]" value="1" <?php if (!empty($_POST['PDC'][2])) echo "checked"?> >Eau <br>
+                    <input type="checkbox" name="PDC[0]" value="1" <?php if (!empty($_POST['PDC'][0])) echo "checked"?> >Feu <br>
+                    <input type="checkbox" name="PDC[3]" value="1" <?php if (!empty($_POST['PDC'][3])) echo "checked"?> >Foudre <br>
+                    <input type="checkbox" name="PDC[1]" value="1" <?php if (!empty($_POST['PDC'][1])) echo "checked"?> >Bois <br>
+                    <input type="checkbox" name="PDC[4]" value="1" <?php if (!empty($_POST['PDC'][4])) echo "checked"?> >Air <br>
                 </td>
             </tr>
 

@@ -11,7 +11,7 @@ php_flag display_errors off
 RewriteRule ^helper/?$ index.php?action=helper [NC,L]
 RewriteRule ^probabilite/?$ index.php?action=proba [NC,L]
 RewriteRule ^demon/?$ index.php?action=demon [NC,L]
-RewriteRule ^info/([[:digit:]]+)$ index.php?action=info&competence=$1 [NC,L,QSA]
+RewriteRule ^info/([[:alpha:]]+)/([[:digit:]]+)$ index.php?action=info&element=$1&competence=$2 [NC]
 
 # DO NOT REMOVE THIS LINE AND THE LINES BELOW HOTLINKID:eSuWuhaWen
 

@@ -3,7 +3,7 @@
 	<br>
 	<h4>Liste des choses à faire pour ce projet :</h4>
 		<p>
-Suite à des remarques d'améliorations, je vais rajouter un bel affichage comme Dinoclub. Les fonctions sont donc temporairement suspendu
+Suite à des remarques d'améliorations, les fonctions peuvent être temporairement suspendu.
 
 		Pour passer le temps en attendant la fin de ce projet (j'aime faire
 		mes projets de la manière la plus complète possible) , je vous invite

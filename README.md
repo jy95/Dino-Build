@@ -19,7 +19,7 @@ Fonctionalités :
 ****************************************************************************************************
 
 Choses à faire :
-   
+
 1) Implémenter les compétences doubles + les compétences d'invocations
 
 2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
@@ -32,6 +32,7 @@ http://dino-build.zz.mu/
 ****************************************************************************************************
 branches :
 
-old-way : Ancienne version du site (avant améliorations graphiques) 
+old-way : Ancienne version du site (avant améliorations graphiques)
 
 new-way/Master : Nouvelle version du site (amélioration constante en cours)
+

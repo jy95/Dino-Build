@@ -8,15 +8,24 @@ class InfoController
 
     public function run()
     {
-        $array = Db::getInstance()->select_competence($_GET['competence']);
-        $competence = $array[0];
-        $element = $array[1];
+        $table = array (
+            'feu',
+            'bois',
+            'air',
+            'eau',
+            'foudre'
+        );
 
-        if (!empty($_SESSION['race'])&& $_SESSION['race'] == 'quetzu') {
-        $array = Db::getInstance()->select_competence2($_GET['competence']);
-        $competence = $array[0];
-        $element = $array[1];
+        if (!empty($_GET['element']) && !empty($_GET['competence']) && in_array($_GET['element'], $table)) {
+            $competence = Db::getInstance()->select_competence($_GET['element'], $_GET['competence']);
+            $element = $_GET['element'];
+
+        } else {
+            // cas d'erreur
+            $competence = null;
+            $element = "feu";
         }
+
 
         require_once(CHEMIN_VUES . 'table/info.php');
 
