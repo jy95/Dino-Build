@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 14 Juin 2015 à 17:17
+-- Généré le :  Dim 21 Juin 2015 à 13:37
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -238,27 +238,27 @@ INSERT INTO `feu` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 (8, 2, 'Souffle Ardent', 'A', 'Attaque tous les ennemis avec un pouvoir de Feu 5.', 'Faible', 2, 0),
 (9, 2, 'Furie', 'P', 'Augmente la puissance de tous les assauts de 3 et diminue toutes les défenses de 2.', '-', 3, 0),
 (10, 2, 'Sang Chaud', 'P', 'Augmente l''initiative de 4.', '-', 3, 0),
-(10, 3, 'Aura Incandescante', 'P', 'Augmente l''élément Feu de 2.', '-', 9, 0),
-(11, 3, 'Griffes infernales', 'S', 'Inflige des dégâts de feu continus à un adversaire.', '-', 4, 1),
-(12, 3, 'Waïkikidô', 'P', 'Augmente les chances de contre-attaque de 10% et le maximum de points de vie de 20. Diminue l''initiative du Dinoz de 5.', '-', 5, 0),
-(13, 3, 'Vigilance ', 'P', 'Augmente la défense Feu de 5.', '-', 5, 0),
-(14, 3, 'Paume Chalumeau', 'A', 'Attaque un ennemi avec un pouvoir de Feu 10 puis diminue l''initiative du Dinoz de 15.', 'Faible', 5, 0),
-(15, 3, 'Kamikaze', 'A', 'Attaque un ennemi avec un pouvoir de Feu 15 puis le Dinoz perd la moitié de ses points de vie.', 'Faible', 6, 0),
-(16, 3, 'Chasseur de Géant', 'C', 'Permet au Dinoz de chasser des animaux moyens dans certains lieux.', '-', 7, 0),
-(17, 3, 'Coulée de Lave', 'A', 'Attaque un ennemi avec un pouvoir de Feu 12.', 'Normale', 7, 0),
-(18, 3, 'Boule de Feu', 'A', 'Attaque un ennemi avec un pouvoir de Feu 7.', 'Faible', 8, 0),
-(19, 3, ' Combustion', 'E', 'Tous les ennemis perdent des points de vie égaux à leur élément Bois.', 'Faible', 8, 0),
-(20, 3, 'Aura Incandescante', 'P', 'Augmente l''élément Feu de 2.', '-', 9, 0),
-(21, 3, 'Vengeance', 'P', 'Augmente les chances de contre-attaque de 5%.', '-', 9, 0),
-(22, 3, 'Sieste', 'A', 'Le Dinoz regagne jusqu''à 20 points de vie et s''endort.', 'Faible', 10, 0),
-(23, 3, 'Coeur Ardent', 'P', 'Augmente la puissance de tous les assauts de feu de 12 et augmente le maximum de point de vie de 20.', '-', 10, 0),
-(24, 4, 'Chef de guerre', 'P', 'Augmente la puissance de tous les assauts de tous les Dinoz du Groupe de 2.', '-', 13, 0),
-(25, 4, 'Bélier', 'P', 'Augmente la puissance du premier assaut de 20.', '-', 15, 0),
-(26, 4, 'Chasseur de Dragon', 'C', 'Permet au Dinoz de chasser des animaux très rares et dangereux dans certains lieux.', '-', 16, 0),
-(27, 4, 'Torche', 'S', 'Le Dinoz est enflammé.', '-', 19, 0),
-(28, 4, 'Météores', 'A', 'Attaque tous les ennemis avec un pouvoir de Feu 10.', 'Forte', 20, 0),
-(29, 4, 'Self-Control', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 22, 0),
-(30, 5, 'Brave', 'S', 'Le Dinoz ne pourra plus faire parti d''un Groupe. Augmente l''élément Feu de 6, le maximum de point de vie de 50 et la vitesse de 15%.', '-', 29, 0);
+(11, 3, 'Aura Incandescante', 'P', 'Augmente l''élément Feu de 2.', '-', 9, 0),
+(12, 3, 'Griffes infernales', 'S', 'Inflige des dégâts de feu continus à un adversaire.', '-', 4, 1),
+(13, 3, 'Waïkikidô', 'P', 'Augmente les chances de contre-attaque de 10% et le maximum de points de vie de 20. Diminue l''initiative du Dinoz de 5.', '-', 5, 0),
+(14, 3, 'Vigilance ', 'P', 'Augmente la défense Feu de 5.', '-', 5, 0),
+(15, 3, 'Paume Chalumeau', 'A', 'Attaque un ennemi avec un pouvoir de Feu 10 puis diminue l''initiative du Dinoz de 15.', 'Faible', 5, 0),
+(16, 3, 'Kamikaze', 'A', 'Attaque un ennemi avec un pouvoir de Feu 15 puis le Dinoz perd la moitié de ses points de vie.', 'Faible', 6, 0),
+(17, 3, 'Chasseur de Géant', 'C', 'Permet au Dinoz de chasser des animaux moyens dans certains lieux.', '-', 7, 0),
+(18, 3, 'Coulée de Lave', 'A', 'Attaque un ennemi avec un pouvoir de Feu 12.', 'Normale', 7, 0),
+(19, 3, 'Boule de Feu', 'A', 'Attaque un ennemi avec un pouvoir de Feu 7.', 'Faible', 8, 0),
+(20, 3, ' Combustion', 'E', 'Tous les ennemis perdent des points de vie égaux à leur élément Bois.', 'Faible', 8, 0),
+(21, 3, 'Aura Incandescante', 'P', 'Augmente l''élément Feu de 2.', '-', 9, 0),
+(22, 3, 'Vengeance', 'P', 'Augmente les chances de contre-attaque de 5%.', '-', 9, 0),
+(23, 3, 'Sieste', 'A', 'Le Dinoz regagne jusqu''à 20 points de vie et s''endort.', 'Faible', 10, 0),
+(24, 3, 'Coeur Ardent', 'P', 'Augmente la puissance de tous les assauts de feu de 12 et augmente le maximum de point de vie de 20.', '-', 10, 0),
+(25, 4, 'Chef de guerre', 'P', 'Augmente la puissance de tous les assauts de tous les Dinoz du Groupe de 2.', '-', 14, 0),
+(26, 4, 'Bélier', 'P', 'Augmente la puissance du premier assaut de 20.', '-', 16, 0),
+(27, 4, 'Chasseur de Dragon', 'C', 'Permet au Dinoz de chasser des animaux très rares et dangereux dans certains lieux.', '-', 17, 0),
+(28, 4, 'Torche', 'S', 'Le Dinoz est enflammé.', '-', 20, 0),
+(29, 4, 'Météores', 'A', 'Attaque tous les ennemis avec un pouvoir de Feu 10.', 'Forte', 21, 0),
+(30, 4, 'Self-Control', 'S', 'Empêche tous les statuts négatifs et diminue l''initiative de 3.', '-', 23, 0),
+(31, 5, 'Brave', 'S', 'Le Dinoz ne pourra plus faire parti d''un Groupe. Augmente l''élément Feu de 6, le maximum de point de vie de 50 et la vitesse de 15%.', '-', 30, 0);
 
 -- --------------------------------------------------------
 

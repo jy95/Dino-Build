@@ -41,7 +41,7 @@ class HelperController {
         if (! empty ( $_POST ['mieux'] )) {
             if (! empty ( $_POST ['competences'] )) {
                     sort($_POST ['competences'] ,SORT_NUMERIC);
-                    $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['choix'], $_POST ['competences'] );
+                    $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['race'], $_SESSION ['choix'], $_POST ['competences'] );
                     $tableau = array();
                     foreach($competencesdispo as $element){
                         $tableau[] = $element->num();
@@ -51,7 +51,7 @@ class HelperController {
                         $competence = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
                     }
             } else {
-                $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['choix'], NULL );
+                $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['race'], $_SESSION ['choix'], NULL );
                 $tableau = array();
                 foreach($competencesdispo as $element){
                     $tableau[] = $element->num();
@@ -67,20 +67,20 @@ class HelperController {
     }
 
     public function isValid($competences){
-        // AMELIORATION
-        // réécrire le processus de competence :
-        // 1) Rechercher les compétences sur base des numéros
-        // 2) Verifier si règle des prérequis est valide (-> isValid)
-        // 3) Si OK , on cherche les compétences dispo
-        // 4) faire comme avant
-        //
 
-        $erreur = true;
         $array = array();
-
         foreach ($competences as $test){
-            in_array($test->num(), $array);
+            if ($test->parent() == 0){
+                $array[] = $test->num();
+            } else {
+                if (! in_array($test->parent(), $array)){
+                    return false;
+                } else{
+                    $array[] = $test->num();
+                }
+            }
         }
+        return true;
     }
 }
 

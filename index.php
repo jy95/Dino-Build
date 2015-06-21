@@ -34,6 +34,7 @@ switch ($action) {
             $controller->run();
             break;
         }
+        break;
     case 'proba':
         require_once (CHEMIN_VUES . 'header.php');
         require_once('controllers/ProbaController.php');
