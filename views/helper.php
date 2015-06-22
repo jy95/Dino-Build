@@ -24,6 +24,8 @@
     }
 </script>
 
+<p><?php if (!empty($message)) echo $message?></p>
+
 <p>Bienvenue à l'outil de gestion des ups</p>
 
 <?php if (empty($table) && empty($competencesdispo)) { ?>

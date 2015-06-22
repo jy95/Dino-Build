@@ -40,22 +40,37 @@ class HelperController {
         }
         if (! empty ( $_POST ['mieux'] )) {
             if (! empty ( $_POST ['competences'] )) {
-                    sort($_POST ['competences'] ,SORT_NUMERIC);
-                    $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['race'], $_SESSION ['choix'], $_POST ['competences'] );
+
+                sort($_POST ['competences'] ,SORT_NUMERIC);
+                $competences = Db::getInstance()->select_competences($_POST ['competences'], $_SESSION ['choix']);
+                $correct = $this->isValid($competences);
+
+                if ($correct) {
+
+                    $competencesdispo = Db::getInstance()->select_competencesdispo($_SESSION ['race'], $_SESSION ['choix'], $_POST ['competences']);
                     $tableau = array();
-                    foreach($competencesdispo as $element){
+
+                    foreach ($competencesdispo as $element) {
                         $tableau[] = $element->num();
                     }
-                    $conseil = Db::getInstance ()->conseil ( $tableau, $_SESSION ['race'], $_SESSION ['choix'] );
+
+                    $conseil = Db::getInstance()->conseil($tableau, $_SESSION ['race'], $_SESSION ['choix']);
                     if ($conseil != false) {
                         $competence = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
                     }
+                } else {
+                    $message = "Erreur ! Tentative de tricherie ! Veuillez recommencer svp!";
+                    $table = Db::getInstance ()->select_toutcompetences ( $_SESSION ['choix'],  $_SESSION ['race']);
+                }
             } else {
+
                 $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['race'], $_SESSION ['choix'], NULL );
                 $tableau = array();
+
                 foreach($competencesdispo as $element){
                     $tableau[] = $element->num();
                 }
+
                 $conseil = Db::getInstance ()->conseil ( $tableau, $_SESSION ['race'], $_SESSION ['choix'] );
                 if ($conseil != false) {
                     $competence = Db::getInstance ()->meilleurUp ($_SESSION ['choix'], $conseil );
@@ -67,7 +82,6 @@ class HelperController {
     }
 
     public function isValid($competences){
-
         $array = array();
         foreach ($competences as $test){
             if ($test->parent() == 0){

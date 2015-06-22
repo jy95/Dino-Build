@@ -28,13 +28,16 @@ switch ($action) {
         require_once (CHEMIN_VUES . 'footer.php');
 		break;
     case 'info' :
-        if (!empty($_GET['element']) && !empty($_GET['competence'])&& is_numeric($_GET['competence']) && Db::getInstance()->select_competence($_GET['element'], $_GET['competence']) != null) {
-            require_once('controllers/InfoController.php');
-            $controller = new InfoController ();
-            $controller->run();
+        try {
+            if (!empty($_GET['element']) && !empty($_GET['competence']) && is_numeric($_GET['competence']) && Db::getInstance()->select_competence($_GET['element'], $_GET['competence']) != null) {
+                require_once('controllers/InfoController.php');
+                $controller = new InfoController ();
+                $controller->run();
+                break;
+            }
+        }catch (Exception $e){
             break;
         }
-        break;
     case 'proba':
         require_once (CHEMIN_VUES . 'header.php');
         require_once('controllers/ProbaController.php');
