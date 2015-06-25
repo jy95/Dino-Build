@@ -45,7 +45,7 @@ class Db {
         $query = "SELECT *   FROM " . $choix . " WHERE ";
 
         if(!empty($table)) {
-            if ($race != 'quetzu' && ($choix == 'eau' || $choix = 'feu')) {
+            if ($race != 'quetzu' && ($choix == 'eau' || $choix == 'feu')) {
                 $query = $query . " quetzu != 1 AND idparent IN (".implode(',',$table).")";
                 $query = $query . " AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
             } else{
@@ -53,7 +53,7 @@ class Db {
             }
         } else {
             $query = $query . "niv = 1 ";
-            if ($race != 'quetzu' && ($choix == 'eau' || $choix = 'feu')) {
+            if ($race != 'quetzu' && ($choix == 'eau' || $choix == 'feu')) {
                 $query = $query . " AND quetzu != 1";
             }
         }
