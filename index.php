@@ -4,7 +4,9 @@ session_start ();
 define ( 'CHEMIN_VUES', 'views/' );
 $date = date ( "j/m/Y" );
 function chargerClasse($classe) {
+    if (file_exists('models/' . $classe . '.class.php')){
 	require 'models/' . $classe . '.class.php';
+    }
 }
 spl_autoload_register ( 'chargerClasse' );
 
@@ -28,11 +30,14 @@ switch ($action) {
         require_once (CHEMIN_VUES . 'footer.php');
 		break;
     case 'info' :
-        if (!empty($_GET['element']) && !empty($_GET['competence'])&& is_numeric($_GET['competence']) && Db::getInstance()->select_competence($_GET['element'], $_GET['competence']) != null) {
-            require_once('controllers/InfoController.php');
-            $controller = new InfoController ();
-            $controller->run();
-            break;
+        try {
+            if (!empty($_GET['element']) && !empty($_GET['competence']) && is_numeric($_GET['competence']) && Db::getInstance()->select_competence($_GET['element'], $_GET['competence']) != null) {
+                require_once('controllers/InfoController.php');
+                $controller = new InfoController ();
+                $controller->run();
+
+            }
+        }catch (Exception $e){
         }
         break;
     case 'proba':
@@ -42,11 +47,17 @@ switch ($action) {
         $controller->run ();
         require_once (CHEMIN_VUES . 'footer.php');
         break;
-
+    case 'connexion':
+        require_once (CHEMIN_VUES . 'header.php');
+        require_once ('controllers/ConnexionController.php');
+        $controller = new ConnexionController ();
+        $controller->run ();
+        require_once (CHEMIN_VUES . 'footer.php');
+        break;
 	default :
         require_once (CHEMIN_VUES . 'header.php');
-		require_once ('controllers/AccueilController.php');
-		$controller = new AccueilController ();
+		require_once ('controllers/HelperController.php');
+		$controller = new HelperController ();
         $controller->run ();
         require_once (CHEMIN_VUES . 'footer.php');
 		break;

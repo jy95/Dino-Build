@@ -70,23 +70,18 @@ class Db {
         }
     }
 
-    public function select_numcompetencesdispo($choix, $table) {
-        if(!empty($table)) {
-            $query = "SELECT num   FROM " . $choix . "  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
-        } else {
-            $query = "SELECT num   FROM " . $choix . "  WHERE niv = 1";
-        }
-        $tableau = array();
+    public function select_competences($table, $element){
+        $query = "SELECT * FROM " . $element ." WHERE num IN (".implode(',',$table).") ORDER BY num";
         $result = $this->_db->query($query);
-
+        $tableau = array();
         if ($result->rowCount() == 0){
             return $tableau;
         } else {
-            while ($row = $result->fetch()) {
-                $tableau[] = $row->num;
+            while($row = $result->fetch()) {
+                $tableau[] = new Competence($row->num, null, null, null, null, null, $row->idparent);
             }
+            return $tableau;
         }
-        return $tableau;
     }
 
     public function conseil($tableau,$dino,$element) {

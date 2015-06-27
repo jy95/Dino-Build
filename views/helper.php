@@ -1,64 +1,131 @@
-<script type="text/javascript">
 
-    $( function() {
 
-        $('#cd-dropdown').dropdown( {
-            gutter : 5
-        } );
+<?php if (!empty($message)) echo "<p>" . $message . "</p>"?>
 
-        $('#id-dropdown').dropdown( {
-            gutter : 14
-        } );
-    });
+<?php if (empty($table) && empty($competencesdispo) && empty($_POST)) { ?>
 
-</script>
-
-<script type="text/javascript">
-    function ouvrir(){
-        $("#fenêtre").animate({opacity:1});
-        $("#fenêtre2").animate({opacity:1});
-    }
-    function fermer(){
-        $("#fenêtre").animate({opacity:0});
-        $("#fenêtre2").animate({opacity:0});
-    }
-</script>
-
-<p>Bienvenue à l'outil de gestion des ups</p>
-
-<?php if (empty($table) && empty($competencesdispo)) { ?>
-
-    <p>Sélectionner la race de votre dino et l'élément du up</p>
     <form action="/helper" method="post">
-        <br> <select name="race" id="id-dropdown" class="cd-select" >
-            <option value="-1" selected>Race de votre dino </option>
-            <option value="winks">Winks</option>
-            <option value="sirain">Sirain</option>
-            <option value="kabuki">Kabuki</option>
-            <option value="wanman">Wanwan</option>
-            <option value="moueffe">Moueffe</option>
-            <option value="castivore">Castivore</option>
-            <option value="feross">Feross</option>
-            <option value="nuagoz">Nuagoz</option>
-            <option value="planaille">Planaille</option>
-            <option value="pteroz">Pteroz</option>
-            <option value="toufufu">Toufufu</option>
-            <option value="gorilloz">Gorilloz</option>
-            <option value="rocky">Rocky</option>
-            <option value="quetzu">Quetzu</option>
-        </select> <select name="choix" id="cd-dropdown" class="cd-select">
-            <option value="-1" selected>Elément du up</option>
-            <option value="feu" class="icon-feu">Feu</option>
-            <option value="eau" class="icon-eau">Eau</option>
-            <option value="bois" class="icon-bois">Bois</option>
-            <option value="air" class="icon-air">Air</option>
-            <option value="foudre" class="icon-foudre">Foudre</option>
-        </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
+        <section class="pagedImages">
+            <input id="page1" accesskey="1" type="radio" name="pagedImages1" title="Images page 1" checked="checked" />
+            <input id="page2" accesskey="2" type="radio" name="pagedImages1" title="Images page 2" />
+            <input id="page3" accesskey="3" type="radio" name="pagedImages1" title="Images page 3" />
+            <label for="page1">1</label>
+            <label for="page2">2</label>
+            <label for="page3">3</label>
+
+            <ul>
+                <li id="image1">
+                    <label>
+                        <input type="radio" name="race" value="moueffe"/>
+                        <img src="views/images/dinos/Moueffe.png">
+                    </label>
+                </li>
+                <li id="image2">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+                <li id="image3">
+                    <label>
+                        <input type="radio" name="race" value="winks"/>
+                        <img src="views/images/dinos/Winks.png">
+                    </label>
+                </li>
+                <li id="image4">
+                    <label>
+                        <input type="radio" name="race" value="quetzu"/>
+                        <img src="views/images/dinos/Quetzu.png">
+                    </label>
+                </li>
+                <li id="image5">
+                    <label>
+                        <input type="radio" name="race" value="moueffe"/>
+                        <img src="views/images/dinos/Moueffe.png">
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li id="image6">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+                <li id="image7">
+                    <label>
+                        <input type="radio" name="race" value="winks"/>
+                        <img src="views/images/dinos/Winks.png">
+                    </label>
+                </li>
+                <li id="image8">
+                    <label>
+                        <input type="radio" name="race" value="quetzu"/>
+                        <img src="views/images/dinos/Quetzu.png">
+                    </label>
+                </li>
+                <li id="image9">
+                    <label>
+                        <input type="radio" name="race" value="moueffe"/>
+                        <img src="views/images/dinos/Moueffe.png">
+                    </label>
+                </li>
+                <li id="image10">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li id="image6">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+                <li id="image7">
+                    <label>
+                        <input type="radio" name="race" value="winks"/>
+                        <img src="views/images/dinos/Winks.png">
+                    </label>
+                </li>
+                <li id="image8">
+                    <label>
+                        <input type="radio" name="race" value="quetzu"/>
+                        <img src="views/images/dinos/Quetzu.png">
+                    </label>
+                </li>
+                <li id="image9">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+                <li id="image10">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/dinos/Castivore.png">
+                    </label>
+                </li>
+            </ul>
+
+            <!--
+            <select name="choix" id="cd-dropdown" class="cd-select">
+                <option value="-1" selected>Elément du up</option>
+                <option value="feu" class="icon-feu">Feu</option>
+                <option value="eau" class="icon-eau">Eau</option>
+                <option value="bois" class="icon-bois">Bois</option>
+                <option value="air" class="icon-air">Air</option>
+                <option value="foudre" class="icon-foudre">Foudre</option>
+                -->
+        </section>
+        <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
     </form>
 
 <?php }?>
-
-<iframe name="compétence" id="fenêtre" scrolling="no" ></iframe>
 
 <?php if (!empty($table)) {?>
     <form action="/helper" method="post">
@@ -98,7 +165,7 @@
                     require_once(CHEMIN_VUES . 'table/form2.php');
                     break;
                 default :
-                require_once(CHEMIN_VUES . 'table/form1.php');
+                    require_once(CHEMIN_VUES . 'table/form1.php');
             }
             ?>
 
