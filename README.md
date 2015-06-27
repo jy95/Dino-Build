@@ -20,9 +20,9 @@ Fonctionalités :
 
 Choses à faire :
 
-1) Implémenter les compétences doubles + les compétences d'invocations
+1) Implémenter les compétences d'invocations + requêtes
 
-2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction
+2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction (?)
 
 3) Mettre le bouton de partage http://jquery-plugins.net/socialshare-js-jquery-plugin-for-social-sharing-buttons
 
@@ -32,7 +32,9 @@ http://dino-build.zz.mu/
 ****************************************************************************************************
 branches :
 
-old-way : Ancienne version du site (avant améliorations graphiques)
+old-way : Version primitive du site (code NON optimisé)
 
-new-way/Master : Nouvelle version du site (amélioration constante en cours)
+new-way/Master : Version basique du site (code optimisé)
+
+future-way : Version actuel du site (code optimisé + Design retravaillé)
 
