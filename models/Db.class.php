@@ -62,8 +62,8 @@ class Db {
         $tableau = array();
         if ($result->rowCount() == 0){
             return $tableau;
-        } else {
-            while($row = $result->fetch()) {
+        } else {            
+		    while($row = $result->fetch()) {
                 $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
             }
             return $tableau;
