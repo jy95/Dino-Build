@@ -4,6 +4,7 @@ class HelperController {
     }
     public function run() {
 
+
         $table = array (
             'feu',
             'bois',
@@ -29,14 +30,24 @@ class HelperController {
             'rocky',
             'quetzu'
         );
-        if (! empty ( $_POST ['choix'] ) && ! empty ( $_POST ['race'] ) && in_array ( $_POST ['choix'], $table ) && in_array ( $_POST ['race'], $table2 )) {
-            $_SESSION ['choix'] = $_POST ['choix'];
-            $_SESSION ['race'] = $_POST ['race'];
 
+        if (! empty ( $_POST ['race'] ) && in_array ( $_POST ['race'], $table2 )){
+            $race = $_POST ['race'];
+            $_SESSION ['race'] = $_POST ['race'];
+        }
+
+        if (! empty ( $_POST ['choix'] ) && in_array ( $_POST ['choix'], $table )) {
+            $choix = $_POST ['choix'];
+            $_SESSION ['choix'] = $_POST ['choix'];
+        }
+
+        if (!empty($choix) && !empty($race)){
             $table = Db::getInstance ()->select_toutcompetences ( $_SESSION ['choix'],  $_SESSION ['race']);
         } else {
             $table = "";
         }
+
+
         if (! empty ( $_POST ['mieux'] )) {
             if (! empty ( $_POST ['competences'] )) {
 
@@ -76,6 +87,20 @@ class HelperController {
                 }
             }
         }
+
+        $footer = "<img src=\"views/images/etapes/etape";
+
+        if (!empty($competencesdispo)){
+            $footer = $footer . "4.png\"";
+        } elseif (!empty($table)){
+            $footer = $footer . "3.png\"";
+        } elseif (!empty($race)) {
+            $footer = $footer . "2.png\"";
+        } else {
+            $footer = $footer . "1.png\"";
+        }
+
+        $footer = $footer . " alt=\"Etapes\" style=\"width:100%;height:100%;\"/>";
 
         require_once (CHEMIN_VUES . 'helper.php');
     }

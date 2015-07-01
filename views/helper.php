@@ -1,8 +1,21 @@
 
-
 <?php if (!empty($message)) echo "<p>" . $message . "</p>"?>
 
-<?php if (empty($table) && empty($competencesdispo) && empty($_POST)) { ?>
+<?php if (!empty($race)) { ?>
+    <form action="/helper" method="post">
+        <select name="choix">
+            <option value="feu" class="icon-feu">Feu</option>
+            <option value="eau" class="icon-eau">Eau</option>
+            <option value="bois" class="icon-bois">Bois</option>
+            <option value="air" class="icon-air">Air</option>
+            <option value="foudre" class="icon-foudre">Foudre</option>
+        </select>
+        <input type="hidden"  name="race" value="<?php echo $race?>"/>
+        <input type="submit">
+    </form>
+<?php } ?>
+
+<?php if (empty($race) && empty($table) && empty($competencesdispo)) { ?>
 
     <form action="/helper" method="post">
         <section class="pagedImages">
@@ -112,27 +125,18 @@
                 </li>
             </ul>
 
-            <!--
-            <select name="choix" id="cd-dropdown" class="cd-select">
-                <option value="-1" selected>Elément du up</option>
-                <option value="feu" class="icon-feu">Feu</option>
-                <option value="eau" class="icon-eau">Eau</option>
-                <option value="bois" class="icon-bois">Bois</option>
-                <option value="air" class="icon-air">Air</option>
-                <option value="foudre" class="icon-foudre">Foudre</option>
-                -->
         </section>
         <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
     </form>
 
 <?php }?>
 
-<?php if (!empty($table)) {?>
+<?php if (!empty($table)) { ?>
     <form action="/helper" method="post">
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-        <h3>Voici toutes les compétences disponibles en <?php echo $_POST['choix']?></h3>
+        <h3>Voici toutes les compétences disponibles en <?php echo $_SESSION ['choix'] ?></h3>
 
         <h2>Sélectionner vos compétences acquises</h2>
 
@@ -259,3 +263,7 @@
 
 
 <?php } ?>
+
+<div id="Bas">
+    <?php echo $footer ?>
+</div>
