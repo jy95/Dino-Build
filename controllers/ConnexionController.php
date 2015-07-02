@@ -7,7 +7,7 @@ class ConnexionController {
 
     public function run()
     {
-        if (empty($_SESSION['id'])) {
+        if (empty($_SESSION['id']) && empty($_GET['error'])) {
             if (empty($_GET['code'])) {
                 header('Location: '.$this->authorizationURL());
                 die();
