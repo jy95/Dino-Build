@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jacques
- * Date: 01-07-15
- * Time: 20:42
- */
 
 class Donnees {
     private static $instance = null;
@@ -29,23 +23,25 @@ class Donnees {
 
     public function misAJour(Dino $dino){
 
-        $query = $this->_db->prepare("UPDATE `donnees_users` SET `eau`= :eau , `feu`= :feu, `air`= :air, `foudre`= :foudre, `bois`= :bois WHERE `id`= :id");
-        $query->bindValue(":eau", implode(',',$dino->getEau()));
-        $query->bindValue(":feu", implode(',',$dino->getFeu()));
-        $query->bindValue(":air", implode(',',$dino->getAir()));
-        $query->bindValue(":foudre", implode(',',$dino->getFoudre()));
-        $query->bindValue(":bois", implode(',',$dino->getBois()));
-        $query->bindValue(":id", $dino->getId());
+        $query = $this->_db->prepare("UPDATE donnees_users SET eau= :eau , feu= :feu, air= :air, foudre= :foudre, bois= :bois WHERE id= :id");
+        $query->bindValue(':eau', implode(',',$dino->getEau()));
+        $query->bindValue(':feu', implode(',',$dino->getFeu()));
+        $query->bindValue(':air', implode(',',$dino->getAir()));
+        $query->bindValue(':foudre', implode(',',$dino->getFoudre()));
+        $query->bindValue(':bois', implode(',',$dino->getBois()));
+        $query->bindValue(':id', $dino->getId());
 
         return $query->execute();
     }
 
-    public function insererNouveauDino($nom, $user){
+    public function insererNouveauDino($nom, $race, $user){
 
-        if ($this->nombreInscrits($user) < 20){
-        $query = $this->_db->prepare("INSERT INTO `donnees_users`(`nom`, `user`) VALUES(:nom , :user)");
-        $query->bindValue(":user", $user);
-        $query->bindValue(":nom", htmlentities($nom));
+        var_dump($this->estPasPresent($nom, $race, $user));
+        if ($this->nombreInscrits($user) < 20 && !$this->estPasPresent($nom, $race, $user)){
+        $query = $this->_db->prepare("INSERT INTO donnees_users(nom, race, user) VALUES(:nom , :race, :user)");
+        $query->bindValue(':user', $user);
+        $query->bindValue(':nom', htmlentities($nom));
+        $query->bindValue(':race', $race);
         return $query->execute();
         } else {
             return false;
@@ -53,16 +49,27 @@ class Donnees {
 
     }
 
+    public function estPasPresent($nom, $race, $user){
+        $query = $this->_db->prepare("SELECT * FROM donnees_users WHERE nom = :nom AND race = :race AND user = :user LIMIT 1");
+        $query->bindValue(':user', $user);
+        $query->bindValue(':nom', htmlentities($nom));
+        $query->bindValue(':race', $race);
+        $query->execute();
+
+        return $query->rowCount() != 0;
+    }
+
     public function getDinosUser($user){
 
-        $query = $this->_db->prepare("SELECT * FROM `donnees_users` WHERE user = :user");
+        $query = $this->_db->prepare("SELECT * FROM donnees_users WHERE user = :user");
         $query->bindValue(':user', $user);
-        $result = $query->execute();
+        $query->execute();
 
-        if($result->rowCount() > 0) {
+        if($query->rowCount() > 0) {
             $dinos = array();
-            while ($row = $result->fetch()){
-                $dinos[] = new Dino($row->id, $row->user, $row->nom, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
+
+            while ($row = $query->fetch()){
+                $dinos[] = new Dino($row->id, $row->user, $row->nom, $row->race, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
             }
             return $dinos;
         } else {
@@ -72,22 +79,24 @@ class Donnees {
     }
 
     public function nombreInscrits($user){
-        $query = $this->_db->prepare("SELECT COUNT(*) as nombre FROM `donnees_users` WHERE `user` = :user");
+        $query = $this->_db->prepare("SELECT COUNT(*) as nombre FROM donnees_users WHERE user = :user");
         $query->bindValue(":user", $user);
+        $query->execute();
+        $nombre = $query->fetch()->nombre;
 
-        return $query->execute()->fetch()->nombre;
+        return $nombre;
     }
 
     public function getDinoUser($id){
 
-        $query = $this->_db->prepare("SELECT * FROM `donnees_users` WHERE id = :id");
+        $query = $this->_db->prepare("SELECT * FROM donnees_users WHERE id = :id");
         $query->bindValue(':id', $id);
-        $result = $query->execute();
+        $query->execute();
 
-        if($result->rowCount() == 1) {
+        if($query->rowCount() == 1) {
             $dino = array();
-            while ($row = $result->fetch()){
-                $dino[] = new Dino($row->id, $row->user, $row->nom, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
+            while ($row = $query->fetch()){
+                $dino[] = new Dino($row->id, $row->user, $row->nom, $row->race, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
             }
             return $dino;
         } else {

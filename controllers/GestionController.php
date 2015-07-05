@@ -9,9 +9,11 @@ class GestionController
 
     public function run()
     {
-        if (!empty($_POST['nouveauDino'])){
-            Donnees::getInstance()->insererNouveauDino($_POST['nouveauDino'], $_SESSION['id']);
+
+        if (!empty($_POST['nouveauDino']) && !empty($_POST['race'])){
+            Donnees::getInstance()->insererNouveauDino($_POST['nouveauDino'], $_POST['race'], $_SESSION['id']);
         }
+
         if (!empty($_POST['numeroDino']) && !empty($_POST['element'])){
             $dino = Donnees::getInstance()->getDinoUser($_POST['numeroDino']);
             $valeur = false;
@@ -44,7 +46,6 @@ class GestionController
         }
         $dinos = Donnees::getInstance()->getDinosUser($_SESSION['id']);
         $nombreInscrits = Donnees::getInstance()->nombreInscrits($_SESSION['id']);
-
         require_once(CHEMIN_VUES . 'gestion.php');
     }
 

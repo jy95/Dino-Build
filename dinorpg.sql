@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 01 Juillet 2015 à 01:56
+-- Généré le :  Dim 05 Juillet 2015 à 14:30
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -120,6 +120,24 @@ INSERT INTO `bois` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpa
 (26, 4, 'Leader', 'U', 'Augmente le nombre maximum de Dinoz de 3.', '-', 18),
 (27, 4, 'Ingénieur', 'U', 'Tous les dinoz peuvent être équipés d''un objet de combat supplémentaire.', '-', 21),
 (28, 5, 'Colosse', 'P', 'Augmente la puissance de tous les assauts de 15 et le maximum de points de vie de 50. Diminue la vitesse du Dinoz de 20%.', '-', 25);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `donnees_users`
+--
+
+CREATE TABLE IF NOT EXISTS `donnees_users` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `race` varchar(20) NOT NULL,
+  `eau` varchar(255) DEFAULT NULL,
+  `feu` varchar(255) DEFAULT NULL,
+  `air` varchar(255) DEFAULT NULL,
+  `foudre` varchar(255) DEFAULT NULL,
+  `bois` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements';
 
 -- --------------------------------------------------------
 
@@ -332,6 +350,13 @@ ALTER TABLE `bois`
   ADD PRIMARY KEY (`num`,`niv`);
 
 --
+-- Index pour la table `donnees_users`
+--
+ALTER TABLE `donnees_users`
+  ADD PRIMARY KEY (`id`,`user`),
+  ADD KEY `user` (`user`);
+
+--
 -- Index pour la table `double`
 --
 ALTER TABLE `double`
@@ -355,6 +380,15 @@ ALTER TABLE `feu`
 ALTER TABLE `foudre`
   ADD PRIMARY KEY (`num`,`niv`);
 
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `donnees_users`
+--
+ALTER TABLE `donnees_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -4,16 +4,18 @@ class Dino {
     private $_id;
     private $_user;
     private $_nom;
+    private $_race;
     private $_eau;
     private $_feu;
     private $_air;
     private $_bois;
     private $_foudre;
 
-    public function __construct($id, $user, $nom, $eau, $feu, $air, $bois, $foudre){
+    public function __construct($id, $user, $nom, $race, $eau, $feu, $air, $bois, $foudre){
         $this->_id = $id;
         $this->_user = $user;
         $this->_nom = $nom;
+        $this->_race = $race;
         $this->_eau = $eau;
         $this->_feu = $feu;
         $this->_air = $air;
@@ -21,6 +23,10 @@ class Dino {
         $this->_foudre = $foudre;
     }
 
+    public function getRace()
+    {
+        return $this->_race;
+    }
 
     public function getFoudre()
     {
