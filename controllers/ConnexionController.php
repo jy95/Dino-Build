@@ -17,7 +17,7 @@ class ConnexionController {
                     $donnees = $this->request($code);
                     $donnees = $this->getInfos($donnees["access_token"]);
                     $_SESSION['user'] = $donnees["name"];
-                    $_SESSION['photo'] = $donnees["picture"]["url"];
+                    $_SESSION['photo'] = str_replace('//', 'http://', $donnees["picture"]["url"]);
                     $_SESSION['id'] = $donnees["id"];
                     require_once(CHEMIN_VUES . 'connexion.php');
                 } catch (Exception $e) {

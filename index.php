@@ -2,7 +2,7 @@
 session_start ();
 // Variables globales
 define ( 'CHEMIN_VUES', 'views/' );
-$date = date ( "j/m/Y" );
+
 function chargerClasse($classe) {
     if (file_exists('models/' . $classe . '.class.php')){
         require 'models/' . $classe . '.class.php';

@@ -28,12 +28,29 @@ class HelperController {
             'gorilloz',
             'pigmou',
             'rocky',
-            'quetzu'
+            'quetzu',
+            'soufflet',
+            'mahamuti',
+            'hippoclamp',
+            'santaz',
+            'smog'
         );
 
         if (! empty ( $_POST ['race'] ) && in_array ( $_POST ['race'], $table2 )){
             $race = $_POST ['race'];
             $_SESSION ['race'] = $_POST ['race'];
+        }
+
+        if (!empty($_SESSION) && !empty($_POST['dinoUser'])){
+
+            $dino = Donnees::getInstance()->getDinoUser($_POST['dinoUser']);
+
+            if ($dino != null && in_array ( $dino->getRace(), $table2 )){
+                $race = $dino->getRace();
+                $_SESSION ['race'] = $dino->getRace();
+                $_SESSION ['dino'] = $dino->getId();
+            }
+
         }
 
         if (! empty ( $_POST ['choix'] ) && in_array ( $_POST ['choix'], $table )) {
@@ -56,6 +73,12 @@ class HelperController {
                 $correct = $this->isValid($competences);
 
                 if ($correct) {
+                    if (!empty($_SESSION ['dino'])){
+                        $dino = Donnees::getInstance()->getDinoUser($_SESSION ['dino']);
+                        $funcname = "set" . ucfirst($_SESSION['choix']);
+                        $dino->$funcname($_POST ['competences']);
+                        Donnees::getInstance()->misAJour($dino);
+                    }
 
                     $competencesdispo = Db::getInstance()->select_competencesdispo($_SESSION ['race'], $_SESSION ['choix'], $_POST ['competences']);
                     $tableau = array();
@@ -69,7 +92,7 @@ class HelperController {
                         $competence = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
                     }
                 } else {
-                    $message = "Erreur ! Tentative de tricherie ! Veuillez recommencer svp!";
+                    $error = true;
                     $table = Db::getInstance ()->select_toutcompetences ( $_SESSION ['choix'],  $_SESSION ['race']);
                 }
             } else {

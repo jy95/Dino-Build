@@ -24,11 +24,12 @@ class Donnees {
     public function misAJour(Dino $dino){
 
         $query = $this->_db->prepare("UPDATE donnees_users SET eau= :eau , feu= :feu, air= :air, foudre= :foudre, bois= :bois WHERE id= :id");
-        $query->bindValue(':eau', implode(',',$dino->getEau()));
-        $query->bindValue(':feu', implode(',',$dino->getFeu()));
-        $query->bindValue(':air', implode(',',$dino->getAir()));
-        $query->bindValue(':foudre', implode(',',$dino->getFoudre()));
-        $query->bindValue(':bois', implode(',',$dino->getBois()));
+        
+        $query->bindValue(':eau', (empty ( implode(',',$dino->getEau()) )) ? implode(',',$dino->getEau())  : 'null');
+        $query->bindValue(':feu', (empty ( implode(',',$dino->getFeu()) )) ? implode(',',$dino->getFeu())  : 'null');
+        $query->bindValue(':air', (empty ( implode(',',$dino->getAir()) )) ? implode(',',$dino->getAir())  : 'null');
+        $query->bindValue(':foudre', (empty ( implode(',',$dino->getFoudre()) )) ? implode(',',$dino->getFoudre())  : 'null');
+        $query->bindValue(':bois', (empty ( implode(',',$dino->getBois()) )) ? implode(',',$dino->getBois())  : 'null');
         $query->bindValue(':id', $dino->getId());
 
         return $query->execute();

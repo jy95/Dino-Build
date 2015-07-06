@@ -1,3 +1,6 @@
+<?php if (!empty($error)) { ?>
+
+<?php }  ?>
 
 <?php if (!empty($message)) echo "<p>" . $message . "</p>"?>
 

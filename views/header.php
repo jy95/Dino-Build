@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Dino-Build</title>
-    <link rel="stylesheet" type="text/css" media="all" href="views/css/DinoBuildV2.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="views/css/DinoBuildV2.css"/>
     <script src="js/sweet-alert.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
 </head>
 <body>
 
