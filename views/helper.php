@@ -15,7 +15,7 @@
 
 
 <?php if (!empty($race) && empty($choix)) { ?>
-    <form action="/helper" method="post">
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
         <select name="choix">
             <option value="feu" class="icon-feu">Feu</option>
             <option value="eau" class="icon-eau">Eau</option>
@@ -30,7 +30,7 @@
 
 <?php if (empty($race) && empty($table) && empty($competencesdispo)) { ?>
 
-    <form action="/helper" method="post">
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
         <section class="pagedImages">
             <input id="page1" accesskey="1" type="radio" name="pagedImages1" title="Images page 1" checked="checked" />
             <input id="page2" accesskey="2" type="radio" name="pagedImages1" title="Images page 2" />
@@ -182,7 +182,7 @@
 <iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
 
 <?php if (!empty($table)) { ?>
-    <form action="/helper" method="post">
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 

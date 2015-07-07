@@ -2,6 +2,7 @@
 session_start ();
 // Variables globales
 define ( 'CHEMIN_VUES', 'views/' );
+define('PATH_ABSOLUTE' , '/dinoBuildV2');
 
 function chargerClasse($classe) {
     if (file_exists('models/' . $classe . '.class.php')){

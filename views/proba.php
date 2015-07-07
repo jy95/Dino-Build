@@ -6,7 +6,7 @@
 <?php } ?>
 
 <DIV ALIGN="CENTER">
-    <form action="/probabilite" method="post">
+    <form action="<?php echo PATH_ABSOLUTE . "/probabilite" ?>" method="post">
         <table>
             <tr>
                 <th>
