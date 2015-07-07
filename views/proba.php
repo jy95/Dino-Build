@@ -5,21 +5,6 @@
     <br>
 <?php } ?>
 
-<?php if (!empty($probaAvantPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaAvantPDC; ?>
-    </DIV>
-    <br>
-<?php } ?>
-
-<?php if (!empty($probaApresPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaApresPDC; ?>
-    </DIV>
-    <br>
-<?php } ?>
-
-
 <DIV ALIGN="CENTER">
     <form action="/probabilite" method="post">
         <table>
@@ -127,6 +112,7 @@
                     Plan de carrière (version multi-élément) :<br>
                 </td>
                 <td>
+                    <br>
                     <input type="checkbox" name="PDC[2]" value="1" <?php if (!empty($_POST['PDC'][2])) echo "checked"?> >Eau <br>
                     <input type="checkbox" name="PDC[0]" value="1" <?php if (!empty($_POST['PDC'][0])) echo "checked"?> >Feu <br>
                     <input type="checkbox" name="PDC[3]" value="1" <?php if (!empty($_POST['PDC'][3])) echo "checked"?> >Foudre <br>
@@ -139,3 +125,20 @@
         <input type="submit" class="bouton" value="Calculer la probabilité d'avoir les ups voulus">
     </form>
 </DIV>
+
+<br>
+<br>
+
+<?php if (!empty($probaAvantPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaAvantPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>
+
+<?php if (!empty($probaApresPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaApresPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>

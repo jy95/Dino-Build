@@ -179,18 +179,14 @@
 
 <?php }?>
 
-<iframe name="compétence" id="fenêtre" scrolling="no" ></iframe>
+<iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
 
 <?php if (!empty($table)) { ?>
     <form action="/helper" method="post">
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-        <h3>Voici toutes les compétences disponibles en <?php echo $_SESSION ['choix'] ?></h3>
-
-        <h2>Sélectionner vos compétences acquises</h2>
-
-        <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+        <table id=<?php echo $_SESSION ['choix'] ?>>
             <thead>
             <tr>
                 <td class="head">niv.1</td>
@@ -227,10 +223,9 @@
 
         </table>
 
-        <fieldset>
             <br> <DIV ALIGN=CENTER> <input type="submit" class="bouton" name="mieux"
                                            value="Obtenir les compétences disponibles"> </DIV> <br>
-        </fieldset>
+
     </form>
 
     <?php require_once(CHEMIN_VUES . 'table/message.php');?>
@@ -241,9 +236,7 @@
 
     <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-    <h2>Voici les compétences disponibles avec vos compétences</h2>
-
-    <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+    <table id=<?php echo $_SESSION ['choix'] ?>>
         <thead>
         <tr>
             <td class="head">niv.1</td>
@@ -292,7 +285,7 @@
         </div>
 
         <script>
-            document.querySelector('.result .message button').onclick = function(){ swal("Selon le plan UP encodé , le meilleur UP à choisir pour l'élément <?php echo $_SESSION['choix'];?> pour un dino de race <?php echo $_SESSION['race'];?> est :" ,
+            document.querySelector('.result .message button').onclick = function(){ swal("Up conseillé : " ,
                 "<?php echo $competence->nom(); ?>");};
         </script>
 

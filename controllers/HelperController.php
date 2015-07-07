@@ -41,7 +41,7 @@ class HelperController {
             $_SESSION ['race'] = $_POST ['race'];
         }
 
-        if (!empty($_SESSION) && !empty($_POST['dinoUser'])){
+        if (!empty($_SESSION['id']) && !empty($_POST['dinoUser'])){
 
             $dino = Donnees::getInstance()->getDinoUser($_POST['dinoUser']);
 
@@ -78,6 +78,7 @@ class HelperController {
                         $funcname = "set" . ucfirst($_SESSION['choix']);
                         $dino->$funcname($_POST ['competences']);
                         Donnees::getInstance()->misAJour($dino);
+                        $_SESSION['dino'] = null;
                     }
 
                     $competencesdispo = Db::getInstance()->select_competencesdispo($_SESSION ['race'], $_SESSION ['choix'], $_POST ['competences']);

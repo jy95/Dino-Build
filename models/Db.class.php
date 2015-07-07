@@ -114,6 +114,18 @@ class Db {
     }
 
     public function select_competence($element, $num){
+        $array = array(
+            'feu',
+            'eau',
+            'foudre',
+            'air',
+            'double',
+            'bois'
+        );
+        if (!in_array($element, $array)){
+            return null;
+        }
+
         $query = "SELECT * FROM `" . $element . "` WHERE num = " . $this->_db->quote($num) . "";
         $result  = $this->_db->query($query);
         if ($result->rowCount() == 1){
