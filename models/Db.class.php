@@ -231,7 +231,7 @@ class Db {
                         default :
                             return array();
                     }
-                case "wanman" :
+                case "wanwan" :
                     switch($element) {
                         case "eau" :
                             return array(3,8,19,9,21);

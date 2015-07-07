@@ -12,7 +12,7 @@ spl_autoload_register ( 'chargerClasse' );
 
 
 // Tester si une variable GET 'action' est précisée dans l'URL index.php?action=...
-$action = (isset ( $_GET ['action'] )) ? htmlentities ( $_GET ['action'] ) : 'default';
+$action = (!empty ( $_GET ['action'] )) ? htmlentities ( $_GET ['action'] ) : 'default';
 // Quelle action est demandée ?
 switch ($action) {
     case 'helper' :

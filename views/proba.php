@@ -102,7 +102,7 @@
                         <option value="winks" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'winks') echo "selected"?>>Winks</option>
                         <option value="sirain" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'sirain') echo "selected"?>>Sirain</option>
                         <option value="kabuki" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'kabuki') echo "selected"?>>Kabuki</option>
-                        <option value="wanman" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'wanman') echo "selected"?>>Wanman</option>
+                        <option value="wanwan" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'wanwan') echo "selected"?>>Wanwan</option>
                         <option value="pigmou" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'pigmou') echo "selected"?>>Pigmou</option>
                         <option value="moueffe" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'moueffe') echo "selected"?>>Moueffe</option>
                         <option value="castivore" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'castivore') echo "selected"?>>Castivore</option>

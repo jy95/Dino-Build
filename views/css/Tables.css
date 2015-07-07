@@ -1,0 +1,56 @@
+/* NOUVELLES TABLES */
+/* Box iframe (affichage des competences)*/
+
+iframe#fenêtre {
+    height: 230px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* table des competences */
+
+table
+{
+    border-spacing:1px;
+    padding:5px;
+    background-color: transparent;
+    width:900px;
+    display: block;
+}
+
+/* Header des cases */
+
+table thead td
+{
+    color:#82492b;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    vertical-align: middle;
+    text-align: center;
+    text-indent:0px;
+    /*text-shadow: #ebc289 1px 0px 0px, #ebc289 1px 1px 0px, #ebc289 1px -1px 0px, #ebc289 -1px 1px 0px, #ebc289 -1px 0px 0px, #ebc289 -1px -1px 0px, #ebc289 0px 1px 0px, #ebc289 0px -1px 0px;*/
+    text-shadow : rgba(255, 255, 255, 0.5) 1px 0px 3px, rgba(255, 255, 255, 0.5) 1px 1px 3px, rgba(255, 255, 255, 0.5) 1px -1px 3px, rgba(255, 255, 255, 0.5) -1px 1px 3px, rgba(255, 255, 255, 0.5) -1px 0px 3px, rgba(255, 255, 255, 0.5) -1px -1px 3px, rgba(255, 255, 255, 0.5) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px -1px 3px;
+    border: 2px solid #823b16;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dans les cases */
+
+table td:not(.head)
+{
+    padding-left:30px;
+    padding-right:3px;
+    vertical-align: middle;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color:#82492b;
+    padding: 5px;
+    /*text-shadow: #ebc289 1px 0px 3px, #ebc289 1px 1px 3px, #ebc289 1px -1px 3px, #ebc289 -1px 1px 3px, #ebc289 -1px 0px 3px, #ebc289 -1px -1px 3px, #ebc289 0px 1px 3px, #ebc289 0px -1px 3px;*/
+    text-shadow : rgba(255, 255, 255, 0.2) 1px 0px 3px, rgba(255, 255, 255, 0.3) 1px 1px 3px, rgba(255, 255, 255, 0.3) 1px -1px 3px, rgba(255, 255, 255, 0.3) -1px 1px 3px, rgba(255, 255, 255, 0.3) -1px 0px 3px, rgba(255, 255, 255, 0.3) -1px -1px 3px, rgba(255, 255, 255, 0.3) 0px 1px 3px, rgba(255, 255, 255, 0.3) 0px -1px 3px;
+    text-align:left;
+    text-indent:15px;
+    background-repeat:no-repeat;
+    background-position:bottom;
+}

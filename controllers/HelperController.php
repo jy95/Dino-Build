@@ -17,7 +17,7 @@ class HelperController {
             'winks',
             'sirain',
             'kabuki',
-            'wanman',
+            'wanwan',
             'moueffe',
             'castivore',
             'feross',
@@ -111,7 +111,7 @@ class HelperController {
             }
         }
 
-        $footer = "<img src=\"views/images/etapes/etape";
+        $footer = "<img src=\"views/images/Etapes/etape";
 
         if (!empty($competencesdispo)){
             $footer = $footer . "4.png\"";
