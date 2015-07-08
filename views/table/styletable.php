@@ -3,9 +3,9 @@
 
     <style type="text/css">
 
-        table#<?php echo $_SESSION['choix']?> td:not(.head){
+        table#<?php echo $_SESSION['element']?> td:not(.head){
 
-        <?php switch($_SESSION['choix']) {
+        <?php switch($_SESSION['element']) {
             case 'air':
                 echo "background:radial-gradient(#c1cdd9, #a0b4c3); \n";
                 echo "border: 2px solid rgb(120,166,156);";

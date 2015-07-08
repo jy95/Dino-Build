@@ -1,3 +1,75 @@
+<?php if (!empty($dinos) &&empty($_POST['numeroDino'])) { ?>
+    <p>Cocher le dino que vous voulez mettre à jour + sélectionne l'élément</p>
+    <form action="<?php echo PATH_ABSOLUTE . "/gestion"?>" method="post">
+        <select name="element">
+            <option value="eau">EAU</option>
+            <option value="feu">FEU</option>
+            <option value="air">AIR</option>
+            <option value="foudre">FOUDRE</option>
+            <option value="bois">BOIS</option>
+        </select>
+        <table>
+            <thead>
+            <th>Nom du dino</th>
+            <th>Choix</th>
+            <th>A SUPPRIMER</th>
+            </thead>
+            <tbody>
+            <?php foreach($dinos as $element) { ?>
+                <td><?php echo $element->getNom()?></td>
+                <td><input type="radio" name="numeroDino" value="<?php echo $element->getId()?>"></td>
+                <td><input type="radio" name="aSupprimer" value="<?php echo $element->getId()?>"></td>
+            <?php } ?>
+            </tbody>
+        </table>
+        <input type="submit" name="Valider">
+    </form>
+<?php } ?>
+
+<?php if (!empty($_POST['numeroDino'])) { ?>
+    <script type="text/javascript">
+        function ouvrir(){
+            $("#fenêtre").animate({opacity:1});
+            $("#fenêtre2").animate({opacity:1});
+        }
+        function fermer(){
+            $("#fenêtre").animate({opacity:0});
+            $("#fenêtre2").animate({opacity:0});
+        }
+    </script>
+
+    <form action="<?php echo PATH_ABSOLUTE . "/gestion"?>" method="post">
+        <input type="hidden" name="numeroDino" value="<?php echo $_POST['numeroDino']?>">
+        <input type="hidden" name="element" value="<?php echo $_POST['element'] ?>">
+        <p>METTEZ A JOUR</p>
+        <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+
+        <table id=<?php echo $_POST['element'] ?>>
+            <thead>
+            <tr>
+                <td class="head">niv.1</td>
+                <td class="head">niv.2</td>
+                <td class="head">niv.3</td>
+                <td class="head">niv.4</td>
+                <td class="head">niv.5</td>
+                <?php if (!empty($_POST['element'])&& $_POST['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <?php
+            require_once(CHEMIN_VUES . 'table/formulaires/form_' . $_POST['element'] . '.php');
+            ?>
+
+            </tbody>
+
+        </table>
+        <iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
+        <input type="submit">
+    </form>
+<?php } ?>
+
 
 <?php if (empty($dino)) { ?>
     <p> <?php echo $nombreInscrits?>/20 Dinos enregistrés</p>
@@ -150,39 +222,5 @@
 
         </section>
         <input type="submit">
-    </form>
-<?php } ?>
-
-<?php if (!empty($dinos)) { ?>
-    <p>Cocher le dino que vous voulez mettre à jour + sélectionne l'élément</p>
-    <form action="<?php echo PATH_ABSOLUTE . "/gestion"?>" method="post">
-        <select name="element">
-            <option value="eau">EAU</option>
-            <option value="feu">FEU</option>
-            <option value="air">AIR</option>
-            <option value="foudre">FOUDRE</option>
-            <option value="bois">BOIS</option>
-        </select>
-        <table>
-            <thead>
-            <th>Nom du dino</th>
-            <th>Choix</th>
-            </thead>
-            <tbody>
-            <?php foreach($dinos as $element) { ?>
-                <td><?php echo $element->getNom()?></td>
-                <td><input type="radio" name="numeroDino" value="<?php echo $element->getId()?>"></td>
-            <?php } ?>
-            </tbody>
-        </table>
-        <input type="submit">
-    </form>
-<?php } ?>
-
-<?php if (!empty($_POST['numeroDino'])) { ?>
-    <form action="<?php echo PATH_ABSOLUTE . "/gestion"?>" method="post">
-        <input type="hidden" name="numeroDino" value="$_POST['numeroDino']">
-        <input type="hidden" name="element" value="$_POST['element']">
-        <p>METTEZ A JOUR</p>
     </form>
 <?php } ?>

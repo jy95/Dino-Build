@@ -14,9 +14,9 @@
 </script>
 
 
-<?php if (!empty($race) && empty($choix)) { ?>
+<?php if (!empty($race) && empty($element)) { ?>
     <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
-        <select name="choix">
+        <select name="element">
             <option value="feu" class="icon-feu">Feu</option>
             <option value="eau" class="icon-eau">Eau</option>
             <option value="bois" class="icon-bois">Bois</option>
@@ -186,7 +186,7 @@
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-        <table id=<?php echo $_SESSION ['choix'] ?>>
+        <table id=<?php echo $_SESSION ['element'] ?>>
             <thead>
             <tr>
                 <td class="head">niv.1</td>
@@ -194,29 +194,14 @@
                 <td class="head">niv.3</td>
                 <td class="head">niv.4</td>
                 <td class="head">niv.5</td>
-                <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+                <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
             </tr>
             </thead>
 
             <tbody>
 
             <?php
-            switch($_SESSION ['choix']) {
-                case 'feu' :
-                    require_once(CHEMIN_VUES . 'table/form4.php');
-                    break;
-                case 'eau' :
-                    require_once(CHEMIN_VUES . 'table/form5.php');
-                    break;
-                case 'foudre' :
-                    require_once(CHEMIN_VUES . 'table/form3.php');
-                    break;
-                case 'bois' :
-                    require_once(CHEMIN_VUES . 'table/form2.php');
-                    break;
-                default :
-                    require_once(CHEMIN_VUES . 'table/form1.php');
-            }
+            require_once(CHEMIN_VUES . 'table/formulaires/form_' . $_SESSION ['element'] . '.php');
             ?>
 
             </tbody>
@@ -236,7 +221,7 @@
 
     <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-    <table id=<?php echo $_SESSION ['choix'] ?>>
+    <table id=<?php echo $_SESSION ['element'] ?>>
         <thead>
         <tr>
             <td class="head">niv.1</td>
@@ -244,29 +229,14 @@
             <td class="head">niv.3</td>
             <td class="head">niv.4</td>
             <td class="head">niv.5</td>
-            <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+            <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
         </tr>
         </thead>
 
         <tbody>
 
         <?php
-        switch($_SESSION ['choix']) {
-            case 'feu' :
-                require_once(CHEMIN_VUES . 'table/res4.php');
-                break;
-            case 'eau' :
-                require_once(CHEMIN_VUES . 'table/res5.php');
-                break;
-            case 'foudre' :
-                require_once(CHEMIN_VUES . 'table/res3.php');
-                break;
-            case 'bois' :
-                require_once(CHEMIN_VUES . 'table/res2.php');
-                break;
-            default :
-                require_once(CHEMIN_VUES . 'table/res1.php');
-        }
+                require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION ['element'] . '.php');
         ?>
 
         </tbody>

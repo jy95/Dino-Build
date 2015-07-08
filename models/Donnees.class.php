@@ -37,7 +37,6 @@ class Donnees {
 
     public function insererNouveauDino($nom, $race, $user){
 
-        var_dump($this->estPasPresent($nom, $race, $user));
         if ($this->nombreInscrits($user) < 20 && !$this->estPasPresent($nom, $race, $user)){
         $query = $this->_db->prepare("INSERT INTO donnees_users(nom, race, user) VALUES(:nom , :race, :user)");
         $query->bindValue(':user', $user);
@@ -95,13 +94,19 @@ class Donnees {
         $query->execute();
 
         if($query->rowCount() == 1) {
-            $dino = array();
             while ($row = $query->fetch()){
-                $dino[] = new Dino($row->id, $row->user, $row->nom, $row->race, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
+                $dino = new Dino($row->id, $row->user, $row->nom, $row->race, explode(",",$row->eau), explode(",",$row->feu), explode(",",$row->air), explode(",",$row->bois), explode(",",$row->foudre));
             }
             return $dino;
         } else {
             return null;
         }
+    }
+
+    public function deleteDino($id){
+        $query = $this->_db->prepare("DELETE FROM `donnees_users` WHERE id = :id");
+        $query->bindValue(':id', $id);
+
+        return $query->execute();
     }
 }
