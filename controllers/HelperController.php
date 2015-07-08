@@ -4,6 +4,17 @@ class HelperController {
     }
     public function run() {
 
+        $footer = "<img src=\"views/images/Etapes/etape";
+        if (!empty($competencesdispo)){
+            $footer = $footer . "4.png\"";
+        } elseif (!empty($table)){
+            $footer = $footer . "3.png\"";
+        } elseif (!empty($race)) {
+            $footer = $footer . "2.png\"";
+        } else {
+            $footer = $footer . "1.png\"";
+        }
+        $footer = $footer . " alt=\"Etapes\" style=\"width:100%;height:100%;\"/>";
 
         $table = array (
             'feu',
@@ -90,7 +101,7 @@ class HelperController {
 
                     $conseil = Db::getInstance()->conseil($tableau, $_SESSION ['race'], $_SESSION ['choix']);
                     if ($conseil != false) {
-                        $competence = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
+                        $meilleurUp = Db::getInstance()->meilleurUp($_SESSION ['choix'], $conseil);
                     }
                 } else {
                     $error = true;
@@ -107,24 +118,10 @@ class HelperController {
 
                 $conseil = Db::getInstance ()->conseil ( $tableau, $_SESSION ['race'], $_SESSION ['choix'] );
                 if ($conseil != false) {
-                    $competence = Db::getInstance ()->meilleurUp ($_SESSION ['choix'], $conseil );
+                    $meilleurUp = Db::getInstance ()->meilleurUp ($_SESSION ['choix'], $conseil );
                 }
             }
         }
-
-        $footer = "<img src=\"views/images/Etapes/etape";
-
-        if (!empty($competencesdispo)){
-            $footer = $footer . "4.png\"";
-        } elseif (!empty($table)){
-            $footer = $footer . "3.png\"";
-        } elseif (!empty($race)) {
-            $footer = $footer . "2.png\"";
-        } else {
-            $footer = $footer . "1.png\"";
-        }
-
-        $footer = $footer . " alt=\"Etapes\" style=\"width:100%;height:100%;\"/>";
 
         require_once (CHEMIN_VUES . 'helper.php');
     }
@@ -144,6 +141,7 @@ class HelperController {
         }
         return true;
     }
+
 }
 
 ?>

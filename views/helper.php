@@ -274,8 +274,7 @@
     </table>
 
     <?php require_once(CHEMIN_VUES . 'table/message.php');?>
-
-    <?php if(!empty($competence)) { ?>
+    <?php if(!empty($meilleurUp)) { ?>
         <div class="result">
             <div class="message">
                 <div class="ui">
@@ -286,7 +285,7 @@
 
         <script>
             document.querySelector('.result .message button').onclick = function(){ swal("Up conseillé : " ,
-                "<?php echo $competence->nom(); ?>");};
+                "<?php echo $meilleurUp->nom(); ?>");};
         </script>
 
 
