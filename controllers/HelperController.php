@@ -59,8 +59,10 @@ class HelperController {
 
         if (!empty($element) && !empty($race)){
             $table = Db::getInstance ()->select_toutcompetences ( $_SESSION ['element'],  $_SESSION ['race']);
-            $funcname = "get" . ucfirst($_SESSION['element']);
-            $competences_Acquises = Donnees::getInstance()->getDinoUser($_SESSION ['dino'])->$funcname();
+            if (!empty($_SESSION ['dino'])) {
+                $funcname = "get" . ucfirst($_SESSION['element']);
+                $competences_Acquises = Donnees::getInstance()->getDinoUser($_SESSION ['dino'])->$funcname();
+            }
         } else {
             $table = "";
         }
