@@ -1,17 +1,6 @@
-<script type="text/javascript">
+<?php if (!empty($error)) { ?>
 
-    $( function() {
-
-        $('#cd-dropdown').dropdown( {
-            gutter : 5
-        } );
-
-        $('#id-dropdown').dropdown( {
-            gutter : 14
-        } );
-    });
-
-</script>
+<?php }  ?>
 
 <script type="text/javascript">
     function ouvrir(){
@@ -24,52 +13,180 @@
     }
 </script>
 
-<p>Bienvenue à l'outil de gestion des ups</p>
 
-<?php if (empty($table) && empty($competencesdispo)) { ?>
-
-    <p>Sélectionner la race de votre dino et l'élément du up</p>
-    <form action="/helper" method="post">
-        <br> <select name="race" id="id-dropdown" class="cd-select" >
-            <option value="-1" selected>Race de votre dino </option>
-            <option value="winks">Winks</option>
-            <option value="sirain">Sirain</option>
-            <option value="kabuki">Kabuki</option>
-            <option value="wanman">Wanwan</option>
-            <option value="moueffe">Moueffe</option>
-            <option value="castivore">Castivore</option>
-            <option value="feross">Feross</option>
-            <option value="nuagoz">Nuagoz</option>
-            <option value="planaille">Planaille</option>
-            <option value="pteroz">Pteroz</option>
-            <option value="toufufu">Toufufu</option>
-            <option value="gorilloz">Gorilloz</option>
-            <option value="rocky">Rocky</option>
-            <option value="quetzu">Quetzu</option>
-        </select> <select name="choix" id="cd-dropdown" class="cd-select">
-            <option value="-1" selected>Elément du up</option>
+<?php if (!empty($race) && empty($element)) { ?>
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
+        <select name="element">
             <option value="feu" class="icon-feu">Feu</option>
             <option value="eau" class="icon-eau">Eau</option>
             <option value="bois" class="icon-bois">Bois</option>
             <option value="air" class="icon-air">Air</option>
             <option value="foudre" class="icon-foudre">Foudre</option>
-        </select> <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
+        </select>
+        <input type="hidden"  name="race" value="<?php echo $race?>"/>
+        <input type="submit">
+    </form>
+<?php } ?>
+
+<?php if (empty($race) && empty($table) && empty($competencesdispo)) { ?>
+
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
+        <section class="pagedImages">
+            <input id="page1" accesskey="1" type="radio" name="pagedImages1" title="Images page 1" checked="checked" />
+            <input id="page2" accesskey="2" type="radio" name="pagedImages1" title="Images page 2" />
+            <input id="page3" accesskey="3" type="radio" name="pagedImages1" title="Images page 3" />
+            <input id="page4" accesskey="4" type="radio" name="pagedImages1" title="Images page 4" />
+            <label for="page1">1</label>
+            <label for="page2">2</label>
+            <label for="page3">3</label>
+            <label for="page4">4</label>
+
+            <ul>
+                <li id="image1">
+                    <label>
+                        <input type="radio" name="race" value="kabuki"/>
+                        <img src="views/images/Dinozs/Kabuki.png">
+                    </label>
+                </li>
+                <li id="image2">
+                    <label>
+                        <input type="radio" name="race" value="castivore"/>
+                        <img src="views/images/Dinozs/Castivore.png">
+                    </label>
+                </li>
+                <li id="image3">
+                    <label>
+                        <input type="radio" name="race" value="winks"/>
+                        <img src="views/images/Dinozs/Winks.png">
+                    </label>
+                </li>
+                <li id="image4">
+                    <label>
+                        <input type="radio" name="race" value="quetzu"/>
+                        <img src="views/images/Dinozs/Quetzu.png">
+                    </label>
+                </li>
+                <li id="image5">
+                    <label>
+                        <input type="radio" name="race" value="sirain"/>
+                        <img src="views/images/Dinozs/Sirain.png">
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li id="image6">
+                    <label>
+                        <input type="radio" name="race" value="moueffe"/>
+                        <img src="views/images/Dinozs/Moueffe.png">
+                    </label>
+                </li>
+                <li id="image7">
+                    <label>
+                        <input type="radio" name="race" value="pigmou"/>
+                        <img src="views/images/Dinozs/Pigmou.png">
+                    </label>
+                </li>
+                <li id="image8">
+                    <label>
+                        <input type="radio" name="race" value="santaz"/>
+                        <img src="views/images/Dinozs/Santaz.png">
+                    </label>
+                </li>
+                <li id="image9">
+                    <label>
+                        <input type="radio" name="race" value="wanwan"/>
+                        <img src="views/images/Dinozs/Wanwan.png">
+                    </label>
+                </li>
+                <li id="image10">
+                    <label>
+                        <input type="radio" name="race" value="feross"/>
+                        <img src="views/images/Dinozs/Feross.png">
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li id="image11">
+                    <label>
+                        <input type="radio" name="race" value="gorilloz"/>
+                        <img src="views/images/Dinozs/Gorilloz.png">
+                    </label>
+                </li>
+                <li id="image12">
+                    <label>
+                        <input type="radio" name="race" value="nuagoz"/>
+                        <img src="views/images/Dinozs/Nuagoz.png">
+                    </label>
+                </li>
+                <li id="image13">
+                    <label>
+                        <input type="radio" name="race" value="toufufu"/>
+                        <img src="views/images/Dinozs/Toufufu.png">
+                    </label>
+                </li>
+                <li id="image14">
+                    <label>
+                        <input type="radio" name="race" value="rocky"/>
+                        <img src="views/images/Dinozs/Rocky.png">
+                    </label>
+                </li>
+                <li id="image15">
+                    <label>
+                        <input type="radio" name="race" value="soufflet"/>
+                        <img src="views/images/Dinozs/Soufflet.png">
+                    </label>
+                </li>
+            </ul>
+
+            <ul>
+                <li id="image16">
+                    <label>
+                        <input type="radio" name="race" value="hippoclamp"/>
+                        <img src="views/images/Dinozs/Hippoclamp.png">
+                    </label>
+                </li>
+                <li id="image17">
+                    <label>
+                        <input type="radio" name="race" value="smog"/>
+                        <img src="views/images/Dinozs/Smog.png">
+                    </label>
+                </li>
+                <li id="image18">
+                    <label>
+                        <input type="radio" name="race" value="mahamuti"/>
+                        <img src="views/images/Dinozs/Mahamuti.png">
+                    </label>
+                </li>
+                <li id="image19">
+                    <label>
+                        <input type="radio" name="race" value="pteroz"/>
+                        <img src="views/images/Dinozs/Pteroz.png">
+                    </label>
+                </li>
+                <li id="image20">
+                    <label>
+                        <input type="radio" name="race" value="planaille"/>
+                        <img src="views/images/Dinozs/Planaille.png">
+                    </label>
+                </li>
+            </ul>
+
+        </section>
+        <DIV ALIGN=CENTER> <input type="submit" class="bouton" value="Valider"> </DIV>
     </form>
 
 <?php }?>
 
-<iframe name="compétence" id="fenêtre" scrolling="no" ></iframe>
+<iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
 
-<?php if (!empty($table)) {?>
-    <form action="/helper" method="post">
+<?php if (!empty($table)) { ?>
+    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
 
         <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-        <h3>Voici toutes les compétences disponibles en <?php echo $_POST['choix']?></h3>
-
-        <h2>Sélectionner vos compétences acquises</h2>
-
-        <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+        <table id=<?php echo $_SESSION ['element'] ?>>
             <thead>
             <tr>
                 <td class="head">niv.1</td>
@@ -77,39 +194,23 @@
                 <td class="head">niv.3</td>
                 <td class="head">niv.4</td>
                 <td class="head">niv.5</td>
-                <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+                <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
             </tr>
             </thead>
 
             <tbody>
 
             <?php
-            switch($_SESSION ['choix']) {
-                case 'feu' :
-                    require_once(CHEMIN_VUES . 'table/form4.php');
-                    break;
-                case 'eau' :
-                    require_once(CHEMIN_VUES . 'table/form5.php');
-                    break;
-                case 'foudre' :
-                    require_once(CHEMIN_VUES . 'table/form3.php');
-                    break;
-                case 'bois' :
-                    require_once(CHEMIN_VUES . 'table/form2.php');
-                    break;
-                default :
-                require_once(CHEMIN_VUES . 'table/form1.php');
-            }
+            require_once(CHEMIN_VUES . 'table/formulaires/form_' . $_SESSION ['element'] . '.php');
             ?>
 
             </tbody>
 
         </table>
 
-        <fieldset>
             <br> <DIV ALIGN=CENTER> <input type="submit" class="bouton" name="mieux"
                                            value="Obtenir les compétences disponibles"> </DIV> <br>
-        </fieldset>
+
     </form>
 
     <?php require_once(CHEMIN_VUES . 'table/message.php');?>
@@ -120,9 +221,7 @@
 
     <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
 
-    <h2>Voici les compétences disponibles avec vos compétences</h2>
-
-    <table border="1" id=<?php echo $_SESSION ['choix'] ?>>
+    <table id=<?php echo $_SESSION ['element'] ?>>
         <thead>
         <tr>
             <td class="head">niv.1</td>
@@ -130,29 +229,14 @@
             <td class="head">niv.3</td>
             <td class="head">niv.4</td>
             <td class="head">niv.5</td>
-            <?php if (!empty($_SESSION ['choix'])&& $_SESSION ['choix'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+            <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
         </tr>
         </thead>
 
         <tbody>
 
         <?php
-        switch($_SESSION ['choix']) {
-            case 'feu' :
-                require_once(CHEMIN_VUES . 'table/res4.php');
-                break;
-            case 'eau' :
-                require_once(CHEMIN_VUES . 'table/res5.php');
-                break;
-            case 'foudre' :
-                require_once(CHEMIN_VUES . 'table/res3.php');
-                break;
-            case 'bois' :
-                require_once(CHEMIN_VUES . 'table/res2.php');
-                break;
-            default :
-                require_once(CHEMIN_VUES . 'table/res1.php');
-        }
+                require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION ['element'] . '.php');
         ?>
 
         </tbody>
@@ -160,8 +244,7 @@
     </table>
 
     <?php require_once(CHEMIN_VUES . 'table/message.php');?>
-
-    <?php if(!empty($competence)) { ?>
+    <?php if(!empty($meilleurUp)) { ?>
         <div class="result">
             <div class="message">
                 <div class="ui">
@@ -171,8 +254,8 @@
         </div>
 
         <script>
-            document.querySelector('.result .message button').onclick = function(){ swal("Selon le plan UP encodé , le meilleur UP à choisir pour l'élément <?php echo $_SESSION['choix'];?> pour un dino de race <?php echo $_SESSION['race'];?> est :" ,
-                "<?php echo $competence->nom(); ?>");};
+            document.querySelector('.result .message button').onclick = function(){ swal("Up conseillé : " ,
+                "<?php echo $meilleurUp->nom(); ?>");};
         </script>
 
 
@@ -192,3 +275,7 @@
 
 
 <?php } ?>
+
+<div id="Bas">
+    <?php echo $footer ?>
+</div>

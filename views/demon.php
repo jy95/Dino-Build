@@ -19,7 +19,7 @@
             </br>/!\ Les données tapées ne se réinitialisent pas avec le rafraichissement de la page, pensez donc à regarder avant d'entrer vos données si toutes les cases sont vides /!\
         </p>
 <p>Nombre de tickets démon : <?php echo $total ?></p>
-        <form method="post" name="td[]" action="/demon">
+        <form method="post" name="td[]" action="<?php echo PATH_ABSOLUTE . "/demon" ?>">
             <div class="bunton_demons" id="bunton_demons">Gain des sacrifices de Dinoz</div>
             <div class="info_demons" style ="padding-top:15px;">
                 <table id="table_infos_questions" style="margin-left:150px;margin-bottom:15px;">

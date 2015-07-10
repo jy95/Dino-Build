@@ -62,31 +62,25 @@ class Db {
         $tableau = array();
         if ($result->rowCount() == 0){
             return $tableau;
-        } else {
-            while($row = $result->fetch()) {
+        } else {            while($row = $result->fetch()) {
                 $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
             }
             return $tableau;
         }
     }
 
-    public function select_numcompetencesdispo($choix, $table) {
-        if(!empty($table)) {
-            $query = "SELECT num   FROM " . $choix . "  WHERE idparent IN (".implode(',',$table).") AND num NOT IN (".implode(',',$table).") OR (niv = 1 AND num NOT IN (".implode(',',$table)."))";
-        } else {
-            $query = "SELECT num   FROM " . $choix . "  WHERE niv = 1";
-        }
-        $tableau = array();
+    public function select_competences($table, $element){
+        $query = "SELECT * FROM " . $element ." WHERE num IN (".implode(',',$table).") ORDER BY num";
         $result = $this->_db->query($query);
-
+        $tableau = array();
         if ($result->rowCount() == 0){
             return $tableau;
         } else {
-            while ($row = $result->fetch()) {
-                $tableau[] = $row->num;
+            while($row = $result->fetch()) {
+                $tableau[] = new Competence($row->num, null, null, null, null, null, $row->idparent);
             }
+            return $tableau;
         }
-        return $tableau;
     }
 
     public function conseil($tableau,$dino,$element) {
@@ -120,6 +114,18 @@ class Db {
     }
 
     public function select_competence($element, $num){
+        $array = array(
+            'feu',
+            'eau',
+            'foudre',
+            'air',
+            'double',
+            'bois'
+        );
+        if (!in_array($element, $array)){
+            return null;
+        }
+
         $query = "SELECT * FROM `" . $element . "` WHERE num = " . $this->_db->quote($num) . "";
         $result  = $this->_db->query($query);
         if ($result->rowCount() == 1){
@@ -237,7 +243,7 @@ class Db {
                         default :
                             return array();
                     }
-                case "wanman" :
+                case "wanwan" :
                     switch($element) {
                         case "eau" :
                             return array(3,8,19,9,21);
@@ -285,15 +291,15 @@ class Db {
                 case "soufflet" :
                     switch($element) {
                         case "eau" :
-                            return array();
+                            return array(3,1,8,5,19,14,13,9,21,22);
                         case "feu" :
                             return array();
                         case "bois" :
-                            return array();
+                            return array(3,9,20,21,2,7);
                         case "air" :
-                            return array();
+                            return array(1,2,3,4,6,9,14,21,20,11,22,27);
                         case "foudre":
-                            return array();
+                            return array(3,8,9,20,21);
                         default :
                             return array();
                     }
@@ -357,19 +363,78 @@ class Db {
                         default :
                             return array();
                     }
-                //REPRENDRE ICI
                 case "quetzu" :
                     switch($element) {
                         case "eau" :
                             return array(1,2,3,8,9,5,4,6,19,21,22,13,11,12,14,16,24,29);
                         case "feu" :
-                            return array();
+                            return array(3,2,1,10,9,8,5,4,12,13,22,23,21,20,30,28,29,31);
                         case "bois" :
                             return array(2,7);
                         case "air" :
                             return array();
                         case "foudre":
                             return array(3,8,18);
+                        default :
+                            return array();
+                    }
+                case 'hippoclamp':
+                    switch($element){
+                        case "eau" :
+                            return array(3,2,9,8,19,21,22);
+                        case "feu" :
+                            return array(3,10,24,23,30,31);
+                        case "bois" :
+                            return array(1,2,3,5,7,9,20,12);
+                        case "air" :
+                            return array(1,4,10,11,22);
+                        case "foudre":
+                            return array(3,2,8,9,6,20,21,15,19);
+                        default :
+                            return array();
+                    }
+                case "mahamuti":
+                    switch($element){
+                        case "eau" :
+                            return array(3,1,8,9,5,4,21,22,13,19,11,12,29,24);
+                        case "feu" :
+                            return array(3,10);
+                        case "bois" :
+                            return array(2,1,3,4,5,7,8,9,11,12,13,16,18,20,21,22,25,28);
+                        case "air" :
+                            return array(3,9,21);
+                        case "foudre":
+                            return array(3,8,20);
+                        default :
+                            return array();
+                    }
+                case "santaz":
+                    switch($element){
+                        case "eau" :
+                            return array(3,8,19,9,21,22);
+                        case "feu" :
+                            return array(3,10,24,9,21);
+                        case "bois" :
+                            return array(1,3,5,9,20,12,13);
+                        case "air" :
+                            return array(2,1,3,4,6,5,7,9,11,20,21,17,14,16,27,24,22);
+                        case "foudre":
+                            return array(3,8,9,21,20);
+                        default :
+                            return array();
+                    }
+                case "smog":
+                    switch($element){
+                        case "eau" :
+                            return array(3,1,5,8,9,19,14,21,22,13);
+                        case "feu" :
+                            return array(3,10,24);
+                        case "bois" :
+                            return array();
+                        case "air" :
+                            return array(2,1,3,4,6,9,14,21,20,10,11,22);
+                        case "foudre":
+                            return array(3,1,2,4,6,8,9,21,20,19,18,15,10,22,28);
                         default :
                             return array();
                     }

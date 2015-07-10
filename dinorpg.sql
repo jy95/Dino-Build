@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 21 Juin 2015 à 13:37
+-- Généré le :  Dim 05 Juillet 2015 à 14:30
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `air` (
   `num` int(11) NOT NULL,
   `niv` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `type` char(1) NOT NULL,
+  `type` enum('A','C','E','P','S','U') NOT NULL,
   `description` varchar(255) NOT NULL,
   `energie` varchar(15) NOT NULL,
   `idparent` int(11) NOT NULL
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `bois` (
   `num` int(11) NOT NULL,
   `niv` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `type` char(1) NOT NULL,
+  `type` enum('A','C','E','P','S','U') NOT NULL,
   `description` varchar(255) NOT NULL,
   `energie` varchar(15) NOT NULL,
   `idparent` int(11) NOT NULL
@@ -124,12 +124,33 @@ INSERT INTO `bois` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpa
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `donnees_users`
+--
+
+CREATE TABLE IF NOT EXISTS `donnees_users` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `race` varchar(20) NOT NULL,
+  `eau` varchar(255) DEFAULT NULL,
+  `feu` varchar(255) DEFAULT NULL,
+  `air` varchar(255) DEFAULT NULL,
+  `foudre` varchar(255) DEFAULT NULL,
+  `bois` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements';
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `double`
 --
 
 CREATE TABLE IF NOT EXISTS `double` (
   `id` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
+  `type` enum('A','C','E','P','S','U') NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `energie` varchar(15) NOT NULL,
   `parent_eau` int(11) NOT NULL,
   `parent_feu` int(11) NOT NULL,
   `parent_foudre` int(11) NOT NULL,
@@ -141,17 +162,17 @@ CREATE TABLE IF NOT EXISTS `double` (
 -- Contenu de la table `double`
 --
 
-INSERT INTO `double` (`id`, `nom`, `parent_eau`, `parent_feu`, `parent_foudre`, `parent_air`, `parent_bois`) VALUES
-(0, 'Electrolyse ', 0, 0, 0, 0, 0),
-(1, 'Maître Elémentaire ', 0, 0, 0, 0, 0),
-(3, 'Surcharge', 0, 0, 0, 0, 0),
-(4, 'Secousse', 0, 0, 0, 0, 0),
-(5, 'Choc', 0, 0, 0, 0, 0),
-(6, 'Armure de basalte ', 0, 0, 0, 0, 0),
-(7, 'Sprint', 0, 0, 0, 0, 0),
-(8, 'Infatiguable', 0, 0, 0, 0, 0),
-(9, 'Vendetta', 0, 0, 0, 0, 0),
-(10, 'Bulle', 0, 0, 0, 0, 0);
+INSERT INTO `double` (`id`, `nom`, `type`, `description`, `energie`, `parent_eau`, `parent_feu`, `parent_foudre`, `parent_air`, `parent_bois`) VALUES
+(0, 'Electrolyse ', 'P', 'Augmente de 5% la vitesse de tous les dinoz du groupe.', '-', 18, 0, 18, 0, 0),
+(1, 'Maître Elémentaire ', 'P', 'Augmente de 2 les éléments Eau et Feu.', '-', 11, 20, 0, 0, 0),
+(3, 'Surcharge', 'P', ' 	Augmente les chances de multicoups de 15%.', '-', 0, 0, 15, 10, 0),
+(4, 'Secousse', 'A', 'Attaque au sol avec un pouvoir de Bois + Air 4.', '-', 0, 0, 0, 19, 21),
+(5, 'Choc', 'P', ' 	Ajoute la valeur de l''élément Foudre aux assauts de Bois et la valeur de l''élément Bois aux assauts de Foudre.', '-', 0, 0, 11, 0, 12),
+(6, 'Armure de basalte ', 'P', 'Augmente l''armure du Dinoz de 3.', '-', 0, 13, 0, 0, 16),
+(7, 'Sprint', 'P', 'Augmente l''initiative de 6.', '-', 0, 16, 10, 0, 0),
+(8, 'Infatiguable', 'P', 'Augmente de 2 toutes les défenses.', '-', 21, 0, 0, 0, 19),
+(9, 'Vendetta', 'P', 'Augmente 20% les chances de contre-attaque.', '-', 0, 22, 0, 15, 0),
+(10, 'Bulle', 'P', 'Protège de façon permanente contre les dégâts des pouvoirs élémentaires qui ne font pas de dégâts de bois selon un certain poucentage .', '-', 14, 0, 0, 21, 0);
 
 -- --------------------------------------------------------
 
@@ -163,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `eau` (
   `num` int(11) NOT NULL,
   `niv` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `type` char(1) NOT NULL,
+  `type` enum('A','C','E','P','S','U') CHARACTER SET utf8 NOT NULL,
   `description` varchar(255) NOT NULL,
   `energie` varchar(15) NOT NULL,
   `idparent` int(11) NOT NULL,
@@ -216,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `feu` (
   `num` int(11) NOT NULL,
   `niv` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `type` char(1) NOT NULL,
+  `type` enum('A','C','E','P','S','U') CHARACTER SET utf8 NOT NULL,
   `description` varchar(255) NOT NULL,
   `energie` varchar(15) NOT NULL,
   `idparent` int(11) NOT NULL,
@@ -270,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `foudre` (
   `num` int(11) NOT NULL,
   `niv` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL,
-  `type` char(1) NOT NULL,
+  `type` enum('A','C','E','P','S','U') CHARACTER SET utf8 NOT NULL,
   `description` varchar(255) NOT NULL,
   `energie` varchar(15) NOT NULL,
   `idparent` int(11) NOT NULL
@@ -329,6 +350,19 @@ ALTER TABLE `bois`
   ADD PRIMARY KEY (`num`,`niv`);
 
 --
+-- Index pour la table `donnees_users`
+--
+ALTER TABLE `donnees_users`
+  ADD PRIMARY KEY (`id`,`user`),
+  ADD KEY `user` (`user`);
+
+--
+-- Index pour la table `double`
+--
+ALTER TABLE `double`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `eau`
 --
 ALTER TABLE `eau`
@@ -346,6 +380,15 @@ ALTER TABLE `feu`
 ALTER TABLE `foudre`
   ADD PRIMARY KEY (`num`,`niv`);
 
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `donnees_users`
+--
+ALTER TABLE `donnees_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

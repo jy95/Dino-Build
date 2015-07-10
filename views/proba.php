@@ -5,23 +5,8 @@
     <br>
 <?php } ?>
 
-<?php if (!empty($probaAvantPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaAvantPDC; ?>
-    </DIV>
-    <br>
-<?php } ?>
-
-<?php if (!empty($probaApresPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaApresPDC; ?>
-    </DIV>
-    <br>
-<?php } ?>
-
-
 <DIV ALIGN="CENTER">
-    <form action="/probabilite" method="post">
+    <form action="<?php echo PATH_ABSOLUTE . "/probabilite" ?>" method="post">
         <table>
             <tr>
                 <th>
@@ -102,7 +87,7 @@
                         <option value="winks" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'winks') echo "selected"?>>Winks</option>
                         <option value="sirain" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'sirain') echo "selected"?>>Sirain</option>
                         <option value="kabuki" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'kabuki') echo "selected"?>>Kabuki</option>
-                        <option value="wanman" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'wanman') echo "selected"?>>Wanman</option>
+                        <option value="wanwan" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'wanwan') echo "selected"?>>Wanwan</option>
                         <option value="pigmou" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'pigmou') echo "selected"?>>Pigmou</option>
                         <option value="moueffe" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'moueffe') echo "selected"?>>Moueffe</option>
                         <option value="castivore" <?php if (!empty($_POST['dino']) && $_POST['dino'] == 'castivore') echo "selected"?>>Castivore</option>
@@ -127,6 +112,7 @@
                     Plan de carrière (version multi-élément) :<br>
                 </td>
                 <td>
+                    <br>
                     <input type="checkbox" name="PDC[2]" value="1" <?php if (!empty($_POST['PDC'][2])) echo "checked"?> >Eau <br>
                     <input type="checkbox" name="PDC[0]" value="1" <?php if (!empty($_POST['PDC'][0])) echo "checked"?> >Feu <br>
                     <input type="checkbox" name="PDC[3]" value="1" <?php if (!empty($_POST['PDC'][3])) echo "checked"?> >Foudre <br>
@@ -139,3 +125,20 @@
         <input type="submit" class="bouton" value="Calculer la probabilité d'avoir les ups voulus">
     </form>
 </DIV>
+
+<br>
+<br>
+
+<?php if (!empty($probaAvantPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaAvantPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>
+
+<?php if (!empty($probaApresPDC)) { ?>
+    <DIV ALIGN="CENTER" style="background-color: gray;">
+        <?php echo $probaApresPDC; ?>
+    </DIV>
+    <br>
+<?php } ?>

@@ -177,7 +177,7 @@ class ProbaController
                     0.3,
                     0.1
                 );
-            case 'wanman':
+            case 'wanwan':
                 return array(
                     0.15,
                     0.3,
