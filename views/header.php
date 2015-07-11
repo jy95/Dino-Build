@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dino-Build</title>
     <link rel="stylesheet" type="text/css" media="all" href="views/css/DinoBuildV2.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="views/css/Tables.css"/>

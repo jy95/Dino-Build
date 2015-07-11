@@ -1,7 +1,7 @@
 <tr>
     <td rowspan="4">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Canon à eau') { ?>
+            <?php if ( $competence->num() == 1) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Canon à eau</a>
                 <?php break; } ?>
@@ -9,7 +9,7 @@
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Gel') { ?>
+            <?php if ( $competence->num() == 4) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Gel</a>
                 <?php break; } ?>
@@ -17,7 +17,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Zéro absolu') { ?>
+            <?php if ( $competence->num() == 11) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Zéro Absolu</a>
                 <?php break; } ?>
@@ -27,7 +27,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Pétrification') { ?>
+            <?php if ( $competence->num() == 12) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Pétrification</a>
                 <?php break; } ?>
@@ -35,7 +35,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Rayon Kaar-Sher') { ?>
+            <?php if ( $competence->num() == 24) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Rayon Kaar-Sher</a>
                 <?php break; } ?>
@@ -45,7 +45,7 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Douche Ecossaise') { ?>
+            <?php if ( $competence->num() == 5) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Douche Ecossaise</a>
                 <?php break; } ?>
@@ -53,7 +53,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Accuponcture') { ?>
+            <?php if ( $competence->num() == 13) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Accuponcture</a>
                 <?php break; } ?>
@@ -63,7 +63,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sapeur') { ?>
+            <?php if ( $competence->num() == 14) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sapeur</a>
                 <?php break; } ?>
@@ -71,7 +71,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Magasinier') { ?>
+            <?php if ( $competence->num() == 25) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Magasinier</a>
                 <?php break; } ?>
@@ -81,7 +81,7 @@
 <tr>
     <td rowspan="4">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Perception') { ?>
+            <?php if ( $competence->num() == 2) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Perception</a>
                 <?php break; } ?>
@@ -89,7 +89,7 @@
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Coups sournois') { ?>
+            <?php if ( $competence->num() == 6) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Coups Sournois</a>
                 <?php break; } ?>
@@ -97,7 +97,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Coup Fatal') { ?>
+            <?php if ( $competence->num() == 15) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Coup Fatal</a>
                 <?php break; } ?>
@@ -107,7 +107,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Entrainement S-M') { ?>
+            <?php if ( $competence->num() == 16) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Entraînement</br>sous-marin</a>
                 <?php break; } ?>
@@ -115,7 +115,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'EntrainementSMavancé') { ?>
+            <?php if ( $competence->num() == 26) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Entraînement</br>Sous-Marin Avancé</a>
                 <?php break; } ?>
@@ -123,7 +123,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Maitre nageur') { ?>
+            <?php if ( $competence->num() == 30) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Maître Nageur</a>
                 <?php break; } ?>
@@ -133,7 +133,7 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Apprenti pecheur') { ?>
+            <?php if ( $competence->num() == 7) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Apprenti Pêcheur</a>
                 <?php break; } ?>
@@ -141,7 +141,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Pecheur confirmé') { ?>
+            <?php if ( $competence->num() == 17) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Pêcheur Confirmé</a>
                 <?php break; } ?>
@@ -149,7 +149,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Maitre pêcheur') { ?>
+            <?php if ( $competence->num() == 27) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Maître Pêcheur</a>
                 <?php break; } ?>
@@ -159,7 +159,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Marécage') { ?>
+            <?php if ( $competence->num() == 18) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Marecage</a>
                 <?php break; } ?>
@@ -169,7 +169,7 @@
 <tr>
     <td rowspan="5">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Mutation') { ?>
+            <?php if ( $competence->num() == 3) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Mutation</a>
                 <?php break; } ?>
@@ -177,7 +177,7 @@
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Poche Ventrale') { ?>
+            <?php if ( $competence->num() == 8) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Poche Ventrale</a>
                 <?php break; } ?>
@@ -185,7 +185,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sumo') { ?>
+            <?php if ( $competence->num() == 19) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sumo</a>
                 <?php break; } ?>
@@ -193,7 +193,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Cuisinier') { ?>
+            <?php if ( $competence->num() == 28) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Cuisinier</a>
                 <?php break; } ?>
@@ -203,7 +203,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sans pitié') { ?>
+            <?php if ( $competence->num() == 20) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sans-Pitié</a>
                 <?php break; } ?>
@@ -213,7 +213,7 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Karaté Sous-Marin') { ?>
+            <?php if ( $competence->num() == 9) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Karaté sous-marin</a>
                 <?php break; } ?>
@@ -221,7 +221,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Clone Aqueux') { ?>
+            <?php if ( $competence->num() == 21) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Clone Aqueux</a>
                 <?php break; } ?>
@@ -231,7 +231,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Griffes Empoissonées') { ?>
+            <?php if ( $competence->num() == 22) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Griffes empoisonnées</a>
                 <?php break; } ?>
@@ -239,7 +239,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sang Acide') { ?>
+            <?php if ( $competence->num() == 29) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sang-Acide</a>
                 <?php break; } ?>
@@ -249,7 +249,7 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Ecailles luminescent') { ?>
+            <?php if ( $competence->num() == 10) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Ecailles luminescentes</a>
                 <?php break; } ?>
@@ -257,7 +257,7 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Peau de Serpent') { ?>
+            <?php if ( $competence->num() == 23) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/eau/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Peau de serpent</a>
                 <?php break; } ?>

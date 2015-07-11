@@ -1,7 +1,7 @@
 <tr>
     <td rowspan="4">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Carapace') { ?>
+            <?php if ( $competence->num() == 1) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Carapace</a>
                 <?php break; } ?>
@@ -9,7 +9,7 @@
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sympathique') { ?>
+            <?php if ( $competence->num() == 4) { ?>
                 
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sympathique</a>
                 <?php break; } ?>
@@ -17,8 +17,8 @@
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Planificateur') { ?>
-                
+            <?php if ( $competence->num() == 10) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Planificateur</a>
                 <?php break; } ?>
         <?php } ?>
@@ -27,16 +27,16 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Héritage Faroe') { ?>
-                
+            <?php if ( $competence->num() == 11) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Héritage Faroe</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Esprit Gorilloz') { ?>
-                
+            <?php if ( $competence->num() == 22) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Esprit Gorilloz</a>
                 <?php break; } ?>
         <?php } ?>
@@ -45,16 +45,16 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Vignes') { ?>
-                
+            <?php if ( $competence->num() == 5) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Vignes</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Etat Primal') { ?>
-                
+            <?php if ( $competence->num() == 12) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Etat Primal</a>
                 <?php break; } ?>
         <?php } ?>
@@ -63,16 +63,16 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Printemps Précoce') { ?>
-                
+            <?php if ( $competence->num() == 13) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Printemps Précoce</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Garde Forestier') { ?>
-                
+            <?php if ( $competence->num() == 23) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Garde Forestier</a>
                 <?php break; } ?>
         <?php } ?>
@@ -81,32 +81,32 @@
 <tr>
     <td rowspan="4">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Endurance') { ?>
-                
+            <?php if ( $competence->num() == 2) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Endurance</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Fouille') { ?>
-                
+            <?php if ( $competence->num() == 6) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Fouille</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Détective') { ?>
-                
+            <?php if ( $competence->num() == 14) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Détective</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Archéologue') { ?>
-                
+            <?php if ( $competence->num() == 24) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Archéologue</a>
                 <?php break; } ?>
         <?php } ?>
@@ -115,8 +115,8 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Expert en Fouilles') { ?>
-                
+            <?php if ( $competence->num() == 15) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Expert en Fouilles</a>
                 <?php break; } ?>
         <?php } ?>
@@ -125,32 +125,32 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Croissance') { ?>
-                
+            <?php if ( $competence->num() == 7) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Croissance</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Cocon') { ?>
-                
+            <?php if ( $competence->num() == 16) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Cocon</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Géant') { ?>
-                
+            <?php if ( $competence->num() == 25) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Géant</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Colosse') { ?>
-                
+            <?php if ( $competence->num() == 28) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Colosse</a>
                 <?php break; } ?>
         <?php } ?>
@@ -159,8 +159,8 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Large Machoire') { ?>
-                
+            <?php if ( $competence->num() == 17) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Large Machoire</a>
                 <?php break; } ?>
         <?php } ?>
@@ -169,32 +169,32 @@
 <tr>
     <td rowspan="4">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Sauvagerie') { ?>
-                
+            <?php if ( $competence->num() == 3) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Sauvagerie</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Tenacité') { ?>
-                
+            <?php if ( $competence->num() == 8) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Ténacité</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Charisme') { ?>
-                
+            <?php if ( $competence->num() == 18) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Charisme</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Leader') { ?>
-                
+            <?php if ( $competence->num() == 26) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Leader</a>
                 <?php break; } ?>
         <?php } ?>
@@ -203,8 +203,8 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Résistance à la Magi') { ?>
-                
+            <?php if ( $competence->num() == 19) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Résistance à la</br>Magie</a>
                 <?php break; } ?>
         <?php } ?>
@@ -213,16 +213,16 @@
 <tr>
     <td rowspan="2">
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Renforts korgons') { ?>
-                
+            <?php if ( $competence->num() == 9) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Renforts Korgon</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Acrobate') { ?>
-                
+            <?php if ( $competence->num() == 20) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Acrobate</a>
                 <?php break; } ?>
         <?php } ?>
@@ -231,16 +231,16 @@
 <tr>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Instinct Sauvage') { ?>
-                
+            <?php if ( $competence->num() == 21) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Instinct Sauvage</a>
                 <?php break; } ?>
         <?php } ?>
     </td>
     <td>
         <?php foreach($competencesdispo as $i => $competence) {?>
-            <?php if ( $competence->nom() == 'Ingénieur') { ?>
-                
+            <?php if ( $competence->num() == 27) { ?>
+                <input type="checkbox" name="competences[]" value="<?php echo $competence->num();?>">
                 <a href="<?php echo PATH_ABSOLUTE . "/info/bois/" .$competence->num(); ?>" target="compétence" onclick='ouvrir();'>Ingénieur</a>
                 <?php break; } ?>
         <?php } ?>

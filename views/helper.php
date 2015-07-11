@@ -184,7 +184,9 @@
 <?php if (!empty($table)) { ?>
     <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
 
-        <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+        <?php
+        require_once(CHEMIN_VUES . 'table/styletable.php');
+        ?>
 
         <table id=<?php echo $_SESSION ['element'] ?>>
             <thead>
@@ -236,7 +238,7 @@
         <tbody>
 
         <?php
-                require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION ['element'] . '.php');
+                require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION['element'] . '.php');
         ?>
 
         </tbody>

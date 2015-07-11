@@ -1,5 +1,5 @@
 
-<?php if (!empty($_SESSION['choix'])) {?>
+<?php if (!empty($_SESSION['element'])) {?>
 
     <style type="text/css">
 
