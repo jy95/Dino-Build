@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dino-Build</title>
     <link rel="stylesheet" type="text/css" media="all" href="views/css/DinoBuildV2.css"/>

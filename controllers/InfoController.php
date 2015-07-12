@@ -18,7 +18,6 @@ class InfoController
             $element = "feu";
         }
 
-
         require_once(CHEMIN_VUES . 'table/info.php');
 
     }
