@@ -31,6 +31,7 @@
 <?php if (empty($race) && empty($table) && empty($competencesdispo)) { ?>
 
     <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post">
+
         <section class="pagedImages">
             <input id="page1" accesskey="1" type="radio" name="pagedImages1" title="Images page 1" checked="checked" />
             <input id="page2" accesskey="2" type="radio" name="pagedImages1" title="Images page 2" />

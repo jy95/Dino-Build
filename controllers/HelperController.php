@@ -125,7 +125,7 @@ class HelperController {
         } else {
             $footer = $footer . "1.png\"";
         }
-        $footer = $footer . " alt=\"Etapes\" style=\"width:100%;height:100%;\"/>";
+        $footer = $footer . " alt=\"Etapes\" class=\"img-responsive\"/>";
 
         require_once (CHEMIN_VUES . 'helper.php');
     }

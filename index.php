@@ -64,13 +64,12 @@ switch ($action) {
             require_once('controllers/GestionController.php');
             $controller = new GestionController ();
             $controller->run();
-            require_once(CHEMIN_VUES . 'footer.php');
             break;
         }
 
     default :
-        require_once ('controllers/HelperController.php');
-        $controller = new HelperController ();
+        require_once('controllers/GestionController.php');
+        $controller = new GestionController ();
         break;
 }
 
