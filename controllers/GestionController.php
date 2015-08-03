@@ -9,7 +9,6 @@ class GestionController
 
     public function run()
     {
-
         if (!empty($_POST['nouveauDino']) && !empty($_POST['race'])){
             Donnees::getInstance()->insererNouveauDino($_POST['nouveauDino'], $_POST['race'], $_SESSION['id']);
         }

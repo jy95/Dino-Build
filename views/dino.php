@@ -12,6 +12,49 @@
 
 <p>Voici les compétences du dino <?php echo $dino->getNom(); ?>, de race <?php echo $dino->getRace(); ?> de l'user <?php echo $dino->getUser();?></p>
 
+<table class="table">
+    <thead>
+    <th colspan="2">
+        Dino-Build
+    </th>
+    </thead>
+    <tbody>
+    <tr>
+        <td rowspan="6">
+            <img class="img-responsive" src="<?php echo "../views/images/Dinozs/" . ucfirst($dino->getRace()) . ".png"?>" alt="dino">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Compétences en eau</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Compétences en feu</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Compétences en foudre</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Compétences en air</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h1>Compétences en bois</h1>
+        </td>
+    </tr>
+
+
+    </tbody>
+
+</table>
+
 <?php foreach ($elements as $element) { ?>
     <?php $_SESSION['element'] = $element;?>
     <?php require(CHEMIN_VUES . 'table/styletable.php'); ?>
