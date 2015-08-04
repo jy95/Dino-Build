@@ -12,6 +12,7 @@
 
 <p>Voici les compétences du dino <?php echo $dino->getNom(); ?>, de race <?php echo $dino->getRace(); ?> de l'user <?php echo $dino->getUser();?></p>
 
+<div class="table-responsive">
 <table class="table">
     <thead>
     <th colspan="2">
@@ -24,36 +25,18 @@
             <img class="img-responsive" src="<?php echo "../views/images/Dinozs/" . ucfirst($dino->getRace()) . ".png"?>" alt="dino">
         </td>
     </tr>
+    <?php foreach ($elements as $element) { ?>
     <tr>
         <td>
-            <h1>Compétences en eau</h1>
+            <img class="img-responsive" src="<?php echo "../views/images/competences/" . $element . ".jpg"?>" alt="<?php $element ?>">
         </td>
     </tr>
-    <tr>
-        <td>
-            <h1>Compétences en feu</h1>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h1>Compétences en foudre</h1>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h1>Compétences en air</h1>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h1>Compétences en bois</h1>
-        </td>
-    </tr>
-
+    <?php } ?>
 
     </tbody>
 
 </table>
+</div>
 
 <?php foreach ($elements as $element) { ?>
     <?php $_SESSION['element'] = $element;?>
@@ -63,27 +46,29 @@
         $competencesdispo[] = new Competence($numero, null, null, null, null, null, null, null);
     } ?>
 
-    <table id=<?php echo $element ?>>
-        <thead>
-        <tr>
-            <td class="head">niv.1</td>
-            <td class="head">niv.2</td>
-            <td class="head">niv.3</td>
-            <td class="head">niv.4</td>
-            <td class="head">niv.5</td>
-            <?php if (!empty($element)&& $element == 'air') echo '<td class="head">niv.6</td>'; ?>
-        </tr>
-        </thead>
+    <div class="table-responsive">
+        <table id="<?php echo $element ?>" class="table">
+            <thead>
+            <tr>
+                <td class="head">niv.1</td>
+                <td class="head">niv.2</td>
+                <td class="head">niv.3</td>
+                <td class="head">niv.4</td>
+                <td class="head">niv.5</td>
+                <?php if (!empty($element)&& $element == 'air') echo '<td class="head">niv.6</td>'; ?>
+            </tr>
+            </thead>
 
-        <tbody>
+            <tbody>
 
-        <?php
-        require_once(CHEMIN_VUES . 'table/resultat/res_' . $element . '.php');
-        ?>
+            <?php
+            require_once(CHEMIN_VUES . 'table/resultat/res_' . $element . '.php');
+            ?>
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 
     <?php $competencesdispo = null ?>
     <?php $_SESSION['element'] = null?>
