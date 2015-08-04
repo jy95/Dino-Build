@@ -13,7 +13,7 @@ iframe#fenêtre {
 table {
     border-spacing: 1px;
     padding-top: 20%;
-    margin-left: 10%;
+    margin-left: 0%;
     width: 60%;
     background-color: transparent;
 }
@@ -42,7 +42,6 @@ table td:not(.head)
     vertical-align: middle;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
-    font-size: 38%;
     color:#82492b;
     padding: 0.5%;
     /*text-shadow: #ebc289 1px 0px 3px, #ebc289 1px 1px 3px, #ebc289 1px -1px 3px, #ebc289 -1px 1px 3px, #ebc289 -1px 0px 3px, #ebc289 -1px -1px 3px, #ebc289 0px 1px 3px, #ebc289 0px -1px 3px;*/

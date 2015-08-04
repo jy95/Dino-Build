@@ -67,9 +67,17 @@ switch ($action) {
             break;
         }
 
+    case 'deconnexion':
+        if (!empty($_SESSION['id'])) {
+            $_SESSION = array();
+            require_once ('controllers/HelperController.php');
+            $controller = new HelperController ();
+            break;
+        }
+
     default :
-        require_once('controllers/GestionController.php');
-        $controller = new GestionController ();
+        require_once('controllers/HelperController.php');
+        $controller = new HelperController ();
         break;
 }
 

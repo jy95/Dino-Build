@@ -2,19 +2,19 @@
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 100;
-    src: local('Raleway Thin'), local('Raleway-Thin'), url(http://fonts.gstatic.com/s/raleway/v9/RJMlAoFXXQEzZoMSUteGWFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/RJMlAoFXXQEzZoMSUteGWD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+    src: local('Raleway Thin'), local('Raleway-Thin'), url(fonts/Raleway-Thin.woff2) format('woff2'), url(fonts/Raleway-Thin.woff) format('woff');
 }
 @font-face {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 200;
-    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(http://fonts.gstatic.com/s/raleway/v9/8KhZd3VQBtXTAznvKjw-k_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/8KhZd3VQBtXTAznvKjw-kxsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(fonts/Raleway-ExtraLight.woff2) format('woff2'), url(fonts/Raleway-ExtraLight.woff) format('woff');
 }
 @font-face {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 300;
-    src: local('Raleway Light'), local('Raleway-Light'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FArifk_vArhqVIZ0nv9q090hN8.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FAriRsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+    src: local('Raleway Light'), local('Raleway-Light'), url(fonts/Raleway-Light.woff2) format('woff2'), url(fonts/Raleway-Light.woff) format('woff');
 }
 
 /* HIDDEN RADIO */
@@ -45,127 +45,45 @@ a {
 
 body {
     font-size:39px;
-    background: #eb811a url(../images/Background.png) top center;
+    background: #eb811a url(../images/Background.png);
     background-size: 100%;
     background-repeat: no-repeat;
 }
+
 
 .Bas {
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
 
-.Choix1, .Choix2, .Choix3 {
-    font-family: 'Raleway', sans-serif;
-    letter-spacing: -3px;
-    font-weight: 300;
-    position: absolute;
-    color: #3f3c3a;
-}
-
-.Choix1 {
-    right: 5%;
-    top: 40%;
-}
-
-.Choix2 {
-    right: 134px;
-    top: 315px;
-}
-
-.Choix3 {
-    right: 30px;
-    top: 402px;
-}
-
-.pagedImages {
-    margin: 0;
-    top: 30%;
-    right: 26%;
-    position: absolute;
-    white-space: nowrap;
-    width: 70%;
-    overflow: hidden;
 }
 
 .selector {
     text-align: center;
 }
 
-
-
-/* DEBUT MEDIA QUERIES */
-
-/*OPTI 1024px*/
-@media screen and (min-width: 1000px) and (max-width: 1365px) {
-
-    body {
-        font-size:27px;
-    }
-
-    .Choix1 {
-        right: 58px;
-        top: 135px;
-    }
-
-    .Choix2 {
-        right: 85px;
-        top: 190px;
-    }
-
-    .Choix3 {
-        right: 20px;
-        top: 240px;
-    }
-
-    /* OPTI 1024*768px */
-    .pagedImages {
-        top: 30%;
-    }
+#menu {
+    background-color: #eb811a;
 }
-
-/* OPTI 1366*768px */
-@media screen and (min-width: 1366px) and (max-width: 21649px) {
-
-    .Choix1 {
-        right: 5%;
-        top: 24%;
-    }
-
-    .Choix2 {
-        right: 8%;
-        top: 33%;
-    }
-
-    .Choix3 {
-        right: 1%;
-        top: 42%;
-    }
-
-    .pagedImages {
-        top: 40%;
-    }
+#menu ul {
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    overflow: hidden;
 }
-
-/* OPTI 1650*1080px */
-@media screen and (min-width: 1650px) and (max-width: 2560px) {
-
-    .Choix1 {
-        right: 5%;
-        top: 21%;
-    }
-
-    .Choix2 {
-        right: 8%;
-        top: 29%;
-    }
-
-    .Choix3 {
-        right: 2%;
-        top: 37%;
-    }
-
-    .pagedImages {
-        top: 40%;
-    }
+#menu ul li {
+    display: inline;
+}
+#menu ul li a {
+    color: #3f3c3a;
+    font-size: 30px;
+    float: left;
+    text-decoration: none;
+    padding: 15px 30px;
+    margin-right: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.4s, color 0.4s, border-bottom 0.3s;
+}
+#menu ul li a:hover {
+    background-color: #F5B274;
+    padding: 15px 30px 10px 30px;
+    border-bottom: 5px solid #798881;
+    color: #314856;
 }

@@ -10,8 +10,12 @@ class DinoController
     {
 
         $dino = Donnees::getInstance()->getDinoUser($_GET['dino']);
-        var_dump($this->tableElement("eau", $dino));
-
+		$elements = array(
+		'eau',
+		'feu',
+		'foudre',
+		'air',
+		'bois');
         require_once(CHEMIN_VUES . 'dino.php');
     }
 

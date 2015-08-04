@@ -107,31 +107,31 @@
                             <li id="image1">
                                 <label>
                                     <input type="radio" name="race" value="kabuki"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Kabuki.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Kabuki.png" alt="kabuki">
                                 </label>
                             </li>
                             <li id="image2">
                                 <label>
                                     <input type="radio" name="race" value="castivore"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Castivore.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Castivore.png" alt="castivore">
                                 </label>
                             </li>
                             <li id="image3">
                                 <label>
                                     <input type="radio" name="race" value="winks"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Winks.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Winks.png" alt="winks">
                                 </label>
                             </li>
                             <li id="image4">
                                 <label>
                                     <input type="radio" name="race" value="quetzu"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Quetzu.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Quetzu.png" alt="quetzu">
                                 </label>
                             </li>
                             <li id="image5">
                                 <label>
                                     <input type="radio" name="race" value="sirain"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Sirain.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Sirain.png" alt="sirain">
                                 </label>
                             </li>
                         </ul>
@@ -142,31 +142,31 @@
                             <li id="image6">
                                 <label>
                                     <input type="radio" name="race" value="moueffe"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Moueffe.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Moueffe.png" alt="moueffe">
                                 </label>
                             </li>
                             <li id="image7">
                                 <label>
                                     <input type="radio" name="race" value="pigmou"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Pigmou.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Pigmou.png" alt="pigmou">
                                 </label>
                             </li>
                             <li id="image8">
                                 <label>
                                     <input type="radio" name="race" value="santaz"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Santaz.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Santaz.png" alt="santaz">
                                 </label>
                             </li>
                             <li id="image9">
                                 <label>
                                     <input type="radio" name="race" value="wanwan"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Wanwan.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Wanwan.png" alt="wanwan">
                                 </label>
                             </li>
                             <li id="image10">
                                 <label>
                                     <input type="radio" name="race" value="feross"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Feross.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Feross.png" alt="feross">
                                 </label>
                             </li>
                         </ul>
@@ -177,31 +177,31 @@
                             <li id="image11">
                                 <label>
                                     <input type="radio" name="race" value="gorilloz"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Gorilloz.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Gorilloz.png" alt="gorilloz">
                                 </label>
                             </li>
                             <li id="image12">
                                 <label>
                                     <input type="radio" name="race" value="nuagoz"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Nuagoz.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Nuagoz.png" alt="nuagoz">
                                 </label>
                             </li>
                             <li id="image13">
                                 <label>
                                     <input type="radio" name="race" value="toufufu"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Toufufu.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Toufufu.png" alt="toufufu">
                                 </label>
                             </li>
                             <li id="image14">
                                 <label>
                                     <input type="radio" name="race" value="rocky"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Rocky.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Rocky.png" alt="rocky">
                                 </label>
                             </li>
                             <li id="image15">
                                 <label>
                                     <input type="radio" name="race" value="soufflet"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Soufflet.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Soufflet.png" alt="soufflet">
                                 </label>
                             </li>
                         </ul>
@@ -212,31 +212,31 @@
                             <li id="image16">
                                 <label>
                                     <input type="radio" name="race" value="hippoclamp"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Hippoclamp.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Hippoclamp.png" alt="hippoclamp">
                                 </label>
                             </li>
                             <li id="image17">
                                 <label>
                                     <input type="radio" name="race" value="smog"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Smog.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Smog.png" alt="smog">
                                 </label>
                             </li>
                             <li id="image18">
                                 <label>
                                     <input type="radio" name="race" value="mahamuti"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Mahamuti.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Mahamuti.png" alt="mahamuti">
                                 </label>
                             </li>
                             <li id="image19">
                                 <label>
                                     <input type="radio" name="race" value="pteroz"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Pteroz.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Pteroz.png" alt="pteroz">
                                 </label>
                             </li>
                             <li id="image20">
                                 <label>
                                     <input type="radio" name="race" value="planaille"/>
-                                    <img class="img-responsive" src="views/images/Dinozs/Planaille.png">
+                                    <img class="img-responsive" src="views/images/Dinozs/Planaille.png" alt="planaille">
                                 </label>
                             </li>
                         </ul>
