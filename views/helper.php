@@ -73,8 +73,9 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
-        <input type="submit" class="btn btn-default">
+        <DIV ALIGN="CENTER">
+            <input type="submit" class="btn btn-primary">
+        </DIV>
 
     </form>
 <?php } ?>
@@ -247,9 +248,9 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
-            <input type="submit" class="btn btn-default">
-
+            <DIV ALIGN="CENTER">
+                <input type="submit" class="btn btn-primary">
+            </DIV>
         </div>
     </form>
 
@@ -258,74 +259,79 @@
 <iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
 
 <?php if (!empty($table)) { ?>
-    <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post" role="form">
+    <div class="test">
+        <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post" role="form">
 
-        <?php
-        require_once(CHEMIN_VUES . 'table/styletable.php');
-        ?>
-
+            <?php
+            require_once(CHEMIN_VUES . 'table/styletable.php');
+            ?>
             <div class="table-responsive">
-                        <table id=<?php echo $_SESSION ['element'] ?> class="table">
-                            <thead>
-                            <tr>
-                                <td class="head">niv.1</td>
-                                <td class="head">niv.2</td>
-                                <td class="head">niv.3</td>
-                                <td class="head">niv.4</td>
-                                <td class="head">niv.5</td>
-                                <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
-                            </tr>
-                            </thead>
+                <table id=<?php echo $_SESSION ['element'] ?> class="table">
+                    <thead>
+                    <tr>
+                        <td class="head">niv.1</td>
+                        <td class="head">niv.2</td>
+                        <td class="head">niv.3</td>
+                        <td class="head">niv.4</td>
+                        <td class="head">niv.5</td>
+                        <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+                    </tr>
+                    </thead>
 
-                            <tbody>
+                    <tbody>
 
-                            <?php
-                            require_once(CHEMIN_VUES . 'table/formulaires/form_' . $_SESSION ['element'] . '.php');
-                            ?>
+                    <?php
+                    require_once(CHEMIN_VUES . 'table/formulaires/form_' . $_SESSION ['element'] . '.php');
+                    ?>
 
-                            </tbody>
+                    </tbody>
 
-                        </table>
-                    </div>
-        <input type="submit" class="btn btn-default" name="mieux" value="Obtenir les compétences disponibles">
-    </form>
+                </table>
+            </div>
+            <DIV ALIGN="CENTER">
+                <input type="submit" class="btn btn-primary" name="mieux" value="Obtenir les compétences disponibles">
+            </DIV>
+        </form>
 
-    <?php require_once(CHEMIN_VUES . 'table/message.php');?>
+        <?php require_once(CHEMIN_VUES . 'table/message.php');?>
+    </div>
 
 <?php }?>
 
 <?php if (!empty($competencesdispo)){ ?>
 
-    <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+<?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
+<div class="test">
+    <div class="table-responsive">
+        <table id="<?php echo $_SESSION ['element'] ?>" class="table">
+            <thead>
+            <tr>
+                <td class="head">niv.1</td>
+                <td class="head">niv.2</td>
+                <td class="head">niv.3</td>
+                <td class="head">niv.4</td>
+                <td class="head">niv.5</td>
+                <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
+            </tr>
+            </thead>
 
-    <table id=<?php echo $_SESSION ['element'] ?>>
-        <thead>
-        <tr>
-            <td class="head">niv.1</td>
-            <td class="head">niv.2</td>
-            <td class="head">niv.3</td>
-            <td class="head">niv.4</td>
-            <td class="head">niv.5</td>
-            <?php if (!empty($_SESSION ['element'])&& $_SESSION ['element'] == 'air') echo '<td class="head">niv.6</td>'; ?>
-        </tr>
-        </thead>
+            <tbody>
 
-        <tbody>
+            <?php
+            require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION['element'] . '.php');
+            ?>
 
-        <?php
-        require_once(CHEMIN_VUES . 'table/resultat/res_' . $_SESSION['element'] . '.php');
-        ?>
+            </tbody>
 
-        </tbody>
-
-    </table>
+        </table>
+    </div>
 
     <?php require_once(CHEMIN_VUES . 'table/message.php');?>
     <?php if(!empty($meilleurUp)) { ?>
         <div class="result">
             <div class="message">
                 <div class="ui">
-                    <button>Afficher la meilleur compétence à choisir</button>
+                    <button class="btn btn-primary">Afficher la meilleur compétence à choisir</button>
                 </div>
             </div>
         </div>
@@ -345,13 +351,14 @@
             </div>
         </div>
 
+
         <script>
             document.querySelector('.result .message button').onclick = function(){ swal("Désolé , Vous avez toutes les compétences recommandés du plan Up de ce dino (il reste peut-etre les autres compétences (double,racials,etc) ");};
         </script>
     <?php } ?>
 
-<?php } ?>
-
-<div id="Bas">
-    <?php echo $footer ?>
+    <?php } ?>
 </div>
+<footer id="Bas">
+    <?php echo $footer ?>
+</footer>

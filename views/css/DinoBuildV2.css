@@ -45,15 +45,13 @@ a {
 
 body {
     font-size:39px;
-    background: #eb811a url(../images/Background.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background: #eb811a url(../images/Background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-
-.Bas {
-
-}
 
 .selector {
     text-align: center;

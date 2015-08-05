@@ -122,7 +122,7 @@
             </tr>
 
         </table>
-        <input type="submit" class="bouton" value="Calculer la probabilité d'avoir les ups voulus">
+        <input type="submit" class="btn btn-primary" value="Calculer la probabilité d'avoir les ups voulus">
     </form>
 </DIV>
 

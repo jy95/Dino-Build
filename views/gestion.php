@@ -32,7 +32,7 @@
             <?php } ?>
             </tbody>
         </table>
-        <input type="submit" name="Valider" class="btn btn-default">
+        <input type="submit" name="Valider" class="btn btn-primary">
     </form>
 <?php } ?>
 
@@ -54,7 +54,6 @@
             <input type="hidden" name="element" value="<?php echo $_POST['element'] ?>">
             <p>METTEZ A JOUR</p>
             <?php require_once(CHEMIN_VUES . 'table/styletable.php'); ?>
-
             <table id=<?php echo $_POST['element'] ?> class="table">
                 <thead>
                 <tr>
@@ -76,7 +75,7 @@
 
             </table>
             <iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
-            <input type="submit" class="btn btn-default">
+            <input type="submit" class="btn btn-primary">
         </div>
     </form>
 <?php } ?>
@@ -254,7 +253,7 @@
                 </a>
             </div>
 
-            <input type="submit" class="btn btn-default">
+            <input type="submit" class="btn btn-primary">
         </div>
     </form>
 <?php } ?>

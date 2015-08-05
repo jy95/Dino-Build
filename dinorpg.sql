@@ -68,7 +68,7 @@ INSERT INTO `air` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 (25, 4, 'Professeur', 'U', 'Augmente le gain d''expérience de tous les Dinoz de 5%.', '-', 18),
 (26, 4, 'Méditation Solitaire', 'P', 'Augmente la défense Air de 3, diminue la vitesse des attaques Air de 50%.', '-', 18),
 (27, 4, 'Souffle de Vie ', 'S', 'Rends invulnérable au poison et aux malédictions.', '-', 20),
-(28, 5, 'Méditation Transcend', 'P', 'Augmente la défense air de 6, diminue la vitesse des attaques air de 50%', '-', 20),
+(28, 5, 'Méditation Transcend', 'P', 'Augmente la défense air de 6, diminue la vitesse des attaques air de 50%', '-', 8),
 (29, 6, 'Forme Etherale ', 'S', 'Donne le statut Intangible.', '-', 28);
 
 -- --------------------------------------------------------
