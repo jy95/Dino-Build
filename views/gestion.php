@@ -21,14 +21,16 @@
         <table class="table">
             <thead>
             <th>Nom du dino</th>
-            <th>Choix</th>
+            <th>Mettre à jour</th>
             <th>A SUPPRIMER</th>
+            <th>REPRENDRE PLAN UP</th>
             </thead>
             <tbody>
             <?php foreach($dinos as $element) { ?>
                 <td><a href="<?php echo '../dino/' . $element->getId() ?>"><?php echo $element->getNom()?></a> </td>
                 <td><input type="radio" name="numeroDino" value="<?php echo $element->getId()?>" class="form-control"></td>
                 <td><input type="radio" name="aSupprimer" value="<?php echo $element->getId()?>" class="form-control"></td>
+                <td><input type="radio" name="dino" value="<?php echo $element->getId()?>" class="form-control"></td>
             <?php } ?>
             </tbody>
         </table>

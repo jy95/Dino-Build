@@ -9,6 +9,10 @@ class GestionController
 
     public function run()
     {
+        if (!empty($_POST['dino']) && !empty($_POST['dino'])){
+            $this->reprendrePlanUp($_POST['dino']);
+        }
+
         if (!empty($_POST['nouveauDino']) && !empty($_POST['race'])){
             Donnees::getInstance()->insererNouveauDino($_POST['nouveauDino'], $_POST['race'], $_SESSION['id']);
         }
@@ -42,6 +46,15 @@ class GestionController
         $dinos = Donnees::getInstance()->getDinosUser($_SESSION['id']);
         $nombreInscrits = Donnees::getInstance()->nombreInscrits($_SESSION['id']);
         require_once(CHEMIN_VUES . 'gestion.php');
+    }
+
+    public function reprendrePlanUp($numeroDino){
+
+        $_SESSION['dinoUser'] = $_POST['dino'];
+        $url = 'http://dino-build.zz.mu/helper';
+
+        header('Location: '. $url);
+
     }
 
 }

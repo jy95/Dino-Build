@@ -40,14 +40,15 @@ class HelperController {
             $_SESSION ['race'] = $_POST ['race'];
         }
 
-        if (!empty($_SESSION['id']) && !empty($_POST['dinoUser'])){
+        if (!empty($_SESSION['id']) && !empty($_SESSION['dinoUser'])){
 
-            $dino = Donnees::getInstance()->getDinoUser($_POST['dinoUser']);
+            $dino = Donnees::getInstance()->getDinoUser($_SESSION['dinoUser']);
 
             if ($dino != null && in_array ( $dino->getRace(), $table2 )){
                 $race = $dino->getRace();
                 $_SESSION ['race'] = $dino->getRace();
                 $_SESSION ['dino'] = $dino->getId();
+                $_SESSION['dinoUser'] = null;
             }
 
         }

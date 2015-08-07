@@ -288,12 +288,12 @@
 
                 </table>
             </div>
+            <img class="img-responsive" src="views/images/competences/description.png" alt="informations">
             <DIV ALIGN="CENTER">
                 <input type="submit" class="btn btn-primary" name="mieux" value="Obtenir les compétences disponibles">
             </DIV>
         </form>
 
-        <?php require_once(CHEMIN_VUES . 'table/message.php');?>
     </div>
 
 <?php }?>
@@ -325,8 +325,8 @@
 
         </table>
     </div>
-
-    <?php require_once(CHEMIN_VUES . 'table/message.php');?>
+    <img class="img-responsive" src="views/images/competences/description.png" alt="informations">
+</div>
     <?php if(!empty($meilleurUp)) { ?>
         <div class="result">
             <div class="message">
@@ -358,7 +358,7 @@
     <?php } ?>
 
     <?php } ?>
-</div>
+
 <footer id="Bas">
     <?php echo $footer ?>
 </footer>
