@@ -4,8 +4,8 @@
 iframe#fenêtre {
     height: 30%;
     position: absolute;
-    bottom: 0%;
-    right: 0%;
+    bottom: 0;
+    right: 0;
 }
 
 /* table des competences */
@@ -13,7 +13,7 @@ iframe#fenêtre {
 table {
     border-spacing: 1px;
     padding-top: 20%;
-    margin-left: 0%;
+    margin-left: 0;
     width: 60%;
     background-color: transparent;
 }
@@ -27,8 +27,8 @@ table thead td
     font-weight: 600;
     vertical-align: middle;
     text-align: center;
-    text-indent:0px;
-    text-shadow : rgba(255, 255, 255, 0.5) 1px 0px 3px, rgba(255, 255, 255, 0.5) 1px 1px 3px, rgba(255, 255, 255, 0.5) 1px -1px 3px, rgba(255, 255, 255, 0.5) -1px 1px 3px, rgba(255, 255, 255, 0.5) -1px 0px 3px, rgba(255, 255, 255, 0.5) -1px -1px 3px, rgba(255, 255, 255, 0.5) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px -1px 3px;
+    text-indent:0;
+    text-shadow : rgba(255, 255, 255, 0.5) 1px 0 3px, rgba(255, 255, 255, 0.5) 1px 1px 3px, rgba(255, 255, 255, 0.5) 1px -1px 3px, rgba(255, 255, 255, 0.5) -1px 1px 3px, rgba(255, 255, 255, 0.5) -1px 0px 3px, rgba(255, 255, 255, 0.5) -1px -1px 3px, rgba(255, 255, 255, 0.5) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px -1px 3px;
     border: 2px solid #823b16;
     background-color: rgba(255, 255, 255, 0.3);
 }
@@ -37,8 +37,6 @@ table thead td
 
 table td:not(.head)
 {
-    padding-left:30px;
-    padding-right:3px;
     vertical-align: middle;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
@@ -50,4 +48,23 @@ table td:not(.head)
     text-indent:2%;
     background-repeat:no-repeat;
     background-position:bottom;
+}
+
+/* Page démon */
+
+#demon_levels td , #demon_levels th  {
+    text-align: center;
+}
+
+
+#demon_levels td:last-child {
+    text-align: left;
+}
+
+input[type=text] {
+    border: 0 solid #ccc;
+    border-radius: 16px;
+    text-align: center;
+    color: #ffc90e;
+    background-color: #9c4129;
 }

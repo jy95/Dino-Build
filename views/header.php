@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dino-Build</title>
-    <link rel="stylesheet" type="text/css" media="all" href="views/css/DinoBuildV2.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="views/css/Tables.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="views/css/sweetalert.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="views/css/bootstrap.min.css"/>
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweet-alert.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/DinoBuildV2.css" ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/Tables.css"?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/sweetalert.css"?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/bootstrap.min.css"?>"/>
+    <script src="<?php echo PATH_ABSOLUTE . "/js/jquery-2.1.3.min.js"?>"></script>
+    <script src="<?php echo PATH_ABSOLUTE . "/js/bootstrap.min.js" ?>"></script>
+    <script src="<?php echo PATH_ABSOLUTE . "/js/sweet-alert.min.js" ?>"></script>
+    <script src="<?php echo PATH_ABSOLUTE . "/js/modernizr.custom.js" ?>"></script>
 </head>
 <body>
 
