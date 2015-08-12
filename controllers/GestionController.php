@@ -9,6 +9,7 @@ class GestionController
 
     public function run()
     {
+
         if (!empty($_POST['dino']) && !empty($_POST['dino'])){
             $this->reprendrePlanUp($_POST['dino']);
         }

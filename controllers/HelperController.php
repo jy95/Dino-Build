@@ -4,6 +4,10 @@ class HelperController {
     }
     public function run() {
 
+        if (!empty($_GET['stop']) && $_GET['stop'] == true){
+            $_SESSION['dino'] = null;
+        }
+
         $table = array (
             'feu',
             'bois',
@@ -82,6 +86,7 @@ class HelperController {
                         $funcname = "set" . ucfirst($_SESSION['element']);
                         $dino->$funcname($_POST ['competences']);
                         Donnees::getInstance()->misAJour($dino);
+                        $invocation = Db::getInstance()->invocation($dino->getRace());
                         $_SESSION['dino'] = null;
                     }
 
@@ -101,7 +106,7 @@ class HelperController {
                     $table = Db::getInstance ()->select_toutcompetences ( $_SESSION ['element'],  $_SESSION ['race']);
                 }
             } else {
-
+                $invocation = Db::getInstance()->invocation($_SESSION ['race']);
                 $competencesdispo = Db::getInstance ()->select_competencesdispo ($_SESSION ['race'], $_SESSION ['element'], NULL );
                 $tableau = array();
 
@@ -114,9 +119,28 @@ class HelperController {
                     $meilleurUp = Db::getInstance ()->meilleurUp ($_SESSION ['element'], $conseil );
                 }
             }
+
+            $compteur = 1;
+            $parents = "";
+            $elements = array(
+                'eau',
+                'feu',
+                'foudre',
+                'air',
+                'bois'
+            );
+
+            foreach ($invocation->parents() as $i=>$nb){
+                if ($nb != 0) {
+                    $parents = $parents . "<br> <a href=\"" . PATH_ABSOLUTE . "/info/" . $elements[$i] . "/" . $nb . "\" alt=\"competence\" target=\"compétence\" onclick=\"ouvrir();\">Competence " . $compteur . "</a>";
+                    $compteur++;
+                }
+            }
+
+
         }
 
-        $footer = "<img src=\"views/images/Etapes/etape";
+        $footer = "<img src=\"" . PATH_ABSOLUTE . "/views/images/Etapes/etape";
         if (!empty($competencesdispo)){
             $footer = $footer . "4.png\"";
         } elseif (!empty($table)){

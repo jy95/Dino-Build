@@ -9,6 +9,7 @@ Options -Indexes
 php_flag display_errors off
 
 RewriteRule ^helper/?$ index.php?action=helper [NC,L]
+RewriteRule ^helper/stop/?$ index.php?action=helper&stop=true [NC,L]
 RewriteRule ^probabilite/?$ index.php?action=proba [NC,L]
 RewriteRule ^demon/?$ index.php?action=demon [NC,L]
 RewriteRule ^gestion/?$ index.php?action=gestion [NC,L]

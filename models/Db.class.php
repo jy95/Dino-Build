@@ -21,6 +21,34 @@ class Db {
         return self::$instance;
     }
 
+    public function invocation($race) {
+        $query = "SELECT *  FROM `invocations` WHERE race = '" . $race . "'";
+        $result = $this->_db->query($query);
+
+        if ($result->rowCount() != 1){
+            return null;
+        } else {
+            $row = $result->fetch();
+            return new CompetenceSpeciale($row->id, $row->nom, $row->type, $row->description, $row->energie, $row->parent_eau, $row->parent_feu, $row->parent_foudre , $row->parent_air, $row->parent_bois);
+        }
+    }
+
+    public function competencesDoubles(){
+        $query = "SELECT *  FROM `double`";
+        $result = $this->_db->query($query);
+        $tableau = array();
+
+        if ($result->rowCount() == 0){
+            return $tableau;
+        } else {
+            while ($row = $result->fetch()) {
+                $tableau[] = new CompetenceSpeciale($row->id, $row->nom, $row->type, $row->description, $row->energie, $row->parent_eau, $row->parent_feu, $row->parent_foudre , $row->parent_air, $row->parent_bois);
+            }
+            return $tableau;
+        }
+
+    }
+
     public  function select_toutcompetences($element , $dino){
 
         $query = "SELECT *   FROM " . $element ;

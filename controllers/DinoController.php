@@ -16,6 +16,9 @@ class DinoController
 		'foudre',
 		'air',
 		'bois');
+
+        $test = Db::getInstance()->competencesDoubles();
+
         require_once(CHEMIN_VUES . 'dino.php');
     }
 
