@@ -1,7 +1,7 @@
 <?php
 session_start ();
 // Variables globales
-define ( 'CHEMIN_VUES', 'views/' );
+define ( 'CHEMIN_VUES', '/views/' );
 define('PATH_ABSOLUTE' , '/dinoBuildV2');
 
 function chargerClasse($classe) {
@@ -19,6 +19,7 @@ if ($action != 'info'){
 }
 
 // Quelle action est demandée ?
+
 switch ($action) {
     case 'dino' :
         if (is_numeric($_GET['dino']) && !empty(Donnees::getInstance()->getDinoUser($_GET['dino']))) {
@@ -64,12 +65,19 @@ switch ($action) {
             require_once('controllers/GestionController.php');
             $controller = new GestionController ();
             $controller->run();
-            require_once(CHEMIN_VUES . 'footer.php');
+            break;
+        }
+
+    case 'deconnexion':
+        if (!empty($_SESSION['id'])) {
+            $_SESSION = array();
+            require_once ('controllers/HelperController.php');
+            $controller = new HelperController ();
             break;
         }
 
     default :
-        require_once ('controllers/HelperController.php');
+        require_once('controllers/HelperController.php');
         $controller = new HelperController ();
         break;
 }

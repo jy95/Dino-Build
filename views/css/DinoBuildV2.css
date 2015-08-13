@@ -2,19 +2,19 @@
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 100;
-    src: local('Raleway Thin'), local('Raleway-Thin'), url(http://fonts.gstatic.com/s/raleway/v9/RJMlAoFXXQEzZoMSUteGWFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/RJMlAoFXXQEzZoMSUteGWD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+    src: local('Raleway Thin'), local('Raleway-Thin'), url(fonts/Raleway-Thin.woff2) format('woff2'), url(fonts/Raleway-Thin.woff) format('woff');
 }
 @font-face {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 200;
-    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(http://fonts.gstatic.com/s/raleway/v9/8KhZd3VQBtXTAznvKjw-k_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/8KhZd3VQBtXTAznvKjw-kxsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+    src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(fonts/Raleway-ExtraLight.woff2) format('woff2'), url(fonts/Raleway-ExtraLight.woff) format('woff');
 }
 @font-face {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 300;
-    src: local('Raleway Light'), local('Raleway-Light'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FArifk_vArhqVIZ0nv9q090hN8.woff2) format('woff2'), url(http://fonts.gstatic.com/s/raleway/v9/-_Ctzj9b56b8RgXW8FAriRsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+    src: local('Raleway Light'), local('Raleway-Light'), url(fonts/Raleway-Light.woff2) format('woff2'), url(fonts/Raleway-Light.woff) format('woff');
 }
 
 /* HIDDEN RADIO */
@@ -45,299 +45,43 @@ a {
 
 body {
     font-size:39px;
-    background: #eb811a url(../images/Background.png) top center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background: #eb811a url(../images/Background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.Bas {
-    background-size: 100%;
-    background-repeat: no-repeat;
+
+.selector {
+    text-align: center;
 }
 
-.Choix1, .Choix2, .Choix3 {
-    font-family: 'Raleway', sans-serif;
-    letter-spacing: -3px;
-    font-weight: 300;
-    position: absolute;
+#menu {
+    background-color: #eb811a;
+}
+#menu ul {
+    list-style: none;
+    display: table;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#menu ul li {
+    display: inline;
+}
+#menu ul li a {
     color: #3f3c3a;
+    font-size: 30px;
+    float: left;
+    text-decoration: none;
+    padding: 15px 30px;
+    margin-right: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.4s, color 0.4s, border-bottom 0.3s;
 }
-
-.Choix1 {
-    right: 5%;
-    top: 40%;
-}
-
-.Choix2 {
-    right: 134px;
-    top: 315px;
-}
-
-.Choix3 {
-    right: 30px;
-    top: 402px;
-}
-
-.pagedImages {
-    margin: 0;
-    top: 30%;
-    right: 26%;
-    position: absolute;
-    white-space: nowrap;
-    width: 70%;
-    overflow: hidden;
-}
-
-
-/* DEBUT MEDIA QUERIES */
-
-/*OPTI 1024px*/
-@media screen and (min-width: 1000px) and (max-width: 1365px) {
-
-    body {
-        font-size:27px;
-    }
-
-    .Choix1 {
-        right: 58px;
-        top: 135px;
-    }
-
-    .Choix2 {
-        right: 85px;
-        top: 190px;
-    }
-
-    .Choix3 {
-        right: 20px;
-        top: 240px;
-    }
-
-    /* OPTI 1024*768px */
-    .pagedImages {
-        top: 30%;
-    }
-}
-
-/* OPTI 1366*768px */
-@media screen and (min-width: 1366px) and (max-width: 21649px) {
-
-    .Choix1 {
-        right: 5%;
-        top: 24%;
-    }
-
-    .Choix2 {
-        right: 8%;
-        top: 33%;
-    }
-
-    .Choix3 {
-        right: 1%;
-        top: 42%;
-    }
-
-    .pagedImages {
-        top: 40%;
-    }
-}
-
-/* OPTI 1650*1080px */
-@media screen and (min-width: 1650px) and (max-width: 2560px) {
-
-    .Choix1 {
-        right: 5%;
-        top: 21%;
-    }
-
-    .Choix2 {
-        right: 8%;
-        top: 29%;
-    }
-
-    .Choix3 {
-        right: 2%;
-        top: 37%;
-    }
-
-    .pagedImages {
-        top: 40%;
-    }
-}
-
-/* FIN MEDIA QUERIES */
-
-
-.pagedImages > ul {
-    background: transparent;
-    display: inline-block;
-    line-height: 200px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-    width: 100%;
-}
-
-.pagedImages > ul > li {
-    display: inline-block;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    vertical-align: top;
-    width: 15%;
-}
-
-.pagedImages > ul > li > a:first-child {
-    display: block;
-}
-
-.pagedImages > ul > li > a:first-child ~ * {
-    display: none;
-}
-
-.pagedImages > ul > li > a > img {
-    display: inline-block;
-    max-height: 110px;
-    max-width: 110px;
-    margin: -100px;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    vertical-align: middle;
-}
-
-.pagedImages > ul > li:hover > a:first-child > img {
-    opacity: 1;
-    max-width: 110px;
-    min-width: 110px;
-    -webkit-transition: all .9s ease-in-out;
-    transition: all .01s ease-in-out;
-}
-
-.pagedImages > input {
-    display: none;
-}
-
-.pagedImages > label {
-    background: transparent
-cursor: pointer;
-    display: block;
-    height: 100%;
-    line-height: 200px;
-    overflow: hidden;
-    padding-left: 80px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 0;
-    visibility: hidden;
-    z-index: 1;
-}
-
-/* Les fleches */
-.pagedImages > label:hover {
-    background: transparent;
-    color: #000;
-    /* FIXME: Ajouter animation ici quand on over le < ou >  */
-}
-
-.pagedImages > label:before {
-    display: block;
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0;
-
-}
-
-/*TRANSITION*/
-.pagedImages > input:nth-of-type(1):checked ~ ul:nth-of-type(1) {
-    margin-left: 0;
-}
-
-.pagedImages > input:nth-of-type(2):checked ~ ul:nth-of-type(1) {
-    margin-left: -100%;
-}
-
-.pagedImages > input:nth-of-type(3):checked ~ ul:nth-of-type(1) {
-    margin-left: -200%;
-}
-
-.pagedImages > input:nth-of-type(4):checked ~ ul:nth-of-type(1) {
-    margin-left: -300%;
-}
-
-.pagedImages > input:nth-of-type(5):checked ~ ul:nth-of-type(1) {
-    margin-left: -400%;
-}
-
-.pagedImages > input:nth-of-type(6):checked ~ ul:nth-of-type(1) {
-    margin-left: -500%;
-}
-
-.pagedImages > input:nth-of-type(7):checked ~ ul:nth-of-type(1) {
-    margin-left: -600%;
-}
-
-.pagedImages > input:nth-of-type(8):checked ~ ul:nth-of-type(1) {
-    margin-left: -700%;
-}
-
-.pagedImages > input:nth-of-type(9):checked ~ ul:nth-of-type(1) {
-    margin-left: -800%;
-}
-
-.pagedImages > input:nth-of-type(1):checked ~ label:nth-last-of-type(1),
-.pagedImages > input:nth-of-type(2):checked ~ label:nth-of-type(1),
-.pagedImages > input:nth-of-type(3):checked ~ label:nth-of-type(2),
-.pagedImages > input:nth-of-type(4):checked ~ label:nth-of-type(3),
-.pagedImages > input:nth-of-type(5):checked ~ label:nth-of-type(4),
-.pagedImages > input:nth-of-type(6):checked ~ label:nth-of-type(5),
-.pagedImages > input:nth-of-type(7):checked ~ label:nth-of-type(6),
-.pagedImages > input:nth-of-type(8):checked ~ label:nth-of-type(7),
-.pagedImages > input:nth-of-type(9):checked ~ label:nth-of-type(8) {
-    left: 0;
-    top: 0px; /*--ICI--*/
-    visibility: visible;
-}
-
-.pagedImages > input:nth-of-type(1):checked ~ label:nth-last-of-type(1):before,
-.pagedImages > input:nth-of-type(2):checked ~ label:nth-of-type(1):before,
-.pagedImages > input:nth-of-type(3):checked ~ label:nth-of-type(2):before,
-.pagedImages > input:nth-of-type(4):checked ~ label:nth-of-type(3):before,
-.pagedImages > input:nth-of-type(5):checked ~ label:nth-of-type(4):before,
-.pagedImages > input:nth-of-type(6):checked ~ label:nth-of-type(5):before,
-.pagedImages > input:nth-of-type(7):checked ~ label:nth-of-type(6):before,
-.pagedImages > input:nth-of-type(8):checked ~ label:nth-of-type(7):before,
-.pagedImages > input:nth-of-type(9):checked ~ label:nth-of-type(8):before {
-    content: url(../images/fleche_gauche.png);
-    /*background: linear-gradient(to right, rgba(249,158,74,1), rgba(250,161,81,0));*/ /*--ICI--*/
-}
-
-.pagedImages > input:nth-of-type(1):checked ~ label:nth-of-type(2),
-.pagedImages > input:nth-of-type(2):checked ~ label:nth-of-type(3),
-.pagedImages > input:nth-of-type(3):checked ~ label:nth-of-type(4),
-.pagedImages > input:nth-of-type(4):checked ~ label:nth-of-type(5),
-.pagedImages > input:nth-of-type(5):checked ~ label:nth-of-type(6),
-.pagedImages > input:nth-of-type(6):checked ~ label:nth-of-type(7),
-.pagedImages > input:nth-of-type(7):checked ~ label:nth-of-type(8),
-.pagedImages > input:nth-of-type(8):checked ~ label:nth-of-type(9),
-.pagedImages > input:nth-last-of-type(1):checked ~ label:nth-of-type(1) {
-    right: 0;
-    top: 0px; /*--ICI--*/
-    visibility: visible;
-}
-
-.pagedImages > input:nth-of-type(1):checked ~ label:nth-of-type(2):before,
-.pagedImages > input:nth-of-type(2):checked ~ label:nth-of-type(3):before,
-.pagedImages > input:nth-of-type(3):checked ~ label:nth-of-type(4):before,
-.pagedImages > input:nth-of-type(4):checked ~ label:nth-of-type(5):before,
-.pagedImages > input:nth-of-type(5):checked ~ label:nth-of-type(6):before,
-.pagedImages > input:nth-of-type(6):checked ~ label:nth-of-type(7):before,
-.pagedImages > input:nth-of-type(7):checked ~ label:nth-of-type(8):before,
-.pagedImages > input:nth-of-type(8):checked ~ label:nth-of-type(9):before,
-.pagedImages > input:nth-last-of-type(1):checked ~ label:nth-of-type(1):before {
-    content: url(../images/fleche_droite.png);
-    /*background: linear-gradient(to right, rgba(250,161,81,0), rgba(248,158,77,1));*/ /*--ICI--*/
+#menu ul li a:hover {
+    background-color: #F5B274;
+    padding: 15px 30px 10px 30px;
+    border-bottom: 5px solid #798881;
+    color: #314856;
 }

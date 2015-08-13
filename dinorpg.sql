@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 05 Juillet 2015 à 14:30
+-- Généré le :  Ven 07 Août 2015 à 19:16
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -68,7 +68,7 @@ INSERT INTO `air` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 (25, 4, 'Professeur', 'U', 'Augmente le gain d''expérience de tous les Dinoz de 5%.', '-', 18),
 (26, 4, 'Méditation Solitaire', 'P', 'Augmente la défense Air de 3, diminue la vitesse des attaques Air de 50%.', '-', 18),
 (27, 4, 'Souffle de Vie ', 'S', 'Rends invulnérable au poison et aux malédictions.', '-', 20),
-(28, 5, 'Méditation Transcend', 'P', 'Augmente la défense air de 6, diminue la vitesse des attaques air de 50%', '-', 20),
+(28, 5, 'Méditation Transcend', 'P', 'Augmente la défense air de 6, diminue la vitesse des attaques air de 50%', '-', 26),
 (29, 6, 'Forme Etherale ', 'S', 'Donne le statut Intangible.', '-', 28);
 
 -- --------------------------------------------------------
@@ -137,7 +137,8 @@ CREATE TABLE IF NOT EXISTS `donnees_users` (
   `air` varchar(255) DEFAULT NULL,
   `foudre` varchar(255) DEFAULT NULL,
   `bois` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements';
+
 
 -- --------------------------------------------------------
 
@@ -333,6 +334,52 @@ INSERT INTO `foudre` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `id
 (29, 5, 'Archange Génésif ', 'P', 'Augmente l''élément bois de 2 et l''élément foudre de 1.', '-', 23),
 (30, 5, 'Prêtre', 'U', 'Augmente la rapidité de la récupération des points de vie de tous les Dinoz lors du repos.', '-', 24);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `invocations`
+--
+
+CREATE TABLE IF NOT EXISTS `invocations` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `type` enum('E') NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `energie` varchar(15) NOT NULL,
+  `race` varchar(20) NOT NULL,
+  `parent_eau` int(11) NOT NULL,
+  `parent_feu` int(11) NOT NULL,
+  `parent_foudre` int(11) NOT NULL,
+  `parent_air` int(11) NOT NULL,
+  `parent_bois` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='table des competences invocations';
+
+--
+-- Contenu de la table `invocations`
+--
+
+INSERT INTO `invocations` (`id`, `nom`, `type`, `description`, `energie`, `race`, `parent_eau`, `parent_feu`, `parent_foudre`, `parent_air`, `parent_bois`) VALUES
+(0, 'Quetzalcoatl ', 'E', 'Attaque de 40 :foudre: sur tous les ennemis', '-', 'quetzu', 0, 0, 18, 0, 0),
+(1, 'Fujin ', 'E', '+ 50% de vitesse aux dinozs du groupe', '-', 'nuagoz', 0, 0, 19, 11, 0),
+(2, 'Bénédiction des fées', 'E', '+10 d''initiative aux dinozs du groupe', '-', 'gorilloz ', 0, 24, 0, 0, 12),
+(5, 'Djinn', 'E', 'Attaque de :air: 20 sur tous les ennemis', '-', 'pteroz', 0, 8, 0, 24, 0),
+(3, 'Raijin', 'E', 'Attaque de :foudre: 20 sur tous les ennemis', '-', 'planaile ', 0, 0, 18, 10, 0),
+(4, 'Loup-Garou', 'E', 'Attaque de :bois: 30 sur tous les ennemis', '-', 'castivore', 0, 0, 0, 20, 21),
+(6, 'Léviathan', 'E', 'Attaque de :eau: 20 sur tous les ennemis', '-', 'mahamuti ', 29, 0, 0, 9, 0),
+(7, 'Armure d''Ifrit', 'E', 'Donne 20 en défense à l''élément :feu: à tous vos dinozs', '-', 'pigmou', 0, 19, 0, 0, 11),
+(8, 'Golem', 'E', 'Donne 20 en défense :foudre: à l''élément à tous vos dinozs', '-', 'rocky', 0, 11, 16, 0, 0),
+(9, 'Ondine', 'E', 'Attaque de 30 :eau: sur un adversaire', '-', 'sirain', 20, 22, 0, 0, 0),
+(10, 'Baleine blanche', 'E', '+20 défense :eau: à tous vos dinozs', '-', 'winks', 27, 0, 15, 0, 0),
+(11, 'Hadès', 'E', 'Empoisonne et ralentit', '-', 'santaz', 6, 0, 0, 24, 8),
+(12, 'Grand Singe Sacré', 'E', '+20% d''esquive pour le groupe', '-', 'toufufu ', 0, 0, 19, 0, 18),
+(13, 'Reine des frelons', 'E', 'Diminue l''endurance et la régénération du groupe de dinoz adverse', '-', 'soufflet ', 0, 0, 0, 20, 13),
+(14, 'Bouddha', 'E', '+10 en défense dans chaque élément pour les dinozs du groupe', '-', 'hippoclamp ', 0, 5, 4, 18, 0),
+(15, 'Yggdrasil ', 'E', 'Donne 20 en défense :bois: pour tous les dinozs du groupe', '-', 'wanwan', 0, 0, 0, 7, 23),
+(16, 'Vulcain ', 'E', 'Attaque de 20 :feu: sur tous les ennemis', '-', 'moueffe', 0, 18, 17, 0, 0),
+(17, 'Totem Ancestral Aér.', 'E', 'Attaque de 30 :air: sur un adversaire', '-', 'kabuki', 0, 20, 0, 18, 0),
+(18, 'Salamandre ', 'E', 'Attaque de 40 :feu: sur un adversaire', '-', 'Feross', 15, 15, 0, 0, 0),
+(19, 'Hercolubus', 'E', 'Attaque non-élémentale sur tous les ennemis', '-', 'smog', 0, 0, 28, 21, 0);
+
 --
 -- Index pour les tables exportées
 --
@@ -381,6 +428,12 @@ ALTER TABLE `foudre`
   ADD PRIMARY KEY (`num`,`niv`);
 
 --
+-- Index pour la table `invocations`
+--
+ALTER TABLE `invocations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables exportées
 --
 
@@ -388,7 +441,7 @@ ALTER TABLE `foudre`
 -- AUTO_INCREMENT pour la table `donnees_users`
 --
 ALTER TABLE `donnees_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
