@@ -1,7 +1,8 @@
 <?php
+//ob_start("ob_gzhandler");
 session_start ();
 // Variables globales
-define ( 'CHEMIN_VUES', '/views/' );
+define ( 'CHEMIN_VUES', 'views/' );
 define('PATH_ABSOLUTE' , '/dinoBuildV2');
 
 function chargerClasse($classe) {
@@ -43,8 +44,6 @@ switch ($action) {
             if (!empty($_GET['element']) && !empty($_GET['competence']) && is_numeric($_GET['competence']) && Db::getInstance()->select_competence($_GET['element'], $_GET['competence']) != null) {
                 require_once('controllers/InfoController.php');
                 $controller = new InfoController ();
-                $controller->run();
-
             }
         }catch (Exception $e){
         }
@@ -84,5 +83,5 @@ switch ($action) {
 
 $controller->run ();
 require_once (CHEMIN_VUES . 'footer.php');
-
+//ob_flush();
 ?>

@@ -18,6 +18,24 @@ class InfoController
             $element = "feu";
         }
 
+        if ( $competence instanceof CompetenceSpeciale) {
+            $compteur = 1;
+            $parents = "";
+            $elements = array(
+                'eau',
+                'feu',
+                'foudre',
+                'air',
+                'bois'
+            );
+
+            foreach ($competence->parents() as $i => $nb) {
+                if ($nb != 0) {
+                    $parents = $parents . "<tr> <td colspan=\"2\"><a href=\"" . PATH_ABSOLUTE . "/info/" . $elements[$i] . "/" . $nb . "\" alt=\"competence\" target=\"compétence\" onclick=\"ouvrir();\">Compétence " . $compteur . "</a></td></tr>";
+                    $compteur++;
+                }
+            }
+        }
         require_once(CHEMIN_VUES . 'table/info.php');
 
     }

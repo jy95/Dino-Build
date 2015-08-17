@@ -38,11 +38,6 @@ a {
     text-decoration: none;
 }
 
-* {
-    padding:0;
-    margin:0;
-}
-
 body {
     font-size:39px;
     background: #eb811a url(../images/Background.jpg) no-repeat center center fixed;
@@ -84,4 +79,135 @@ body {
     padding: 15px 30px 10px 30px;
     border-bottom: 5px solid #798881;
     color: #314856;
+}
+
+/* NOUVELLES TABLES */
+/* Box iframe (affichage des competences)*/
+
+iframe#fenêtre {
+    height: 60%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 88%;
+}
+
+img#fenêtre2
+{
+    border: 2px ridge #333333;
+    border-radius: 5px;
+    position: absolute;
+    opacity:0;
+    top: 90%;
+    right: 1%;
+}
+
+/* table des competences */
+
+table {
+    padding-top: 20%;
+    margin-left: 0;
+}
+
+/* Header des cases */
+
+table thead td
+{
+    color:#82492b;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    text-indent:0;
+    text-shadow : rgba(255, 255, 255, 0.5) 1px 0 3px, rgba(255, 255, 255, 0.5) 1px 1px 3px, rgba(255, 255, 255, 0.5) 1px -1px 3px, rgba(255, 255, 255, 0.5) -1px 1px 3px, rgba(255, 255, 255, 0.5) -1px 0px 3px, rgba(255, 255, 255, 0.5) -1px -1px 3px, rgba(255, 255, 255, 0.5) 0px 1px 3px, rgba(255, 255, 255, 0.5) 0px -1px 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dans les cases */
+
+table td:not(.head)
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    color:#82492b;
+    text-shadow : rgba(255, 255, 255, 0.2) 1px 0px 3px, rgba(255, 255, 255, 0.3) 1px 1px 3px, rgba(255, 255, 255, 0.3) 1px -1px 3px, rgba(255, 255, 255, 0.3) -1px 1px 3px, rgba(255, 255, 255, 0.3) -1px 0px 3px, rgba(255, 255, 255, 0.3) -1px -1px 3px, rgba(255, 255, 255, 0.3) 0px 1px 3px, rgba(255, 255, 255, 0.3) 0px -1px 3px;
+    text-align:left;
+    text-indent:2%;
+    background-repeat:no-repeat;
+    background-position:bottom;
+}
+
+/* Page démon */
+
+#demon_levels td , #demon_levels th  {
+    text-align: center;
+}
+
+
+#demon_levels td:last-child {
+    text-align: left;
+}
+
+input[type=text] {
+    border: 0 solid #ccc;
+    border-radius: 16px;
+    text-align: center;
+    color: #ffc90e;
+    background-color: #9c4129;
+}
+
+/* Tables des compétences*/
+
+table#feu td:not(.head){
+
+    background:radial-gradient(#e1a465, #d4893d);
+    border: 2px solid #823b16;
+}
+
+table#foudre td:not(.head){
+
+    background:radial-gradient(#efe46f, #ffc649);
+    border: 2px solid rgb(157,80,12);
+}
+
+table#air td:not(.head){
+
+    background:radial-gradient(#c1cdd9, #a0b4c3);
+    border: 2px solid rgb(120,166,156);
+}
+
+table#bois td:not(.head){
+
+    background:radial-gradient(#d18054, #a36050);
+    border: 2px solid rgb(113,35,25);
+}
+
+table#eau td:not(.head){
+
+    background:radial-gradient(#12a1ec, #0082c6);
+    border: 2px solid rgb(23,90,160);
+}
+
+
+.acquis{
+    background-color: #359B53;
+}
+
+.encours{
+    background-color: #F3C137;
+}
+
+.nonacquis{
+    background-color: #F33F39;
+}
+
+.reste{
+    background-color: rgb(204,102,0);
+}
+
+#section0, #section1 , #section2 , #section3, #section4 , #section5, #section6  {
+    display: none;
+}
+
+#bouton0, #bouton1 , #bouton2 , #bouton3, #bouton4 , #bouton5, #bouton6 {
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>compétences</title>
     <style type="text/css">
         table
@@ -52,6 +52,15 @@
         {
             width:50px;
         }
+
+        #special {
+            height:20px;
+            background-color:gray;
+            font-weight:800;
+            Text-Shadow: #000000 1px 0px 0px, #000000 1px 1px 0px, #000000 1px -1px 0px, #000000 -1px 1px 0px, #000000 -1px 0px 0px, #000000 -1px -1px 0px, #000000 0px 1px 0px, #000000 0px -1px 0px;
+            color:white;
+        }
+
         tbody tr#titre td
         {
             height:20px;
@@ -88,6 +97,12 @@
         <td><?php echo $competence->type(); ?></td>
         <td><?php echo $competence->description(); ?></td>
     </tr>
+    <?php if ( $competence instanceof CompetenceSpeciale){ ?>
+        <tr>
+            <td colspan="2" id="special">Compétences requises</td>
+        </tr>
+        <?php echo $parents;?>
+    <?php } ?>
     <tr>
         <td colspan="2" id="energie">Conso. d'énergie : <?php echo $competence->energie(); ?></td>
     </tr>

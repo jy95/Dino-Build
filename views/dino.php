@@ -31,49 +31,14 @@
         $("#bouton4").click(function() {
             $("#section4").slideToggle("slow");
         });
+
+        $("#bouton5").click(function() {
+            $("#section5").slideToggle("slow");
+        });
+
     });
 
 </script>
-<style type="text/css">
-    table#feu td:not(.head){
-
-        background:radial-gradient(#e1a465, #d4893d);
-        border: 2px solid #823b16;
-    }
-
-    table#foudre td:not(.head){
-
-        background:radial-gradient(#efe46f, #ffc649);
-        border: 2px solid rgb(157,80,12);
-    }
-
-    table#air td:not(.head){
-
-        background:radial-gradient(#c1cdd9, #a0b4c3);
-        border: 2px solid rgb(120,166,156);
-    }
-
-    table#bois td:not(.head){
-
-        background:radial-gradient(#d18054, #a36050);
-        border: 2px solid rgb(113,35,25);
-    }
-
-    table#eau td:not(.head){
-
-        background:radial-gradient(#12a1ec, #0082c6);
-        border: 2px solid rgb(23,90,160);
-    }
-
-    #section0, #section1 , #section2 , #section3, #section4 , #section5 {
-        display: none;
-    }
-
-    #bouton0, #bouton1 , #bouton2 , #bouton3, #bouton4 , #bouton5 {
-        cursor: pointer;
-    }
-
-</style>
 
 <p>Voici les compétences du dino <?php echo $dino->getNom(); ?>, de race <?php echo $dino->getRace(); ?> de l'user <?php echo $dino->getUser();?></p>
 
@@ -88,7 +53,7 @@
         </thead>
         <tbody>
         <tr>
-            <td rowspan="6">
+            <td rowspan="8">
                 <img class="img-responsive" src="<?php echo "../views/images/Dinozs/" . ucfirst($dino->getRace()) . ".png"?>" alt="dino">
             </td>
         </tr>
@@ -102,7 +67,7 @@
             ?>
             <tr>
                 <td>
-                    <img class="img-responsive" id="<?php echo "bouton" . $i?>" src="<?php echo "../views/images/competences/" . $element . ".jpg"?>" alt="<?php $element ?>">
+                    <img class="img-responsive" id="<?php echo "bouton" . $i?>" src="<?php echo "../views/images/competences/" . $element . ".png"?>" alt="<?php $element ?>">
                     <div class="table-responsive" id="<?php echo "section" . $i ?>">
                         <table id="<?php echo $element ?>" class="table">
                             <thead>
@@ -128,15 +93,72 @@
                     </div>
                 </td>
             </tr>
-        <?php
+            <?php
             $competencesdispo = null;
             $_SESSION['element'] = null;
         } ?>
+        <tr>
+            <td>
+                <img class="img-responsive" id="bouton5" src="../views/images/competences/double.png" alt="double">
+                <div class="table-responsive" id="section5">
+                    <table id="double" class="table">
+                        <thead>
+                        <tr>
+                            <td class="head"></td>
+                            <td class="reste">Foudre</td>
+                            <td class="reste">Air</td>
+                            <td class="reste">Eau</td>
+                            <td class="reste">Bois</td>
+                        </tr>
+                        </thead>
 
+                        <tbody>
+                        <tr>
+                            <td class="reste">Feu</td>
+                            <td class="<?php echo $codeCouleur[6];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/7" ?>" alt="competence" target="compétence" onclick="ouvrir();">Sprint </a></td>
+                            <td class="<?php echo $codeCouleur[8];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/9" ?>" alt="competence" target="compétence" onclick="ouvrir();">Vendetta</a></td>
+                            <td class="<?php echo $codeCouleur[1];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/2" ?>" alt="competence" target="compétence" onclick="ouvrir();">Maitre Elementaire</a></td>
+                            <td class="<?php echo $codeCouleur[5];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/6" ?>" alt="competence" target="compétence" onclick="ouvrir();">Armure de Basalte</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reste">Bois</td>
+                            <td class="<?php echo $codeCouleur[4];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/5" ?>" alt="competence" target="compétence" onclick="ouvrir();">Choc</a></td>
+                            <td class="<?php echo $codeCouleur[3];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/4" ?>" alt="competence" target="compétence" onclick="ouvrir();">Secousse</a></td>
+                            <td class="<?php echo $codeCouleur[7];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/8" ?>" alt="competence" target="compétence" onclick="ouvrir();">Infatiguable</a></td>
+                            <td class="reste"></td>
+                        </tr>
+                        <tr>
+                            <td class="reste">Eau</td>
+                            <td class="<?php echo $codeCouleur[0];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/1" ?>" alt="competence" target="compétence" onclick="ouvrir();">Electrolyse</a></td>
+                            <td class="<?php echo $codeCouleur[9];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/10" ?>" alt="competence" target="compétence" onclick="ouvrir();">Bulle</a></td>
+                            <td class="reste"></td>
+                            <td class="reste"></td>
+                        </tr>
+                        <tr>
+                            <td class="reste">Air</td>
+                            <td class="<?php echo $codeCouleur[2];?>"><a href="<?php echo PATH_ABSOLUTE . "/info/double/3" ?>" alt="competence" target="compétence" onclick="ouvrir();">Surcharge</a></td>
+                            <td class="reste"></td>
+                            <td class="reste"></td>
+                            <td class="reste"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <a href="<?php echo PATH_ABSOLUTE . "/info/invocations/" . $invocation->num() ?>" alt="competence" target="compétence" onclick="ouvrir();">
+                    <img class="img-responsive" src="../views/images/competences/invocs.png" alt="invocations">
+                </a>
+            </td>
+        </tr>
         </tbody>
 
     </table>
 </div>
 
 
-<iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
+<iframe name="compétence" id="fenêtre" scrolling="no" frameBorder="0"></iframe>
+<a href="javascript:fermer()"><img height="25px" src="<?php echo PATH_ABSOLUTE . "/views/images/close_window.png" ?>" id="fenêtre2" alt="close"/></a>

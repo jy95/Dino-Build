@@ -6,7 +6,7 @@ class Db {
 
     public function __construct() {
         try {
-            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','toor');
+            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','');
             $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->_db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         }catch (PDOException $e) {
@@ -91,8 +91,8 @@ class Db {
         if ($result->rowCount() == 0){
             return $tableau;
         } else {            while($row = $result->fetch()) {
-                $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
-            }
+            $tableau[] = new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
+        }
             return $tableau;
         }
     }
@@ -148,327 +148,338 @@ class Db {
             'foudre',
             'air',
             'double',
-            'bois'
+            'bois',
+            'invocations'
         );
         if (!in_array($element, $array)){
             return null;
         }
 
-        $query = "SELECT * FROM `" . $element . "` WHERE num = " . $this->_db->quote($num) . "";
+        $query = "SELECT * FROM `" . $element . "` WHERE ";
+        if ($element != 'invocations' && $element != 'double') {
+            $query = $query . " num = " . $this->_db->quote($num) . "";
+        } else {
+            $query = $query . " id = " . $this->_db->quote($num) . "";
+        }
+
         $result  = $this->_db->query($query);
         if ($result->rowCount() == 1){
             $row = $result->fetch();
-            return new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
+            if ($element != 'invocations' && $element != 'double') {
+                return new Competence($row->num, $row->niv, $row->nom, $row->type, $row->description, $row->energie, $row->idparent);
+            } else {
+                return new CompetenceSpeciale($row->id, $row->nom, $row->type, $row->description, $row->energie, $row->parent_eau , $row->parent_feu , $row->parent_foudre , $row->parent_air , $row->parent_bois);
+            }
         } else {
             return null;
         }
     }
 
     public function planUp($dino,$element){
-            switch($dino) {
-                case "sirain" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,2,1,5,4,8,9,6,7,19,21,22,12,13,18,14,16,24,29,26,30);
-                        case "feu" :
-                            return array(3,10,24,23,30,31);
-                        case "bois" :
-                            return array(1,4,5,11,12);
-                        case "air" :
-                            return array(3,9,21);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "winks" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,2,1,5,4,8,9,6,7,19,21,22,12,13,18,14,16,24,29,26,30);
-                        case "feu" :
-                            return array(3,10);
-                        case "bois" :
-                            return array(1,5);
-                        case "air" :
-                            return array(3,9,21);
-                        case "foudre":
-                            return array(3,2,8,9,6,20,21,15,18,27);
-                        default :
-                            return array();
-                    }
-                case "gorilloz" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,19);
-                        case "feu" :
-                            return array(3,10,24,23,30);
-                        case "bois" :
-                            return array(1,2,3,5,9,4,7,8,11,12,13,16,17,20,21,18,22,23,25);
-                        case "air" :
-                            return array(3,8,19);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "castivore" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,10,19,21,20);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array(1,2,3,4,5,7,9,11,12,20,21,22,17);
-                        case "air" :
-                            return array(1,3,4,8,9,21,20,11,19,27,22);
-                        case "foudre":
-                            return array(3,8,20,19);
-                        default :
-                            return array();
-                    }
-                case "feross" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,2,8,9,6,19,21,22,16,26,30);
-                        case "feu" :
-                            return array(2,3,10,9,8,24,22,21,20,23,29,28,30,31);
-                        case "bois" :
-                            return array(1,3,5,4,9,11,12,20,21,22);
-                        case "air" :
-                            return array(1,4);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "moueffe" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,19,2);
-                        case "feu" :
-                            return array(1,2,3,5,6,8,9,10,13,20,21,22,23,24,28,29,30,31);
-                        case "bois" :
-                            return array(2,7,16,25,28);
-                        case "air" :
-                            return array(2,6,14,15);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "rocky" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,19,9,21);
-                        case "feu" :
-                            return array(3,1,10,6,24,16);
-                        case "bois" :
-                            return array(1,5,12);
-                        case "air" :
-                            return array(1,4,10);
-                        case "foudre":
-                            return array(3,2,1,8,9,4,6,20,21,15,19,10,11,22,23,28,29);
-                        default :
-                            return array();
-                    }
-                case "wanwan" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,19,9,21);
-                        case "feu" :
-                            return array(3,1,10,6,16,24,23,30,31);
-                        case "bois" :
-                            return array(1,3,9,5,20,12);
-                        case "air" :
-                            return array(1,4,10);
-                        case "foudre":
-                            return array(1,2,3,8,9,4,6,20,21,15,10,11,22,23,28,29);
-                        default :
-                            return array();
-                    }
-                case "kabuki" :
-                    switch($element) {
-                        case "eau" :
-                            return array(1,3,8,9,5,4,19,21,22,14,13,12,24,29);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array(1,5);
-                        case "air" :
-                            return array(1,2,3,4,6,9,21,20,14,10,11,27,22,15);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "toufufu" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,2,8,19);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array(1,3,5,9,12,20,21);
-                        case "air" :
-                            return array(1,2,3,4,6,8,14,19,10);
-                        case "foudre":
-                            return array(3,2,1,8,9,4,6,20,21,15,11,23,29);
-                        default :
-                            return array();
-                    }
-                case "soufflet" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,1,8,5,19,14,13,9,21,22);
-                        case "feu" :
-                            return array();
-                        case "bois" :
-                            return array(3,9,20,21,2,7);
-                        case "air" :
-                            return array(1,2,3,4,6,9,14,21,20,11,22,27);
-                        case "foudre":
-                            return array(3,8,9,20,21);
-                        default :
-                            return array();
-                    }
-                case "pigmou" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,2,8,19);
-                        case "feu" :
-                            return array(3,1,2,5,10,6,7,8,9,13,18,20,11,22,24,23,28,29,30,31);
-                        case "bois" :
-                            return array(2,7,16,25,28);
-                        case "air" :
-                            return array(2,6,14,15);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "nuagoz" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,1,8,9,5,4,18,20,21,13,12,11,22,27,19,2,6,15,24,28);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array(1,5);
-                        case "air" :
-                            return array(1,3,4,9,21,20,11,27,22,10,2,6,14);
-                        case "foudre":
-                            return array(3,8,9,20,21,18,19,2,6,15);
-                        default :
-                            return array();
-                    }
-                case "planaille" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,9,19,21,22);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array(1,5,12);
-                        case "air" :
-                            return array(1,3,4,9,21,20,10,11,27,22);
-                        case "foudre":
-                            return array(3,1,2,8,4,9,6,20,21,18,19,10,11,22,23,28,29,27);
-                        default :
-                            return array();
-                    }
-                case "pteroz" :
-                    switch($element) {
-                        case "eau" :
-                            return array(3,8,19);
-                        case "feu" :
-                            return array(1,2,3,10,5,8,9,24,23,22,21,20,13,28,29,30,31);
-                        case "bois" :
-                            return array(1,5,4,11);
-                        case "air" :
-                            return array(1,2,3,4,6,7,9,21,20,14,17,11,15,27,24,22);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "quetzu" :
-                    switch($element) {
-                        case "eau" :
-                            return array(1,2,3,8,9,5,4,6,19,21,22,13,11,12,14,16,24,29);
-                        case "feu" :
-                            return array(3,2,1,10,9,8,5,4,12,13,22,23,21,20,30,28,29,31);
-                        case "bois" :
-                            return array(2,7);
-                        case "air" :
-                            return array();
-                        case "foudre":
-                            return array(3,8,18);
-                        default :
-                            return array();
-                    }
-                case 'hippoclamp':
-                    switch($element){
-                        case "eau" :
-                            return array(3,2,9,8,19,21,22);
-                        case "feu" :
-                            return array(3,10,24,23,30,31);
-                        case "bois" :
-                            return array(1,2,3,5,7,9,20,12);
-                        case "air" :
-                            return array(1,4,10,11,22);
-                        case "foudre":
-                            return array(3,2,8,9,6,20,21,15,19);
-                        default :
-                            return array();
-                    }
-                case "mahamuti":
-                    switch($element){
-                        case "eau" :
-                            return array(3,1,8,9,5,4,21,22,13,19,11,12,29,24);
-                        case "feu" :
-                            return array(3,10);
-                        case "bois" :
-                            return array(2,1,3,4,5,7,8,9,11,12,13,16,18,20,21,22,25,28);
-                        case "air" :
-                            return array(3,9,21);
-                        case "foudre":
-                            return array(3,8,20);
-                        default :
-                            return array();
-                    }
-                case "santaz":
-                    switch($element){
-                        case "eau" :
-                            return array(3,8,19,9,21,22);
-                        case "feu" :
-                            return array(3,10,24,9,21);
-                        case "bois" :
-                            return array(1,3,5,9,20,12,13);
-                        case "air" :
-                            return array(2,1,3,4,6,5,7,9,11,20,21,17,14,16,27,24,22);
-                        case "foudre":
-                            return array(3,8,9,21,20);
-                        default :
-                            return array();
-                    }
-                case "smog":
-                    switch($element){
-                        case "eau" :
-                            return array(3,1,5,8,9,19,14,21,22,13);
-                        case "feu" :
-                            return array(3,10,24);
-                        case "bois" :
-                            return array();
-                        case "air" :
-                            return array(2,1,3,4,6,9,14,21,20,10,11,22);
-                        case "foudre":
-                            return array(3,1,2,4,6,8,9,21,20,19,18,15,10,22,28);
-                        default :
-                            return array();
-                    }
-                default :
-                    return array();
-            }
+        switch($dino) {
+            case "sirain" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,2,1,5,4,8,9,6,7,19,21,22,12,13,18,14,16,24,29,26,30);
+                    case "feu" :
+                        return array(3,10,24,23,30,31);
+                    case "bois" :
+                        return array(1,4,5,11,12);
+                    case "air" :
+                        return array(3,9,21);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "winks" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,2,1,5,4,8,9,6,7,19,21,22,12,13,18,14,16,24,29,26,30);
+                    case "feu" :
+                        return array(3,10);
+                    case "bois" :
+                        return array(1,5);
+                    case "air" :
+                        return array(3,9,21);
+                    case "foudre":
+                        return array(3,2,8,9,6,20,21,15,18,27);
+                    default :
+                        return array();
+                }
+            case "gorilloz" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,19);
+                    case "feu" :
+                        return array(3,10,24,23,30);
+                    case "bois" :
+                        return array(1,2,3,5,9,4,7,8,11,12,13,16,17,20,21,18,22,23,25);
+                    case "air" :
+                        return array(3,8,19);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "castivore" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,10,19,21,20);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array(1,2,3,4,5,7,9,11,12,20,21,22,17);
+                    case "air" :
+                        return array(1,3,4,8,9,21,20,11,19,27,22);
+                    case "foudre":
+                        return array(3,8,20,19);
+                    default :
+                        return array();
+                }
+            case "feross" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,2,8,9,6,19,21,22,16,26,30);
+                    case "feu" :
+                        return array(2,3,10,9,8,24,22,21,20,23,29,28,30,31);
+                    case "bois" :
+                        return array(1,3,5,4,9,11,12,20,21,22);
+                    case "air" :
+                        return array(1,4);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "moueffe" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,19,2);
+                    case "feu" :
+                        return array(1,2,3,5,6,8,9,10,13,20,21,22,23,24,28,29,30,31);
+                    case "bois" :
+                        return array(2,7,16,25,28);
+                    case "air" :
+                        return array(2,6,14,15);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "rocky" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,19,9,21);
+                    case "feu" :
+                        return array(3,1,10,6,24,16);
+                    case "bois" :
+                        return array(1,5,12);
+                    case "air" :
+                        return array(1,4,10);
+                    case "foudre":
+                        return array(3,2,1,8,9,4,6,20,21,15,19,10,11,22,23,28,29);
+                    default :
+                        return array();
+                }
+            case "wanwan" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,19,9,21);
+                    case "feu" :
+                        return array(3,1,10,6,16,24,23,30,31);
+                    case "bois" :
+                        return array(1,3,9,5,20,12);
+                    case "air" :
+                        return array(1,4,10);
+                    case "foudre":
+                        return array(1,2,3,8,9,4,6,20,21,15,10,11,22,23,28,29);
+                    default :
+                        return array();
+                }
+            case "kabuki" :
+                switch($element) {
+                    case "eau" :
+                        return array(1,3,8,9,5,4,19,21,22,14,13,12,24,29);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array(1,5);
+                    case "air" :
+                        return array(1,2,3,4,6,9,21,20,14,10,11,27,22,15);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "toufufu" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,2,8,19);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array(1,3,5,9,12,20,21);
+                    case "air" :
+                        return array(1,2,3,4,6,8,14,19,10);
+                    case "foudre":
+                        return array(3,2,1,8,9,4,6,20,21,15,11,23,29);
+                    default :
+                        return array();
+                }
+            case "soufflet" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,1,8,5,19,14,13,9,21,22);
+                    case "feu" :
+                        return array();
+                    case "bois" :
+                        return array(3,9,20,21,2,7);
+                    case "air" :
+                        return array(1,2,3,4,6,9,14,21,20,11,22,27);
+                    case "foudre":
+                        return array(3,8,9,20,21);
+                    default :
+                        return array();
+                }
+            case "pigmou" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,2,8,19);
+                    case "feu" :
+                        return array(3,1,2,5,10,6,7,8,9,13,18,20,11,22,24,23,28,29,30,31);
+                    case "bois" :
+                        return array(2,7,16,25,28);
+                    case "air" :
+                        return array(2,6,14,15);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "nuagoz" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,1,8,9,5,4,18,20,21,13,12,11,22,27,19,2,6,15,24,28);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array(1,5);
+                    case "air" :
+                        return array(1,3,4,9,21,20,11,27,22,10,2,6,14);
+                    case "foudre":
+                        return array(3,8,9,20,21,18,19,2,6,15);
+                    default :
+                        return array();
+                }
+            case "planaille" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,9,19,21,22);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array(1,5,12);
+                    case "air" :
+                        return array(1,3,4,9,21,20,10,11,27,22);
+                    case "foudre":
+                        return array(3,1,2,8,4,9,6,20,21,18,19,10,11,22,23,28,29,27);
+                    default :
+                        return array();
+                }
+            case "pteroz" :
+                switch($element) {
+                    case "eau" :
+                        return array(3,8,19);
+                    case "feu" :
+                        return array(1,2,3,10,5,8,9,24,23,22,21,20,13,28,29,30,31);
+                    case "bois" :
+                        return array(1,5,4,11);
+                    case "air" :
+                        return array(1,2,3,4,6,7,9,21,20,14,17,11,15,27,24,22);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "quetzu" :
+                switch($element) {
+                    case "eau" :
+                        return array(1,2,3,8,9,5,4,6,19,21,22,13,11,12,14,16,24,29);
+                    case "feu" :
+                        return array(3,2,1,10,9,8,5,4,12,13,22,23,21,20,30,28,29,31);
+                    case "bois" :
+                        return array(2,7);
+                    case "air" :
+                        return array();
+                    case "foudre":
+                        return array(3,8,18);
+                    default :
+                        return array();
+                }
+            case 'hippoclamp':
+                switch($element){
+                    case "eau" :
+                        return array(3,2,9,8,19,21,22);
+                    case "feu" :
+                        return array(3,10,24,23,30,31);
+                    case "bois" :
+                        return array(1,2,3,5,7,9,20,12);
+                    case "air" :
+                        return array(1,4,10,11,22);
+                    case "foudre":
+                        return array(3,2,8,9,6,20,21,15,19);
+                    default :
+                        return array();
+                }
+            case "mahamuti":
+                switch($element){
+                    case "eau" :
+                        return array(3,1,8,9,5,4,21,22,13,19,11,12,29,24);
+                    case "feu" :
+                        return array(3,10);
+                    case "bois" :
+                        return array(2,1,3,4,5,7,8,9,11,12,13,16,18,20,21,22,25,28);
+                    case "air" :
+                        return array(3,9,21);
+                    case "foudre":
+                        return array(3,8,20);
+                    default :
+                        return array();
+                }
+            case "santaz":
+                switch($element){
+                    case "eau" :
+                        return array(3,8,19,9,21,22);
+                    case "feu" :
+                        return array(3,10,24,9,21);
+                    case "bois" :
+                        return array(1,3,5,9,20,12,13);
+                    case "air" :
+                        return array(2,1,3,4,6,5,7,9,11,20,21,17,14,16,27,24,22);
+                    case "foudre":
+                        return array(3,8,9,21,20);
+                    default :
+                        return array();
+                }
+            case "smog":
+                switch($element){
+                    case "eau" :
+                        return array(3,1,5,8,9,19,14,21,22,13);
+                    case "feu" :
+                        return array(3,10,24);
+                    case "bois" :
+                        return array();
+                    case "air" :
+                        return array(2,1,3,4,6,9,14,21,20,10,11,22);
+                    case "foudre":
+                        return array(3,1,2,4,6,8,9,21,20,19,18,15,10,22,28);
+                    default :
+                        return array();
+                }
+            default :
+                return array();
+        }
 
     }
 

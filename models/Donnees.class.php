@@ -6,7 +6,7 @@ class Donnees {
 
     public function __construct() {
         try {
-            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','toor');
+            $this->_db = new PDO('mysql:host=localhost;dbname=dinorpg;charset=UTF8','root','');
             $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->_db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         }catch (PDOException $e) {

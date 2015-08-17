@@ -258,9 +258,8 @@
 
 <?php }?>
 
-<iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
-
 <?php if (!empty($table)) { ?>
+
     <div class="test">
         <form action="<?php echo PATH_ABSOLUTE . "/helper" ?>" method="post" role="form">
 
@@ -268,7 +267,7 @@
             require_once(CHEMIN_VUES . 'table/styletable.php');
             ?>
             <div class="table-responsive">
-                <table id=<?php echo $_SESSION ['element'] ?> class="table">
+                <table id="<?php echo $_SESSION ['element'] ?>" class="table">
                     <thead>
                     <tr>
                         <td class="head">niv.1</td>
@@ -295,9 +294,9 @@
                 <input type="submit" class="btn btn-primary" name="mieux" value="Obtenir les compétences disponibles">
             </DIV>
         </form>
-
+        <iframe name="compétence" id="fenêtre" scrolling="no"  frameBorder="0"></iframe>
+        <a href="javascript:fermer()"><img height="25px" src="<?php echo PATH_ABSOLUTE . "/views/images/close_window.png" ?>" id="fenêtre2" alt="close"/></a>
     </div>
-
 <?php }?>
 
 <?php if (!empty($competencesdispo)){ ?>
@@ -328,6 +327,8 @@
             </table>
         </div>
         <img class="img-responsive" src="<?php echo PATH_ABSOLUTE ."/views/images/competences/description.png"?>" alt="informations">
+        <iframe name="compétence" id="fenêtre" scrolling="no"  frameBorder="0"></iframe>
+        <a href="javascript:fermer()"><img height="25px" src="<?php echo PATH_ABSOLUTE . "/views/images/close_window.png" ?>" id="fenêtre2" alt="close"/></a>
     </div>
     <?php if(!empty($meilleurUp)) { ?>
         <div class="result">
@@ -372,15 +373,13 @@
             document.querySelector('.result .invocation button').onclick = function(){
                 swal({
                     title: "<?php echo $invocation->nom(); ?>",
-                    html: '<?php echo $invocation->description() . utf8_encode($parents) ?>'
+                    html: '<?php echo $invocation->description() . $parents ?>'
                 });
             };
         </script>
 
     <?php } ?>
-
 <?php } ?>
-
 
 <footer id="Bas">
     <?php echo $footer ?>

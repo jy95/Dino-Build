@@ -10,6 +10,9 @@ class DinoController
     {
 
         $dino = Donnees::getInstance()->getDinoUser($_GET['dino']);
+        $invocation = Db::getInstance()->invocation($dino->getRace());
+        $parents = "";
+
 		$elements = array(
 		'eau',
 		'feu',
@@ -17,7 +20,20 @@ class DinoController
 		'air',
 		'bois');
 
-        $test = Db::getInstance()->competencesDoubles();
+        $doubles = Db::getInstance()->competencesDoubles();
+        $codeCouleur = array();
+
+
+        foreach($doubles as $test){
+            if ($test->aLaCompetenceDisponible($dino) == true){
+                $codeCouleur[] = "acquis";
+            } elseif ($test->peutAvoirLaCompetence($dino) == true){
+                $codeCouleur[] = "encours";
+            } else {
+                $codeCouleur[] = "nonacquis";
+            }
+        }
+
 
         require_once(CHEMIN_VUES . 'dino.php');
     }

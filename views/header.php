@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dino-Build</title>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/DinoBuildV2.css" ?>"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/Tables.css"?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/sweetalert.css"?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/bootstrap.min.css"?>"/>
     <script src="<?php echo PATH_ABSOLUTE . "/js/jquery-2.1.3.min.js"?>"></script>
