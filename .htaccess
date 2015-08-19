@@ -17,6 +17,31 @@ RewriteRule ^deconnexion/?$ index.php?action=deconnexion [NC,L]
 RewriteRule ^dino/([[:digit:]]+)$ index.php?action=dino&dino=$1 [NC]
 RewriteRule ^info/([[:alpha:]]+)/([[:digit:]]+)$ index.php?action=info&element=$1&competence=$2 [NC]
 
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+ExpiresActive On
+# Default directive
+ExpiresDefault "access plus 1 month"
+# My favicon
+ExpiresByType image/x-icon "access plus 1 year"
+# Images
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+# CSS
+ExpiresByType text/css "access plus 1 month"
+# Javascript
+ExpiresByType application/javascript "access plus 1 year"
+
 # DO NOT REMOVE THIS LINE AND THE LINES BELOW HOTLINKID:eSuWuhaWen
 
 # RewriteCond %{HTTP_REFERER} !^http://dino-build.zz.mu/.*$      [NC]

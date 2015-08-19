@@ -29,7 +29,7 @@
             border: 2px solid black;
             border-radius: 7px;
             background-color:rgb(228,166,168);
-            background-image: url(<?php echo "../../views/images/competences/fd_table" . $element . ".bmp"?>);
+            background-image: url(<?php echo "../../views/images/competences/fd_table" . $element . ".png"?>);
             background-repeat:no-repeat;
             background-position:bottom;
             background-size:cover;
@@ -78,7 +78,7 @@
             color: white;
         }
     </style>
-    <script type="text/javascript" src="<?php echo PATH_ABSOLUTE . "/js/jquery-2.1.3.min.js"?>"></script>
+    <script type="text/javascript" src="<?php echo PATH_ABSOLUTE . "/js/jquery-2.1.4.min.js"?>"></script>
 </head>
 <body>
 <?php if (!empty($competence)) {?>

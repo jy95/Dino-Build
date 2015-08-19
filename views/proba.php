@@ -1,8 +1,21 @@
+
 <?php if (!empty($message)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: red;">
-        <?php echo $message; ?>
-    </DIV>
-    <br>
+    <script type="text/javascript">
+
+        var n = noty({
+            layout: 'top',
+            type: 'information',
+            text: '<?php echo addslashes($message) ?>',
+            textAlign :"center",
+            animation: {
+                open: {height: 'toggle'},
+                close: {height: 'toggle'},
+                speed: 500
+            },
+            timeout: false
+        });
+
+    </script>
 <?php } ?>
 
 <DIV ALIGN="CENTER">
@@ -126,19 +139,42 @@
     </form>
 </DIV>
 
-<br>
-<br>
 
 <?php if (!empty($probaAvantPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaAvantPDC; ?>
-    </DIV>
-    <br>
+    <script type="text/javascript">
+        console.log("test");
+
+        var n = noty({
+            layout: 'bottom',
+            type: 'warning',
+            text: '<?php echo $probaAvantPDC ?>',
+            textAlign :"center",
+            animation: {
+                open: {height: 'toggle'},
+                close: {height: 'toggle'},
+                speed: 500
+            },
+            timeout: false
+        });
+        console.log(n, n.text);
+    </script>
 <?php } ?>
 
 <?php if (!empty($probaApresPDC)) { ?>
-    <DIV ALIGN="CENTER" style="background-color: gray;">
-        <?php echo $probaApresPDC; ?>
-    </DIV>
-    <br>
+    <script type="text/javascript">
+
+        var n = noty({
+            layout: 'bottom',
+            type: 'warning',
+            text: '<?php echo $probaApresPDC ?>',
+            textAlign :"center",
+            animation: {
+                open: {height: 'toggle'},
+                close: {height: 'toggle'},
+                speed: 500
+            },
+            timeout: false
+        });
+
+    </script>
 <?php } ?>

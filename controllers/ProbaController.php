@@ -48,6 +48,7 @@ class ProbaController
                         $tableauDesProbabilites[1] - $tableauDesProbabilites[2] -
                         $tableauDesProbabilites[3]) * 100 . "%
                         ";
+                $probaAvantPDC = str_replace("\n", '\n', $probaAvantPDC);
                 if (! empty($_POST['PDC'])) {
                     $tableauDesProbabilites = $this->planDeCarriere(
                         $tableauDesProbabilites, $_POST['PDC']);
@@ -72,6 +73,7 @@ class ProbaController
                             $tableauDesProbabilites[2] -
                             $tableauDesProbabilites[3]) * 100 . "%
                         ";
+                    $probaApresPDC = str_replace("\n", '\n', $probaApresPDC);
                 }
 
                 $calcul = $this->probabilite($tableauDesProbabilites,

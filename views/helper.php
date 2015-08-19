@@ -4,6 +4,24 @@
     </p>
 <?php }  ?>
 
+<?php if (!empty($error) && $error == true) {?>
+<script type="text/javascript">
+
+    var n = noty({
+        type: 'error',
+        text: 'Veuillez recommencez ! Prérequis des compétences NON RESPECTE !',
+        textAlign :"center",
+        animation: {
+            open: {height: 'toggle'},
+            close: {height: 'toggle'},
+            speed: 500
+        },
+        timeout: false
+    });
+
+</script>
+<?php } ?>
+
 <script type="text/javascript">
     function ouvrir(){
         $("#fenêtre").animate({opacity:1});
