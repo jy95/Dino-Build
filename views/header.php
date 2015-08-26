@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/sweetalert.css"?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PATH_ABSOLUTE . "/views/css/bootstrap.min.css"?>"/>
     <script src="<?php echo PATH_ABSOLUTE . "/js/jquery-2.1.4.min.js"?>"></script>
+    <script src="<?php echo PATH_ABSOLUTE . "/js/noty.js" ?>"></script>
     <script async src="<?php echo PATH_ABSOLUTE . "/js/bootstrap.min.js" ?>"></script>
     <script async src="<?php echo PATH_ABSOLUTE . "/js/sweet-alert.min.js" ?>"></script>
     <script async src="<?php echo PATH_ABSOLUTE . "/js/modernizr.custom.js" ?>"></script>
-    <script async src="<?php echo PATH_ABSOLUTE . "/js/noty.js" ?>"></script>
 </head>
 <body>
 

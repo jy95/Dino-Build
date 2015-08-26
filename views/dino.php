@@ -99,7 +99,7 @@
         } ?>
         <tr>
             <td>
-                <img class="img-responsive" id="bouton5" src="../views/images/competences/double.png" alt="double">
+                <img class="img-responsive" id="bouton5"  src="../views/images/competences/double.png" alt="double">
                 <div class="table-responsive" id="section5">
                     <table id="double" class="table">
                         <thead>

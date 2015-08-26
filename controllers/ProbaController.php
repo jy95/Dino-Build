@@ -298,6 +298,13 @@ class ProbaController
                     0.40,
                     0.10
                 );
+            case 'triceragnon':
+                return array(
+                    0.40,
+                    0.40,
+                    0,
+                    0.10
+                );
             default:
                 return array(
                     0,

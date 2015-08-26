@@ -379,22 +379,9 @@
     <?php } ?>
 
     <?php if(!empty($invocation)) { ?>
-        <div class="result">
-            <div class="invocation">
-                <div class="ui">
-                    <button class="btn btn-primary">Afficher l'invocation du dino </button>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            document.querySelector('.result .invocation button').onclick = function(){
-                swal({
-                    title: "<?php echo $invocation->nom(); ?>",
-                    html: '<?php echo $invocation->description() . $parents ?>'
-                });
-            };
-        </script>
+        <a href="<?php echo PATH_ABSOLUTE . "/info/invocations/" . $invocation->num() ?>" alt="competence" target="compétence" onclick="ouvrir();">
+            <img class="img-responsive" height="314" width="91" src="<?php echo PATH_ABSOLUTE . "/views/images/competences/invocs.png"?>" alt="invocations">
+        </a>
 
     <?php } ?>
 <?php } ?>

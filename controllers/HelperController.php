@@ -128,13 +128,6 @@ class HelperController {
                 'bois'
             );
             $invocation = Db::getInstance()->invocation($_SESSION ['race']);
-            foreach ($invocation->parents() as $i=>$nb){
-                if ($nb != 0) {
-                    $parents = $parents . "<br> <a href=\"" . PATH_ABSOLUTE . "/info/" . $elements[$i] . "/" . $nb . "\" alt=\"competence\" target=\"compétence\" onclick=\"ouvrir();\">Competence " . $compteur . "</a>";
-                    $compteur++;
-                }
-            }
-
 
         }
 

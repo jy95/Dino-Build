@@ -16,6 +16,7 @@ class ConnexionController {
                 try {
                     $donnees = $this->request($code);
                     $donnees = $this->getInfos($donnees["access_token"]);
+                    Donnees::getInstance()->UserInformations($donnees);
                     $_SESSION['user'] = $donnees["name"];
                     $_SESSION['photo'] = str_replace('//', 'http://', $donnees["picture"]["url"]);
                     $_SESSION['id'] = $donnees["id"];

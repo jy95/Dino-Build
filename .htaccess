@@ -41,12 +41,3 @@ ExpiresByType image/jpeg "access plus 1 month"
 ExpiresByType text/css "access plus 1 month"
 # Javascript
 ExpiresByType application/javascript "access plus 1 year"
-
-# DO NOT REMOVE THIS LINE AND THE LINES BELOW HOTLINKID:eSuWuhaWen
-
-# RewriteCond %{HTTP_REFERER} !^http://dino-build.zz.mu/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://dino-build.zz.mu$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://www.dino-build.zz.mu/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://www.dino-build.zz.mu$      [NC]
-# RewriteRule .*\.(.*)$ http://google.com [R,NC]
-# DO NOT REMOVE THIS LINE AND THE LINES ABOVE eSuWuhaWen:HOTLINKID

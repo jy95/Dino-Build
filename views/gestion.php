@@ -1,13 +1,4 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-        </div>
-    </div>
-</div>
-
 <?php if (!empty($dinos) &&empty($_POST['numeroDino'])) { ?>
     <p>Cocher le dino que vous voulez mettre à jour + sélectionne l'élément</p>
     <form action="<?php echo PATH_ABSOLUTE . "/gestion"?>" method="post" class="form-group">
@@ -76,7 +67,8 @@
                 </tbody>
 
             </table>
-            <iframe name="compétence" id="fenêtre" scrolling="no" height="230px" frameBorder="0"></iframe>
+            <iframe name="compétence" id="fenêtre" scrolling="no"  frameBorder="0"></iframe>
+            <a href="javascript:fermer()"><img height="25px" src="<?php echo PATH_ABSOLUTE . "/views/images/close_window.png" ?>" id="fenêtre2" alt="close"/></a>
             <input type="submit" class="btn btn-primary">
         </div>
     </form>
