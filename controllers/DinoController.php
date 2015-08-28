@@ -13,12 +13,12 @@ class DinoController
         $invocation = Db::getInstance()->invocation($dino->getRace());
         $parents = "";
 
-		$elements = array(
-		'eau',
-		'feu',
-		'foudre',
-		'air',
-		'bois');
+        $elements = array(
+            'eau',
+            'feu',
+            'foudre',
+            'air',
+            'bois');
 
         $doubles = Db::getInstance()->competencesDoubles();
         $codeCouleur = array();
@@ -36,17 +36,26 @@ class DinoController
 
         if (!empty($_POST)){
             if ($_POST['comment']){
-                $text = trim(htmlentities($_POST['comment']));
-                $id = Donnees::getInstance()->getLastNumberComment();
                 $reply = null;
+                $text = trim(htmlentities($_POST['comment']));
+
+                if (!empty($_POST['edit'])){
+                    $id = $_POST['edit'];
+                } else {
+                    $id = Donnees::getInstance()->getLastNumberComment();
+                }
 
                 if ($_POST['reply']) {
                     $reply = $_POST['reply'];
                 }
 
                 $comment = new Commentaire($id, $_GET['dino'], $_SESSION['id'], $text, null, $reply);
-                var_dump($comment);
-                Donnees::getInstance()->publishComment($comment);
+
+                if (!empty($_POST['edit'])){
+                    Donnees::getInstance()->editComment($comment);
+                } else {
+                    Donnees::getInstance()->publishComment($comment);
+                }
             } else {
                 $notification = "Pas de message !";
             }

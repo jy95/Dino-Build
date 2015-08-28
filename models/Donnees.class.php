@@ -53,6 +53,20 @@ class Donnees {
         }
     }
 
+    public function editComment(Commentaire $commentaire){
+
+        date_default_timezone_set("Europe/Brussels");
+        $date = date(DateTime::ATOM);
+
+        $query = $this->_db->prepare("UPDATE `comments` SET comment = :comment, date = :date WHERE comment_id= :id");
+
+        $query->bindValue(':comment', $commentaire->getComment());
+        $query->bindValue(':date', $date);
+        $query->bindValue(':id', $commentaire->getCommentId());
+
+        return $query->execute();
+    }
+
     public function publishComment(Commentaire $comment){
 
         date_default_timezone_set("Europe/Brussels");
@@ -101,12 +115,20 @@ class Donnees {
         $query = $this->_db->prepare($sql);
         $query->execute();
         $tableau = array();
+        $dejainclus = array();
 
         if ($query->rowCount() == 0){
             return $tableau;
         } else {
             while($row = $query->fetch()){
-                $tableau[] = array(new Commentaire($row->comment_id, $row->dino_id, $row->user_id, $row->comment, $row->date, $row->response_comment_id), Donnees::getInstance()->select_reply($row->comment_id));
+
+                $competence = new Commentaire($row->comment_id, $row->dino_id, $row->user_id, $row->comment, $row->date, $row->response_comment_id);
+
+                if (!in_array($competence, $dejainclus)){
+                    $reponses = Donnees::getInstance()->select_reply($row->comment_id);
+                    $dejainclus = array_merge($dejainclus, $reponses);
+                    $tableau[] = array($competence, $reponses);
+                }
             }
             return $tableau;
         }
@@ -135,7 +157,7 @@ class Donnees {
         $query->execute();
 
         if ($query->rowCount() == 1){
-            return $query->fetch()->max;
+            return $query->fetch()->max+1;
         } else {
             return 1;
         }
@@ -158,11 +180,11 @@ class Donnees {
     public function insererNouveauDino($nom, $race, $user){
 
         if ($this->nombreInscrits($user) < 20 && !$this->estPasPresent($nom, $race, $user)){
-        $query = $this->_db->prepare("INSERT INTO donnees_users(nom, race, user) VALUES(:nom , :race, :user)");
-        $query->bindValue(':user', $user);
-        $query->bindValue(':nom', htmlentities($nom));
-        $query->bindValue(':race', $race);
-        return $query->execute();
+            $query = $this->_db->prepare("INSERT INTO donnees_users(nom, race, user) VALUES(:nom , :race, :user)");
+            $query->bindValue(':user', $user);
+            $query->bindValue(':nom', htmlentities($nom));
+            $query->bindValue(':race', $race);
+            return $query->execute();
         } else {
             return false;
         }

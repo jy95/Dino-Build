@@ -33,25 +33,38 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
+        $(".cancel").hide();
 
         $(".reply").click(function(event) {
             <?php if (!empty($_SESSION['id'])) { ?>
 
             var select1= event.target.id;
-            var select3= ".";
-            var select2= " li:last-child";
+            var select3= "ul.";
+            var select2= " li:first:first-child";
             var select = (select3.concat(select1).concat(select2));
 
-            $(select).after('<li><img class="img-circle img-responsive" height="125" width="125" src="<?php echo Donnees::getInstance()->getUser($_SESSION['id'])[1] ?>" alt="avatar"> <div class="comment-text"><cite><?php echo $_SESSION['user'] ?></cite> le TEST<textarea class="form-control" rows="3" id="comment" name="comment"></textarea><input type="hidden" name="reply" value="' + event.target.id + '"></div><input type="submit" class="btn btn-primary"></li>');
             $(".comment-perso").remove();
             $("button").hide();
+            $(".cancel").show();
+            $(select).before('<li><img class="img-circle img-responsive" height="125" width="125" src="<?php echo Donnees::getInstance()->getUser($_SESSION['id'])[1] ?>" alt="avatar"> <div class="comment-text"><cite><?php echo $_SESSION['user'] ?></cite> le TEST<textarea class="form-control" rows="3" id="comment" name="comment"></textarea><input type="hidden" name="reply" value="' + event.target.id + '"></div><input type="submit" class="btn btn-primary"></li>');
             <?php } ?>
+        });
+
+        $(".edit").click(function(event){
+            var id = event.target.value;
+            var selecttext = ".text".concat(id);
+            var text = $(selecttext).text();
+            var inserttext = "ul.commentlist li:last .comment-text textarea";
+            $(inserttext).val(text);
+            $(inserttext).after('<input type="hidden" name="edit" value="' + id + '">');
+            $(".cancel").show();
+            $("button").hide();
         });
 
     });
 
 </script>
-
+<button class="glyphicon glyphicon-refresh cancel" onclick="document.location.reload(true)">Annuler l'action en cours</button>
 <form role="form" action="<?php echo PATH_ABSOLUTE ."/dino/" . $_GET['dino']?>" method="post">
     <ul class="commentlist">
         <h1>Zone de commentaire (En TEST)</h1>
@@ -63,21 +76,24 @@
                     <div class="comment-text">
                         <cite><?php echo $info[0] ?></cite> le <?php echo DateTime::createFromFormat('Y-m-d', $commentaire[0]->getDate())->format('d/m/Y');?>
                         <button class="glyphicon glyphicon-new-window reply" id="<?php echo $commentaire[0]->getCommentId()?>" type="button" >REPONDRE</button>
-                        <?php if (!empty($_SESSION['id']) && $_SESSION['id'] == $commentaire[0]->getUserId()) { ?> <button class="glyphicon glyphicon glyphicon-pencil" type="button">EDITER</button><?php } ?>
-                        <p><?php echo $commentaire[0]->getComment()?></p>
+                        <?php if (!empty($_SESSION['id']) && $_SESSION['id'] == $commentaire[0]->getUserId()) { ?> <button class="glyphicon glyphicon-pencil edit" type="button" value="<?php echo $commentaire[0]->getCommentId(); ?>">EDITER</button><?php } ?>
+                        <p class="<?php echo "text" . $commentaire[0]->getCommentId() ?>"><?php echo $commentaire[0]->getComment()?></p>
                     </div>
                     <ul class="<?php echo $commentaire[0]->getCommentId() ?>">
                         <li></li>
                         <?php if ( count($commentaire) > 1 ) { ?>
                             <?php foreach ($commentaire[1] as $reply) { ?>
-                                <?php $info = Donnees::getInstance()->getUser($reply->getUserId());?>
+                                <?php
+                                $info = Donnees::getInstance()->getUser($reply->getUserId());
+                                $chiffre=$commentaire[0]->getCommentId()+1;
+                                ?>
                                 <li>
                                     <img class="img-circle img-responsive" height="125" width="125" src="<?php echo $info[1] ?>" alt="avatar">
                                     <div class="comment-text">
                                         <cite><?php echo $info[0] ?></cite> le <?php echo DateTime::createFromFormat('Y-m-d', $commentaire[0]->getDate())->format('d/m/Y');?>
-                                        <button class="glyphicon glyphicon-new-window reply" type="button" id="<?php echo $commentaire[0]->getCommentId()?>">REPONDRE</button>
-                                        <?php if (!empty($_SESSION['id']) && $_SESSION['id'] == $commentaire[0]->getUserId()) { ?> <button type="button" class="glyphicon glyphicon glyphicon-pencil">EDITER</button><?php } ?>
-                                        <p><?php echo $reply->getComment()?></p>
+                                        <button class="glyphicon glyphicon-new-window reply" type="button" id="<?php echo $chiffre; ?>">REPONDRE</button>
+                                        <?php if (!empty($_SESSION['id']) && $_SESSION['id'] == $commentaire[0]->getUserId()) { ?> <button type="button" class="glyphicon glyphicon-pencil edit" value="<?php echo $chiffre; ?>">EDITER</button><?php } ?>
+                                        <p class="<?php echo "text" . $reply->getCommentId() ?>"><?php echo $reply->getComment()?></p>
                                     </div>
                                     <ul class="<?php echo $reply->getCommentId() ?>">
                                         <li></li>
