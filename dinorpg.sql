@@ -4,13 +4,18 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 26 Août 2015 à 19:35
+-- Généré le: Dim 15 Novembre 2015 à 17:22
 -- Version du serveur: 10.0.20-MariaDB
 -- Version de PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données: `dinorpg`
@@ -71,6 +76,46 @@ INSERT INTO `air` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `air_plus`
+--
+
+CREATE TABLE IF NOT EXISTS `air_plus` (
+  `num` int(11) NOT NULL,
+  `niv` int(11) NOT NULL,
+  `nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `type` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `energie` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `idparent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`,`niv`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='compétences air lv50+';
+
+--
+-- Contenu de la table `air_plus`
+--
+
+INSERT INTO `air_plus` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idparent`) VALUES
+(1, 1, 'Maîtrise Corporelle', 'P', 'Augmente de 20% la récupération d''énergie', '-', 0),
+(2, 2, 'Blanc', 'P', 'Augmente la puissance des assauts de 20 sur Nimbao', '-', 1),
+(3, 2, 'Anaérobie', 'S', 'Diminue l''endurance de 25%', '-', 1),
+(4, 3, 'Double Face', 'P', '50% de chances de gagner ou perdre 10 d''initiative au début du combat', '-', 2),
+(5, 3, 'Flagellation', 'P', 'Diminue la récupération de 15%', '-', 2),
+(6, 3, 'Souffle d''Ange', 'P', 'Augmente la défense de feu de 20', '-', 3),
+(7, 3, 'Ouragan', 'P', 'Augmente la puissance des assauts d''air de 20', '-', 3),
+(8, 4, 'Ouranos', 'A', 'Diminue la vitesse de tous les dinoz n''ayant pas 10 en air de 50% pendant 3 tours', 'Forte', 4),
+(9, 4, 'Twinoid 500mg', 'P', 'AUgmente l''endurance de 50', '-', 5),
+(10, 4, 'Londuhaut', 'C', '+1 case de cueillette', '-', 6),
+(11, 4, 'Surplis d''Hadès', 'S', '+1 case d''équipement', '-', 7),
+(12, 4, 'Réceptacle Thermique', 'E', 'Permet d''annuler les compétences sphériques feu A et E d''un adversaire', '-', 7),
+(13, 5, 'Qi Gong', 'E', 'Enlève toute l''endurance d''un ennemi', 'Très Forte', 8),
+(14, 5, 'Sylphides', 'A', 'Enlève un dinoz adversaire de la bataille', '-', 9),
+(15, 5, 'Messie', 'U', 'Augmente le nombre maximum de Dinoz de 3', '-', 10),
+(16, 5, 'Mutinerie', 'E', 'Utilise les clones pour attaquer leurs maîtres', 'Forte', 11),
+(17, 5, 'Mains Collantes', 'E', 'Bloque la capacité de l''ennemi à esquiver les attaques', 'Faible', 12);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `bois`
 --
 
@@ -122,6 +167,48 @@ INSERT INTO `bois` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpa
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `bois_plus`
+--
+
+CREATE TABLE IF NOT EXISTS `bois_plus` (
+  `num` int(11) NOT NULL,
+  `niv` int(11) NOT NULL,
+  `nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `type` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `energie` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `idparent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`,`niv`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='compétences bois lv50+';
+
+--
+-- Contenu de la table `bois_plus`
+--
+
+INSERT INTO `bois_plus` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idparent`) VALUES
+(1, 1, 'Oxygénation Musculaire', 'P', 'Augmente l''endurance de 20%', '-', 0),
+(2, 1, 'Vert', 'P', 'Augmente de 20 les assauts à la forêt de Grumhel', '-', 0),
+(3, 2, 'Source de Vie', 'S', 'Si un des assauts ennemi touche le dinoz, il absorbera 5% de vie de l''attaquant', 'Faible', 1),
+(4, 2, 'Vide Energétique', 'S', '-15% récupération adverse lors d''un assaut', 'Faible', 1),
+(5, 2, 'Bouclier Dinoz', 'E', 'Protège automatiquement le dinoz qui a le moins de points de vie en prenant les dégâts à sa place', '-', 2),
+(6, 2, 'Acide Lactique', 'P', 'Diminue l''endurance de 15%', '-', 2),
+(7, 3, 'Lancer de Roche', 'A', 'Attaque un ennemi avec un pouvoir bois 10, un rocher est projeté sur l''ennemi à une vitesse stupéfiante', 'Forte', 3),
+(8, 3, 'Courbatures', 'E', 'Diminue l''endurance d''un dinoz adverse de 30%', 'Faible', 4),
+(9, 3, 'Force Control', 'P', 'Le dinoz fait au moins 10 dégâts au dinoz adverse lors d''un assaut', '-', 5),
+(10, 3, 'Peau de Fer', 'P', 'Augmente les points de vie de 50', '-', 6),
+(11, 4, 'Champollion', 'C', 'Permet au dinoz de fouiller une case supplémentaire', '-', 7),
+(12, 4, 'Courant de Vie', 'P', 'Augmente la défense contre l''eau de 20 et augmente les assauts de bois de 20', '-', 8),
+(13, 4, 'Berserk', 'E', 'Double la puissance des assauts mais empêche l''utilisation des compétences de type E et A', '-', 9),
+(14, 4, 'Rivière de Vie', 'P', 'Augmente l''initiative de 20', '-', 10),
+(15, 5, 'Mur de Boue', 'A', 'Absorbe jusqu''à 30 dégâts avant de disparaître (Vulnérables à la CSK)', '-', 11),
+(16, 5, 'Peau d''Acier', 'P', 'Augmente le maximum de point de vie de 100', '-', 11),
+(17, 5, 'Sharignan', 'E', 'Copie une compétence d''un dinoz adverse utilisée pendant le combat et la conserve jusqu''à la fin', '-', 12),
+(18, 5, 'Amazonie', 'P', 'Tous les dinoz avec un élément en bois de moins de 10 points va dormir durant les trois prochains tours, sauf s''ils sont soumis à une attaque qui leur fait perdre 10 pv', '-', 13),
+(19, 5, 'Receptacle Aqueux', 'E', 'Permet d''annuler les compétences sphériques A et E en eau d''un adversaire', '-', 14);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `comments`
 --
 
@@ -130,12 +217,18 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `dino_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `comment` text NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `response_comment_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`comment_id`,`dino_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='table des commentaires' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='table des commentaires' AUTO_INCREMENT=4 ;
 
+--
+-- Contenu de la table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `dino_id`, `user_id`, `comment`, `date`, `response_comment_id`) VALUES
+(1, 3, 19751, 'test :gold:', '2015-09-14 13:56:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,19 +248,21 @@ CREATE TABLE IF NOT EXISTS `donnees_users` (
   `bois` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`,`user`),
   KEY `user` (`user`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements' AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='tables des enregistrements' AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `donnees_users`
 --
 
 INSERT INTO `donnees_users` (`id`, `user`, `nom`, `race`, `eau`, `feu`, `air`, `foudre`, `bois`) VALUES
-(1, 19751, 'dassa', 'kabuki', '1,5,13,14,2,3,8,19,9,21,22,29', '1,2', '1,4,2,3,9,20,27,21', '3,8,20', '3,9'),
-(2, 86274, 'william', 'winks', NULL, NULL, NULL, NULL, NULL),
-(3, 3829873, 'Ashe', 'winks', NULL, NULL, NULL, NULL, NULL),
-(4, 1786176, 'Pepito', 'pigmou', 'null', 'null', 'null', 'null', '2'),
-(5, 5491656, 'WatterHorn', 'sirain', '1,4,5,14,2,3,8,19,9,22', '1,2,3,9', 'null', 'null', 'null'),
-(6, 2716239, 'Wanwan', 'wanwan', 'null', '1,3,6,10,16,23,24,30', 'null', 'null', 'null');
+(3, 19751, 'dassa', 'kabuki', '1,2,3,5,8,9,13,14,19,21,22,29', '1,2', '1,4,2,3,9,20,27,21', '3,8,20', '3,9'),
+(4, 86274, 'william', 'winks', NULL, NULL, NULL, NULL, NULL),
+(5, 3829873, 'Ashe', 'winks', NULL, NULL, NULL, NULL, NULL),
+(6, 1786176, 'Pepito', 'pigmou', 'null', 'null', 'null', 'null', '2'),
+(7, 5491656, 'WatterHorn', 'sirain', '1,4,5,14,2,3,8,19,9,22', '1,2,3,9', 'null', 'null', 'null'),
+(8, 2716239, 'Wanwan', 'wanwan', '2,3,8,19,20', '1,3,6,10,16,23,24,30', 'null', 'null', 'null'),
+(9, 5491656, 'InferHorn', 'pigmou', '3,8,9', 'null', 'null', 'null', 'null'),
+(10, 2716239, 'Bidule', 'moueffe', '2,3,8,19,20', 'null', 'null', '3,8,20', 'null');
 
 -- --------------------------------------------------------
 
@@ -262,6 +357,45 @@ INSERT INTO `eau` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `eau_plus`
+--
+
+CREATE TABLE IF NOT EXISTS `eau_plus` (
+  `num` int(11) NOT NULL,
+  `niv` int(11) NOT NULL,
+  `nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `type` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `energie` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `idparent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`,`niv`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='compétences eau lv50+';
+
+--
+-- Contenu de la table `eau_plus`
+--
+
+INSERT INTO `eau_plus` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idparent`) VALUES
+(1, 1, 'Eau Divine', 'S', 'Double la restauration des pv lors du repos du dinoz', '-', 0),
+(2, 2, 'Radiations Gamma', 'P', 'Augmente les assauts de 5 et le maximum de pv de 30. Diminue l''initiative de 10', '-', 1),
+(3, 2, 'Bleu', 'P', 'Augmente les assauts de 20 dans les îles', '-', 1),
+(4, 3, 'Mue Aqueuse', 'P', 'Augmente la défense foudre de 20', '-', 2),
+(5, 3, 'Caparace Blindée', 'P', 'Augmente l''armure de 10 et diminue la vitesse de 20%', '-', 2),
+(6, 3, 'Diète Chromatique', 'E', 'Applique le statut monoélément à un adversaire qui limite ses attaques à un seul élémént', 'Forte', 3),
+(7, 4, 'Effluve Aphrodisiaque', 'S', 'Le dinoz peut être suivi par un dinoz supplémentaire', '-', 4),
+(8, 4, 'Nemo', 'S', '+1 case de pêche', '-', 4),
+(9, 4, 'Cleptomane', 'P', 'Annule les objets non magiques de l''inventaire d''un dinoz adverse dès le début du combat', '-', 5),
+(10, 4, 'Abysse', 'A', 'Tous les dinoz n''ayant pas 10 en eau voient la puissance de leurs attaques et assauts diminuer de 25%', 'Forte', 6),
+(11, 4, 'Banni des Dieux', 'E', 'Empêche un adversaire ciblé dappeler son invocation', '-', 6),
+(12, 5, 'Tourbillon Magique', 'P', 'Augmente les assauts d''eau de 20', '-', 7),
+(13, 5, 'Hyperventilation', 'P', 'Diminue la résistance de tous les ennemis de 20%', '-', 8),
+(14, 5, 'Thérapie de groupe', 'E', 'Récupère autant de points de vie que l''équipe adverse lorsqu''elle utilise une compétence de soins', '-', 9),
+(15, 5, 'Réceptacle Tesla', 'A', 'Annule les compétences sphériques foudre A et E sur un dinoz', 'Forte', 10),
+(16, 5, 'Vitalité Marine', 'P', 'Augmente le maximum de points de vie de 80', '-', 11);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `feu`
 --
 
@@ -317,6 +451,42 @@ INSERT INTO `feu` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idpar
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `feu_plus`
+--
+
+CREATE TABLE IF NOT EXISTS `feu_plus` (
+  `num` int(11) NOT NULL,
+  `niv` int(11) NOT NULL,
+  `nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `type` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `description` int(11) NOT NULL,
+  `energie` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `idparent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`,`niv`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='compétences feu lv 50+';
+
+--
+-- Contenu de la table `feu_plus`
+--
+
+INSERT INTO `feu_plus` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idparent`) VALUES
+(1, 1, 'Protéine Dinozienne', 'P', 0, '-', 0),
+(2, 2, 'Exténuation', 'E', 0, 'Faible', 1),
+(3, 2, 'Rouge', 'P', 0, '-', 1),
+(4, 3, 'Carapace de Magma', 'P', 0, '-', 2),
+(5, 3, 'Cri de Guerre', 'E', 0, 'Forte', 3),
+(6, 4, 'Fièvre Brûlante', 'P', 0, '-', 4),
+(7, 4, 'Bénédiction d''Artémis', 'C', 0, '-', 4),
+(8, 4, 'Joker', 'P', 0, '-', 5),
+(9, 4, 'Armure de Feu', 'P', 0, '-', 5),
+(10, 5, 'Pays de Cendre', 'P', 0, '-', 6),
+(11, 5, 'Réceptacle Rocheux', 'A', 0, '-', 7),
+(12, 5, 'Fusion de Plumes', 'S', 0, '-', 7),
+(13, 5, 'Acclamation Fraternelle', 'E', 0, '-', 8);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `foudre`
 --
 
@@ -366,6 +536,42 @@ INSERT INTO `foudre` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `id
 (28, 5, 'Archange Corrosif ', 'P', 'Augmente l''élément feu de 2 et l''élément foudre de 1.', '-', 22),
 (29, 5, 'Archange Génésif ', 'P', 'Augmente l''élément bois de 2 et l''élément foudre de 1.', '-', 23),
 (30, 5, 'Prêtre', 'U', 'Augmente la rapidité de la récupération des points de vie de tous les Dinoz lors du repos.', '-', 24);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `foudre_plus`
+--
+
+CREATE TABLE IF NOT EXISTS `foudre_plus` (
+  `num` int(11) NOT NULL,
+  `niv` int(11) NOT NULL,
+  `nom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `type` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `energie` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `idparent` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`,`niv`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='compétences foudre lv50+';
+
+--
+-- Contenu de la table `foudre_plus`
+--
+
+INSERT INTO `foudre_plus` (`num`, `niv`, `nom`, `type`, `description`, `energie`, `idparent`) VALUES
+(1, 1, 'Soutient Moral', 'P', 'Augmente l''endurance de 10', '-', 0),
+(2, 2, 'Stimulation Cardiaque', 'P', 'Augmente la capacité de guérison du dinoz de 20%', '-', 1),
+(3, 2, 'Jaune', 'P', 'Augmente la puissance des assauts de 20 aux steppes Magnétiques', '-', 1),
+(4, 3, 'Morsure du Soleil', 'E', 'Donne le statut "ébloui" aux dinoz adverses', 'Normale', 2),
+(5, 3, 'Crampe Chronique', 'E', 'Le dinoz perd 10 points d''énergie et diminue de 15% la capacité de récupération d''un dinoz', '-', 3),
+(6, 4, 'Batterie Supplémentaire', 'S', 'Augmente le maximum de points de vie de 50 et diminue de 15 l''initiative du dinoz', '-', 4),
+(7, 4, 'Einstein', 'C', '+1 case d''énergétiser', '-', 4),
+(8, 4, 'Barrière électrifiée', 'E', 'Augmente la défense air de 20', '-', 5),
+(9, 4, 'Oracle', 'P', 'Double les chances de sortie de l''invocation du dinoz', '-', 5),
+(10, 5, 'Réceptacle Aérien', 'E', 'Permet d''annuler les compétences sphériques air A et E d''un adversaire', '-', 6),
+(11, 5, 'Feu de St Elme', 'A', 'Tous les dinoz ayant moins de 10 en foudre perdent 5% de leur pv pendant 3 tours', '-', 7),
+(12, 5, 'Force de Zeus', 'P', 'Augmente les assauts de foudre 20', '-', 8),
+(13, 5, '...', 'P', 'Augmente l''esquive de 20%', '-', 9);
 
 -- --------------------------------------------------------
 
@@ -432,7 +638,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `avatar`) VALUES
-(19751, 'Jkratos95', 'http://imgup.motion-twin.com/twinoid/e/2/91b1f99e_19751.jpg'),
-(5491656, 'PEPITO', 'http://imgup.motion-twin.com/twinoid/b/6/4e67715e_5491656_100x100.png');
+(19751, 'Jkratos95', 'http://imgup.motion-twin.com/twinoid/0/c/ddb267d5_19751_100x100.gif'),
+(5491656, 'PEPITO', 'http://imgup.motion-twin.com/twinoid/b/6/4e67715e_5491656_100x100.png'),
+(8702552, 'Cavaswaggduslip', 'http://imgup.motion-twin.com/twinoid/f/6/e08710a6_8702552_100x100.gif'),
+(2716239, 'Ashe', 'http://imgup.motion-twin.com/twinoid/2/c/ed38b5bd_2716239_100x100.png');
 
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
