@@ -18,10 +18,12 @@
             </thead>
             <tbody>
             <?php foreach($dinos as $element) { ?>
+                <tr>
                 <td><a href="<?php echo PATH_ABSOLUTE . '/dino/' . $element->getId() ?>"><?php echo $element->getNom()?></a> </td>
                 <td><input type="radio" name="numeroDino" value="<?php echo $element->getId()?>" class="form-control"></td>
                 <td><input type="radio" name="aSupprimer" value="<?php echo $element->getId()?>" class="form-control"></td>
                 <td><input type="radio" name="dino" value="<?php echo $element->getId()?>" class="form-control"></td>
+                </tr>
             <?php } ?>
             </tbody>
         </table>
