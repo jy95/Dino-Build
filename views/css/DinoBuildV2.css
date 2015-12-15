@@ -6,7 +6,7 @@ label > input + img{cursor:pointer;border:2px solid transparent;}
 label > input:checked + img{border:4px solid rgba(255, 255, 255, 0.5);border-radius:50px;}
 a{color:#3f3c3a;text-decoration:none;}
 body{font-size:39px;background:#eb811a url(../images/Background.jpg) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;}
-.selector{text-align:center;}
+.selector{text-align:center;list-style-type: none;}
 #menu{background-color:#eb811a;}
 #menu ul{list-style:none;display:table;margin:0 auto;overflow:hidden;}
 #menu ul li{display:inline;}
