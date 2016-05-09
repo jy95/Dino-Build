@@ -1,36 +1,38 @@
 # Dino-Build
+![alt tag](https://raw.githubusercontent.com/jy95/Dino-Build/master/favicon.ico)
 Dinorpg : gestion des plans ups
+
+### Version
+0.9.2
 
 ****************************************************************************************************
 
-Description :
+### Description :
 
 Petit site d'aide sur le jeu http://www.dinorpg.com proposant une nouvelle vision de l'aide au joueur.
 
-****************************************************************************************************
 
-Fonctionalités :
+### Fonctionalités :
 
-* Helper : conseiller les joueurs sur le meilleur choix de compétence à prendre
-* Demon : calculateur de tickets démon lors d'un sacrifice
-* Probabilite : calculateur de chance du plan up voulu
-* etc
+- Helper : conseiller les joueurs sur le meilleur choix de compétence à prendre
+- Demon : calculateur de tickets démon lors d'un sacrifice
+- Probabilite : calculateur de chance du plan up voulu
+- etc
 
-****************************************************************************************************
-
-Choses à faire :
-
-1) Implémenter les compétences d'invocations + requêtes
-
-2) Mettre en place un système à points pour proposer les compétences à prendre selon séléction (?)
-
-3) Mettre le bouton de partage http://jquery-plugins.net/socialshare-js-jquery-plugin-for-social-sharing-buttons
-
-Demo :
+### Demo :
 http://dino-build.zz.mu/
 
 ****************************************************************************************************
-branches :
+
+### Possibilité de mise à jour :
+
+1) Mettre en place un système à points pour proposer les compétences à prendre selon séléction (?)
+
+2) Utilisation de l'API Dinorpg
+
+
+****************************************************************************************************
+### branches :
 
 old-way : Version primitive du site (code NON optimisé)
 
